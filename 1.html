@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clase 1 · Administración de la Educación y Gestión de las Instituciones Escolares</title>
+<style>
+
+:root{
+  --brand:#1cabe2;
+  --brand-dark:#1189bb;
+  --bg:#eef7fb;
+  --paper:#ffffff;
+  --ink:#1f2a37;
+  --muted:#4f6272;
+  --line:#d6e8f2;
+  --soft:#f4fbfe;
+  --soft-2:#eef7fb;
+  --accent:#dff3fb;
+  --max:1100px;
+  --text:1.04rem;
+  --shadow:0 18px 42px rgba(29,78,110,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:radial-gradient(circle at top left, rgba(28,171,226,.10), transparent 22%), linear-gradient(180deg,#f4fbfe 0%, var(--bg) 100%);
+  color:var(--ink);
+  font-family:"Aptos","Segoe UI",Arial,sans-serif;
+  line-height:1.72;
+}
+a{color:inherit}
+.page{max-width:var(--max); margin:26px auto; background:var(--paper); border:1px solid #d9edf7; box-shadow:var(--shadow); border-radius:28px; overflow:hidden}
+.cover{position:relative; padding:52px 68px 56px; background:radial-gradient(circle at 82% 18%, rgba(28,171,226,.10), transparent 23%), linear-gradient(180deg,#fff,#f7fcfe 75%,#fff); border-bottom:1px solid var(--line)}
+.cover::before{content:""; position:absolute; left:0; right:0; top:0; height:12px; background:var(--brand)}
+.topline{display:flex; align-items:flex-start; justify-content:space-between; gap:24px; margin:8px 0 44px}
+.brandlock{display:flex; gap:16px; align-items:center}
+.brandmark{width:58px; height:58px; flex:0 0 58px; display:grid; place-items:center; background:var(--brand); border-radius:2px}
+.brandmark img{width:26px; height:auto; display:block}
+.kicker{max-width:520px; color:var(--muted); text-transform:uppercase; font-size:.74rem; letter-spacing:.14em; line-height:1.55}
+.series{color:var(--brand); font-size:.82rem; text-transform:uppercase; letter-spacing:.16em; border-bottom:1px solid var(--line); padding-bottom:10px; white-space:nowrap}
+.cover-grid{display:grid; grid-template-columns:minmax(0,1fr) 300px; gap:40px; align-items:center}
+h1{margin:0 0 18px; font-family:Georgia, "Times New Roman", serif; font-size:3.45rem; line-height:1.02; letter-spacing:-.03em; color:#0f2535}
+.subtitle-program{margin:10px 0 6px; font-size:1.18rem; color:var(--brand-dark); font-weight:700; letter-spacing:.01em}
+.subtitle-university{margin:0 0 18px; font-size:1rem; text-transform:uppercase; letter-spacing:.08em; color:var(--muted)}
+.cover-year{display:inline-block; margin:2px 0 22px; padding:7px 14px 6px; border:1px solid rgba(28,171,226,.22); background:linear-gradient(180deg,#f7fcfe,#eaf7fc); color:var(--brand); font-size:.84rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; border-radius:999px; box-shadow:0 8px 20px rgba(28,171,226,.12)}
+.hero-illustration{width:100%; max-width:280px; margin:0 auto; background:linear-gradient(180deg,#ffffff,#eef7fb); border:1px solid var(--line); padding:22px; display:grid; place-items:center; min-height:240px}
+.hero-illustration .hero-svg{width:190px; max-width:100%; height:auto; display:block}
+.hero-illustration .svg-soft{fill:#dff3fb}
+.hero-illustration .svg-line{fill:none; stroke:#1cabe2; stroke-width:3; stroke-linecap:round; stroke-linejoin:round}
+.hero-illustration .svg-fill{fill:#1cabe2}
+.hero-illustration .svg-muted{fill:#89cfe9}
+.cover-footer{display:grid; grid-template-columns:repeat(2,minmax(280px,1fr)); gap:22px; margin-top:36px; padding-top:24px; border-top:1px solid var(--line)}
+.cover-card{padding:22px 24px; border:1px solid var(--line); background:linear-gradient(180deg,#fff,#f4fbfe)}
+.cover-card .label{display:block; margin-bottom:10px; color:var(--brand); text-transform:uppercase; letter-spacing:.14em; font-size:.72rem; font-weight:700}
+.cover-card p{margin:0; color:var(--muted)}
+.content{padding:38px 68px 84px}
+.content p{text-align:justify; text-justify:inter-word}
+.toc{margin-bottom:30px; padding:24px 26px 20px; border:1px solid var(--line); background:linear-gradient(180deg,#fff,#f4fbfe)}
+.toc h2{margin:0 0 14px; color:var(--brand); text-transform:uppercase; letter-spacing:.14em; font-size:.76rem}
+.toc ol{margin:0; padding-left:1.35rem; font-size:1rem}.toc li{margin:9px 0}.toc a{text-decoration:none; border-bottom:1px solid transparent}.toc a:hover{color:var(--brand); border-bottom-color:var(--brand)}
+h2.section{margin:46px 0 16px; padding-top:18px; border-top:1px solid var(--line); font-family:Georgia, "Times New Roman", serif; font-size:2rem; line-height:1.12; letter-spacing:-.02em}
+h3{margin:28px 0 10px; color:var(--brand); font-size:1.08rem}
+p{margin:12px 0; font-size:var(--text)}
+.mdm-box{margin:20px 0 28px; padding:18px 20px; border:2px solid var(--brand); border-left:10px solid #f3b229; background:#fff; box-shadow:0 8px 22px rgba(29,78,110,.06)}
+.mdm-title{margin:0 0 10px; color:var(--brand-dark); font-weight:700; font-size:1.04rem}
+mark{
+  background:none;
+  color:inherit;
+  padding:0;
+  border:0;
+  border-radius:0;
+  box-shadow:none;
+  font-weight:700;
+}
+
+
+.mdm-preview-link{
+  position:relative;
+  color:var(--brand);
+  text-decoration:none;
+  border-bottom:1px solid rgba(28,171,226,.38);
+  font-weight:700;
+}
+.mdm-preview-link:hover{
+  color:var(--brand-dark);
+  border-bottom-color:var(--brand-dark);
+}
+.mdm-preview-link::after{
+  content:"Repositorio UVQ · Material Didáctico Digital\A Abrir MDM en una nueva pestaña";
+  white-space:pre-line;
+  position:absolute;
+  left:0;
+  bottom:135%;
+  width:290px;
+  padding:14px 16px;
+  background:#fff;
+  color:var(--ink);
+  border:1px solid var(--line);
+  box-shadow:0 14px 28px rgba(29,78,110,.16);
+  border-radius:6px;
+  font-size:.88rem;
+  line-height:1.45;
+  font-weight:400;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(8px);
+  transition:opacity .18s ease, transform .18s ease, visibility .18s ease;
+  z-index:20;
+}
+.mdm-preview-link::before{
+  content:"";
+  position:absolute;
+  left:22px;
+  bottom:118%;
+  border:8px solid transparent;
+  border-top-color:#fff;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .18s ease, visibility .18s ease;
+  z-index:21;
+}
+.mdm-preview-link:hover::after,
+.mdm-preview-link:hover::before,
+.mdm-preview-link:focus::after,
+.mdm-preview-link:focus::before{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+
+
+.author-line{
+  margin:6px 0 0;
+  color:var(--muted);
+  font-size:.94rem;
+  line-height:1.65;
+}
+
+.author-list{
+  margin:6px 0 0;
+  padding-left:1.15rem;
+  color:var(--muted);
+  font-size:.94rem;
+  line-height:1.55;
+}
+.author-list li{
+  margin:2px 0;
+}
+.update-note{
+  margin:16px 0 0;
+  padding-top:12px;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  font-size:.92rem;
+  line-height:1.5;
+}
+
+@media (max-width:880px){
+  .mdm-preview-link::after,
+  .mdm-preview-link::before{
+    display:none;
+  }
+}
+
+.tour-card{
+  margin:24px 0 30px;
+  padding:24px 26px;
+  border:1px solid var(--line);
+  background:linear-gradient(180deg,#fff,#f4fbfe);
+  box-shadow:0 10px 24px rgba(29,78,110,.07);
+}
+.tour-card h3{
+  margin:0 0 8px;
+  color:var(--brand);
+  font-size:1.12rem;
+}
+.tour-card p{
+  margin:8px 0 18px;
+  color:var(--muted);
+}
+.tour-button{
+  display:inline-block;
+  padding:11px 18px;
+  background:var(--brand);
+  color:#fff;
+  text-decoration:none;
+  border-radius:999px;
+  font-weight:700;
+  line-height:1.2;
+  box-shadow:0 8px 18px rgba(28,171,226,.22);
+}
+.tour-button:hover{
+  background:var(--brand-dark);
+}
+
+.tour-button{
+  position:relative;
+}
+.tour-button::after{
+  content:"Tour 360° del campus UNQ\A Abrir recorrido virtual en una nueva pestaña";
+  white-space:pre-line;
+  position:absolute;
+  left:0;
+  bottom:135%;
+  width:300px;
+  padding:14px 16px;
+  background:#fff;
+  color:var(--ink);
+  border:1px solid var(--line);
+  box-shadow:0 14px 28px rgba(29,78,110,.16);
+  border-radius:6px;
+  font-size:.88rem;
+  line-height:1.45;
+  font-weight:400;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(8px);
+  transition:opacity .18s ease, transform .18s ease, visibility .18s ease;
+  z-index:20;
+}
+.tour-button::before{
+  content:"";
+  position:absolute;
+  left:22px;
+  bottom:118%;
+  border:8px solid transparent;
+  border-top-color:#fff;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .18s ease, visibility .18s ease;
+  z-index:21;
+}
+.tour-button:hover::after,
+.tour-button:hover::before,
+.tour-button:focus::after,
+.tour-button:focus::before{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+@media (max-width:880px){
+  .tour-button::after,
+  .tour-button::before{
+    display:none;
+  }
+}
+
+
+.text-link{color:var(--brand); text-decoration:none; border-bottom:1px solid rgba(28,171,226,.38); transition:all .18s ease; overflow-wrap:anywhere; word-break:break-word}.text-link:hover{color:var(--brand-dark); border-bottom-color:var(--brand-dark)}
+.reference-group{margin:20px 0 0; padding:18px 20px 8px; border:1px solid var(--line); background:linear-gradient(180deg,#fff,#f4fbfe)}
+.ref-list{list-style:none; padding-left:0; margin:10px 0 0}.ref-list li{margin:12px 0; padding-left:1.4em; text-indent:-1.4em; overflow-wrap:anywhere; word-break:break-word; hyphens:auto}
+.back-top{margin:28px 0 0; font-size:.92rem; color:var(--muted)}.back-top a{text-decoration:none; color:var(--muted); border-bottom:1px solid transparent}.back-top a:hover{color:var(--brand); border-bottom-color:var(--brand)}
+.site-footer{margin-top:56px; padding:0 24px 30px; color:var(--muted)}.site-footer-shell{border:1px solid var(--line); background:linear-gradient(180deg,#fff 0%, #f4fbfe 100%); box-shadow:0 10px 24px rgba(29,78,110,.06)}.site-footer-grid{display:grid; grid-template-columns:minmax(0,1.45fr) 1px minmax(260px,.85fr); gap:0 22px; align-items:stretch; padding:18px 20px}.site-footer-divider{width:1px; background:linear-gradient(180deg,rgba(28,171,226,.18),rgba(28,171,226,.55),rgba(28,171,226,.18))}.site-footer-label{margin:0 0 10px; color:var(--brand); text-transform:uppercase; letter-spacing:.18em; font-size:.78rem; font-weight:700; line-height:1.4}.site-footer-note{margin:0; font-size:.95rem; line-height:1.72; color:var(--muted)}.site-footer-author{margin:0; color:var(--ink); font-weight:700; font-size:.98rem; line-height:1.55}.site-footer-role{margin:4px 0 0; color:var(--muted); font-size:.94rem; line-height:1.55}
+@media (max-width:880px){.page{margin:0; border:none; box-shadow:none}.cover,.content{padding:28px 22px 42px}.topline{flex-direction:column; align-items:flex-start; gap:14px; margin-bottom:28px}.cover-grid,.cover-footer{grid-template-columns:1fr}h1{font-size:2.45rem}.series{white-space:normal}.site-footer{padding:0 16px 24px}.site-footer-grid{grid-template-columns:1fr; gap:14px 0; padding:16px}.site-footer-divider{width:100%; height:1px}.ref-list li{padding-left:1.1em; text-indent:-1.1em; font-size:.98rem}}
+@media print{body{background:#fff}.page{margin:0; border:none; box-shadow:none; max-width:none}.toc,.back-top{display:none}}
+
+
+.concept-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:22px 0 30px}
+.concept-card{padding:20px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe);border-top:6px solid var(--brand)}
+.concept-card h3{margin:0 0 8px;font-family:Georgia,"Times New Roman",serif;font-size:1.25rem;color:var(--brand-dark)}
+.concept-card p{margin:0;text-align:left;color:var(--muted);font-size:.98rem}
+.key-list{margin:18px 0 28px;padding:22px 24px 18px;border:1px solid var(--line);background:var(--soft)}
+.key-list ul{margin:0;padding-left:1.2rem}.key-list li{margin:8px 0}
+.reflection{margin:28px 0;padding:24px 26px;border-left:8px solid var(--brand);background:linear-gradient(135deg,#f8eef1,#fff)}
+.reflection h3{margin:0 0 8px}.reflection p{margin:0;font-family:Georgia,"Times New Roman",serif;font-size:1.18rem;text-align:left}
+.timeline{margin:22px 0 30px;border-left:3px solid var(--line);padding-left:24px}
+.timeline-item{position:relative;margin:0 0 24px;padding:18px 20px;border:1px solid var(--line);background:#fff}
+.timeline-item::before{content:"";position:absolute;left:-32px;top:24px;width:13px;height:13px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 5px #f4ecef}
+.timeline-item h3{margin:0 0 8px}.timeline-item p{margin:0;text-align:left}
+.field-box{margin:22px 0 30px;padding:24px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe)}
+.field-box strong{color:var(--brand-dark)}
+.reading-card{margin:20px 0 30px;padding:22px 24px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe)}
+.reading-card h3{margin:0 0 12px}.reading-card ul{margin:0;padding-left:1.2rem}.reading-card li{margin:9px 0}
+@media(max-width:880px){.concept-grid{grid-template-columns:1fr}}
+
+</style>
+</head>
+<body>
+<div class="page" id="top">
+<section class="cover">
+  <div class="topline">
+    <div class="brandlock">
+      <div class="brandmark"><img alt="UNQ" src="data:image/png;base64,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"/></div>
+      <div class="kicker">Universidad Nacional de Quilmes · Licenciatura en Educación</div>
+    </div>
+    <div class="series">Administración de la Educación y Gestión de las Instituciones Escolares</div>
+  </div>
+  <div class="cover-grid">
+    <div class="cover-copy">
+      <h1>Clase 1</h1>
+      <p class="subtitle-program">Organización, institución, administración y gestión</p>
+      <p class="subtitle-university">Aproximaciones conceptuales y campos disciplinares</p>
+      <div class="cover-year">Unidad 1 · 2026</div>
+    </div>
+    <figure aria-label="Ilustración sobre organización y gestión educativa" class="hero-illustration">
+      <svg class="hero-svg" viewBox="0 0 220 190" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="hero-title">
+        <title id="hero-title">Organización y gestión de una institución educativa</title>
+        <circle class="svg-soft" cx="110" cy="94" r="77"/>
+        <rect x="57" y="70" width="106" height="70" rx="6" fill="#fff" stroke="#1cabe2" stroke-width="3"/>
+        <path class="svg-line" d="M72 92h76M72 112h32M116 112h32M72 128h76"/>
+        <circle class="svg-fill" cx="81" cy="48" r="13"/><circle class="svg-muted" cx="139" cy="48" r="13"/>
+        <path class="svg-line" d="M81 61v19M139 61v19M94 48h32"/>
+        <path class="svg-line" d="M96 154h28M110 140v14"/>
+      </svg>
+    </figure>
+  </div>
+  <div class="cover-footer">
+    <div class="cover-card"><span class="label">Conceptos centrales</span><p>Organización, institución, administración y gestión en el campo educativo.</p></div>
+    <div class="cover-card"><span class="label">Perspectiva</span><p>La escuela como estructura formal, realidad social y espacio pedagógico.</p></div>
+  </div>
+</section>
+<main class="content">
+<section class="toc" id="indice"><h2>Índice</h2><ol>
+<li><a href="#introduccion">Introducción</a></li><li><a href="#lecturas">Lecturas de la semana</a></li><li><a href="#organizacion">Organización e institución</a></li><li><a href="#administracion">La administración como disciplina</a></li><li><a href="#etapas">Etapas de la organización escolar</a></li><li><a href="#gestion">La gestión educativa</a></li><li><a href="#cierre">Cierre de la clase</a></li><li><a href="#referencias">Referencias</a></li>
+</ol></section>
+<h2 class="section" id="introduccion">Introducción</h2>
+<p>¡Hola a todas y todos! Les damos la bienvenida a la primera clase de <strong>Administración de la Educación y Gestión de las Instituciones Escolares</strong>. En esta oportunidad comenzaremos a delimitar el campo de estudio de la organización, la administración y la gestión de la educación. También abordaremos algunas aproximaciones conceptuales sobre la organización y la institución, y analizaremos estos términos como campos disciplinares.</p>
+<p>El punto de partida será la construcción de un lenguaje común que nos permita precisar los elementos presentes en las instituciones y las relaciones que se establecen entre ellos. Para ello, recuperaremos aportes provenientes tanto de la ciencia de la Administración como de las Ciencias de la Educación.</p>
+<div class="concept-grid">
+<div class="concept-card"><h3>Organización</h3><p>Se vincula con la estructuración formal de la institución: sus objetivos, funciones, roles, tareas y relaciones.</p></div>
+<div class="concept-card"><h3>Administración</h3><p>Estudia las organizaciones y los procesos de planificación, dirección, gestión y control orientados al logro de objetivos.</p></div>
+<div class="concept-card"><h3>Gestión</h3><p>Refiere a la puesta en práctica de mecanismos y decisiones para alcanzar objetivos, integrando dimensiones políticas, administrativas y pedagógicas.</p></div>
+</div>
+<p>En esta unidad, la Administración será abordada principalmente en relación con la administración pública. El término <em>organización</em>, más extendido en la tradición europea, refiere a la estructuración formal de la institución y reúne principios teóricos y normas prácticas orientadas hacia un propósito. La <em>gestión</em>, por su parte, suele asociarse con la implementación de los mecanismos necesarios para alcanzar los objetivos y asegurar su cumplimiento. Desde esta perspectiva, la organización se relaciona con los aspectos relativamente más estables de las instituciones escolares, mientras que la gestión remite a sus procesos dinámicos.</p>
+<div class="back-top"><a href="#indice">↑ Volver al índice</a></div>
+<h2 class="section" id="lecturas">Lecturas de la semana</h2>
+<div class="reading-card"><h3>Textos obligatorios</h3><ul>
+<li>Gairín Sallán, J. (1996). <em>La organización como ámbito de estudio</em>.</li>
+<li>Gairín Sallán, J. (1996). <em>Las instituciones educativas como ámbito de estudio</em>.</li>
+<li>Santos Guerra, M. A. (1997). <em>Aproximación conceptual a la organización escolar</em>.</li>
+</ul></div>
+<h2 class="section" id="organizacion">Aproximaciones conceptuales sobre la organización y la institución</h2>
+<h3>La organización como ámbito de estudio</h3>
+<p>Santos Guerra (1997) define la organización escolar como un sistema complejo compuesto por estructuras, roles, relaciones y procesos que funcionan de manera articulada para alcanzar objetivos educativos. Esta mirada permite comprender que las escuelas no son únicamente instituciones burocráticas: también son comunidades de aprendizaje.</p>
+<p>Gairín Sallán (1996) entiende la organización como un conjunto de personas que trabajan de manera coordinada para alcanzar objetivos comunes. Las organizaciones educativas poseen estructuras específicas, interdependencia entre sus componentes y un objetivo central: el desarrollo del currículum a través de la tarea educativa.</p>
+<div class="key-list"><h3>Elementos de una organización</h3><ul>
+<li>Un objetivo común.</li><li>Una acción estructurada a partir de roles y funciones.</li><li>División y especialización de tareas.</li><li>Diferenciación o jerarquía de roles.</li><li>Un equipo de trabajo como unidad central.</li><li>Unidades y tecnologías de apoyo.</li><li>Interacciones previstas, criterios de pertenencia y continuidad en el tiempo.</li><li>Un contexto específico de acción.</li>
+</ul></div>
+<h3>Las instituciones educativas como ámbito de estudio</h3>
+<p>Las instituciones educativas no se reducen a sus edificios o infraestructuras. Son realidades sociales orientadas por propósitos, valores y formas particulares de funcionamiento. Su cultura institucional y su clima organizacional influyen en las prácticas de enseñanza, en los vínculos y en las condiciones de aprendizaje.</p>
+<p>Santos Guerra (1997) identifica distintas dimensiones de la organización escolar, entre ellas la estructura, la cultura, los procesos y los resultados. Comprender la institución exige atender a la articulación entre estas dimensiones y evitar explicaciones que reduzcan su complejidad a un único aspecto.</p>
+<div class="reflection"><h3>Para reflexionar</h3><p>¿Cómo percibimos las organizaciones educativas? ¿De qué manera su estructura y su cultura influyen en la educación que ofrecen?</p></div>
+<div class="back-top"><a href="#indice">↑ Volver al índice</a></div>
+<h2 class="section" id="administracion">La administración como disciplina</h2>
+<p>La administración es una disciplina que estudia los motivos, objetivos, métodos y propósitos de las organizaciones. Puede comprenderse como un sistema de conocimientos fundamentados cuyo objeto de estudio son las organizaciones y los procesos mediante los cuales se administran.</p>
+<p>Este proceso comprende la planificación, la dirección, la gestión y el control de los recursos organizacionales para alcanzar objetivos específicos. Su interpretación ha variado de acuerdo con las distintas corrientes del pensamiento administrativo, que han ofrecido respuestas diferentes frente a los problemas planteados en cada momento histórico.</p>
+<p>La ciencia administrativa evolucionó desde enfoques generales hacia paradigmas y modelos específicos. Esa evolución también incidió en la manera de concebir la organización escolar.</p>
+<h2 class="section" id="etapas">Etapas de la organización escolar</h2>
+<div class="timeline">
+<div class="timeline-item"><h3>1. Etapa precientífica</h3><p>La escuela se organiza a partir de criterios de sentido común, según las necesidades y posibilidades de cada época. Se distinguen una vertiente teórica, centrada en los aspectos sociales de la escuela, y otra práctica, vinculada con realizaciones escolares concretas.</p></div>
+<div class="timeline-item"><h3>2. Período de transición (1910-1930)</h3><p>La pedagogía comienza a apoyarse en otras ciencias, como la psicología, la sociología y la biología. Estas perspectivas inciden en la organización de horarios, edificios, mobiliario, agrupamientos y técnicas de enseñanza. Se procura articular los distintos elementos escolares en función de una idea educativa común.</p></div>
+<div class="timeline-item"><h3>3. Período científico (desde la década de 1950)</h3><p>Se incorporan diversas teorías organizacionales. La escuela es analizada como empresa, como conjunto de departamentos, como estructura burocrática y legal, y como sistema social. También adquieren relevancia las relaciones humanas, los roles, las expectativas y los grupos que integran la institución.</p></div>
+</div>
+<h2 class="section" id="gestion">¿Qué entendemos por gestión educativa?</h2>
+<p>La gestión educativa es un proceso complejo que se nutre de múltiples fuentes y disciplinas. Articula perspectivas y enfoques vinculados, al menos, con tres campos: el político, que proporciona el marco general; el administrativo, que genera las condiciones necesarias para la acción; y el profesional, que desarrolla la prestación educativa.</p>
+<div class="field-box"><p>A estos campos se suma una <strong>dimensión pedagógico-didáctica</strong>, que confiere a la gestión educativa su carácter específico. Gestionar una institución educativa no consiste solamente en administrar recursos: implica intervenir sobre procesos de enseñanza, aprendizaje y desarrollo curricular.</p></div>
+<p>La gestión educativa integra, por lo tanto, dos tipos de conocimientos. Por un lado, saberes teóricos e instrumentales provenientes de la teoría de la organización, la administración y la gestión institucional. Por otro, conocimientos específicos de la pedagogía y la didáctica, indispensables para orientar una gestión curricular con sentido educativo.</p>
+<div class="back-top"><a href="#indice">↑ Volver al índice</a></div>
+<h2 class="section" id="cierre">Cierre de la clase</h2>
+<p>En esta primera clase exploramos los fundamentos de la organización, la administración y la gestión en el ámbito educativo. Establecimos algunas definiciones iniciales y analizamos las relaciones entre estos conceptos, las estructuras institucionales y las funciones que se desarrollan en las escuelas.</p>
+<p>La organización refiere a la estructuración formal de la institución y permite reconocer objetivos comunes, roles, funciones, jerarquías y formas de cooperación. Las instituciones educativas, sin embargo, exceden esa dimensión formal: poseen culturas, valores, relaciones y climas particulares que inciden en las experiencias de quienes las integran.</p>
+<p>También abordamos la administración como disciplina y reconstruimos algunas etapas de su desarrollo en el campo escolar. Finalmente, presentamos la gestión educativa como una práctica que articula dimensiones políticas, administrativas, profesionales y pedagógico-didácticas.</p>
+<p>Estas primeras aproximaciones conceptuales servirán como base para profundizar, en las próximas clases, en los distintos enfoques teóricos sobre la administración y la organización de la educación.</p>
+<div class="back-top"><a href="#indice">↑ Volver al índice</a></div>
+<h2 class="section" id="referencias">Referencias</h2>
+<div class="reference-group"><ul class="ref-list">
+<li>Gairín Sallán, J. (1996). <em>La organización como ámbito de estudio</em>.</li>
+<li>Gairín Sallán, J. (1996). <em>Las instituciones educativas como ámbito de estudio</em>.</li>
+<li>Santos Guerra, M. A. (1997). <em>Aproximación conceptual a la organización escolar</em>.</li>
+</ul></div>
+<div class="back-top"><a href="#top">↑ Volver al inicio</a></div>
+</main>
+<footer class="site-footer"><div class="site-footer-shell"><div class="site-footer-grid">
+<div><p class="site-footer-label">Administración de la Educación y Gestión de las Instituciones Escolares</p><p class="site-footer-note">Material de clase elaborado por Linda Angelica Lopez</p></div>
+<div class="site-footer-divider"></div>
+<div><p class="site-footer-author">Universidad Nacional de Quilmes · Julio 2026</p></div>
+</div></div></footer>
+</div>
+</body>
+</html>
