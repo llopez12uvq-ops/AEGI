@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Índice · Administración de la Educación y Gestión de las Instituciones Escolares</title>
+<style>
+:root{
+  --fondo:#f4f5f7;
+  --blanco:#ffffff;
+  --texto:#1f2a37;
+  --texto-suave:#5b6676;
+  --borde:#d9dee5;
+  --acento:#14a3dc;
+  --acento-oscuro:#0f7ea9;
+  --u1:#00a651;
+  --u2:#5b4bc4;
+  --u3:#f28c1b;
+  --u4:#b63363;
+  --u5:#34495e;
+  --sombra:0 12px 34px rgba(15,35,55,.10);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:"Aptos","Segoe UI",Arial,sans-serif;
+  background:var(--fondo);
+  color:var(--texto);
+}
+.wrap{
+  width:min(1320px,calc(100% - 32px));
+  margin:20px auto;
+  background:var(--blanco);
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:var(--sombra);
+}
+.hero{
+  padding:38px;
+  background:
+    radial-gradient(circle at 92% 15%,rgba(255,255,255,.25) 0 7%,transparent 7.5%),
+    radial-gradient(circle at 84% 45%,rgba(255,255,255,.14) 0 11%,transparent 11.5%),
+    linear-gradient(135deg,#0f7ea9,#14a3dc 55%,#6dc8eb);
+  color:#fff;
+}
+.kicker{
+  margin:0 0 10px;
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  opacity:.92;
+}
+.hero h1{
+  margin:0;
+  max-width:1000px;
+  font-size:clamp(32px,5vw,58px);
+  line-height:1.04;
+  letter-spacing:-1.2px;
+}
+.hero p{
+  max-width:920px;
+  margin:18px 0 0;
+  font-size:18px;
+  line-height:1.55;
+}
+.meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:22px;
+}
+.meta span{
+  padding:9px 14px;
+  border-radius:999px;
+  background:rgba(255,255,255,.88);
+  color:#173042;
+  font-size:13px;
+  font-weight:800;
+}
+.content{padding:26px}
+.start-card{
+  display:grid;
+  grid-template-columns:1.25fr .75fr;
+  gap:20px;
+  align-items:center;
+  padding:26px;
+  border:1px solid #9fd5e9;
+  border-left:10px solid var(--acento);
+  border-radius:20px;
+  background:linear-gradient(135deg,#eef9fd,#ffffff);
+}
+.start-card h2{
+  margin:0 0 10px;
+  font-size:29px;
+  color:#14384d;
+}
+.start-card p{
+  margin:0;
+  color:var(--texto-suave);
+  line-height:1.65;
+}
+.start-button{
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  min-height:54px;
+  padding:14px 20px;
+  border-radius:999px;
+  background:var(--acento);
+  color:#fff !important;
+  text-decoration:none;
+  font-weight:800;
+  box-shadow:0 8px 18px rgba(20,163,220,.24);
+  transition:.2s ease;
+}
+.start-button:hover{background:var(--acento-oscuro);transform:translateY(-2px)}
+.section-head{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:16px;
+  margin:34px 0 18px;
+}
+.section-head h2{margin:0;font-size:31px}
+.section-head p{margin:0;color:var(--texto-suave)}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+.class-card{
+  --unidad:var(--u1);
+  display:flex;
+  flex-direction:column;
+  min-height:230px;
+  padding:20px;
+  border:1px solid var(--borde);
+  border-top:8px solid var(--unidad);
+  border-radius:18px;
+  background:#fff;
+  color:inherit !important;
+  text-decoration:none !important;
+  transition:.2s ease;
+}
+.class-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 26px rgba(15,35,55,.12);
+  border-color:#c7d0d8;
+}
+.class-card.u1{--unidad:var(--u1)}
+.class-card.u2{--unidad:var(--u2)}
+.class-card.u3{--unidad:var(--u3)}
+.class-card.u4{--unidad:var(--u4)}
+.class-card.u5{--unidad:var(--u5)}
+.class-top{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  align-items:center;
+}
+.class-number{
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--unidad);
+}
+.unit-tag{
+  padding:6px 9px;
+  border-radius:999px;
+  background:color-mix(in srgb,var(--unidad) 12%,white);
+  color:var(--unidad);
+  font-size:12px;
+  font-weight:800;
+}
+.class-card h3{
+  margin:18px 0 10px;
+  font-size:24px;
+  color:#1b2f3d;
+}
+.class-card p{
+  margin:0;
+  color:var(--texto-suave);
+  line-height:1.55;
+  font-size:15px;
+}
+.open-label{
+  margin-top:auto;
+  padding-top:18px;
+  color:var(--unidad);
+  font-size:14px;
+  font-weight:900;
+}
+.legend{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:24px;
+  padding:16px 18px;
+  border-radius:16px;
+  background:#f7f9fb;
+  border:1px solid var(--borde);
+}
+.legend span{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  font-size:13px;
+  font-weight:700;
+  color:#475569;
+}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+footer{
+  padding:20px 26px 28px;
+  color:#6b7280;
+  font-size:13px;
+  text-align:center;
+}
+@media(max-width:980px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .start-card{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .wrap{width:100%;margin:0;border-radius:0}
+  .hero{padding:26px 20px}
+  .content{padding:18px}
+  .grid{grid-template-columns:1fr}
+  .section-head{display:block}
+  .section-head p{margin-top:8px}
+  .start-card{padding:20px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <p class="kicker">Licenciatura en Educación · 3.º período 2026</p>
+    <h1>Administración de la Educación y Gestión de las Instituciones Escolares</h1>
+    <p>Índice general de acceso al Bloque 0 y a las quince clases de la materia.</p>
+    <div class="meta">
+      <span>Modalidad virtual</span>
+      <span>16 de julio al 28 de octubre</span>
+      <span>Aula C-AEGI</span>
+    </div>
+  </header>
+
+  <main class="content">
+    <section class="start-card">
+      <div>
+        <h2>Bloque 0</h2>
+        <p>Presentación de la materia, objetivos, contenidos, modalidad de trabajo, evaluación, equipo docente, plan de trabajo y encuesta inicial.</p>
+      </div>
+      <a class="start-button" href="bloque0.html">Ingresar al Bloque 0 →</a>
+    </section>
+
+    <div class="section-head">
+      <div>
+        <h2>Clases</h2>
+        <p>Seleccioná una clase para acceder a sus contenidos.</p>
+      </div>
+    </div>
+
+    <section class="grid">
+      
+      <a class="class-card u1" href="clase1.html">
+        <div class="class-top">
+          <span class="class-number">Clase 1</span>
+          <span class="unit-tag">Unidad 1</span>
+        </div>
+        <h3>16 de julio</h3>
+        <p>Introducción al campo de la organización, la administración y la gestión educativa.</p>
+        <span class="open-label">Abrir clase <span aria-hidden="true">→</span></span>
+      </a>
+    
+      <a class="class-card u1" href="clase2.html">
+        <div class="class-top">
+          <span class="class-number">Clase 2</span>
+          <span class="unit-tag">Unidad 1</span>
+        </div>
+        <h3>23 de julio</h3>
+        <p>Relaciones entre política, administración y gestión en educación.</p>
+        <span class="open-label">Abrir clase <span aria-hidden="true">→</span></span>
+      </a>
+    
+      <a class="class-card u1" href="clase3.html">
+        <div class="class-top">
+          <span class="class-number">Clase 3</span>
+          <span class="unit-tag">Unidad 1</span>
+        </div>
+        <h3>30 de julio</h3>
+        <p>Aportes de la investigación al campo de la administración y la gestión educativa.</p>
+        <span class="open-label">Abrir clase <span aria-hidden="true">→</span></span>
+      </a>
+    
+      <a class="class-card u1" href="clase4.html">
+        <div class="class-top">
+          <span class="class-number">Clase 4</span>
+          <span class="unit-tag">Unidad 1</span>
+        </div>
+        <h3>6 de agosto</h3>
+        <p>La escuela como institución y organización social.</p>
+        <span class="open-label">Abrir clase <span aria-hidden="true">→</span></span>
+      </a>
+    
+      <a class="class-card u2" href="clase5.html">
+        <div class="class-top">
+          <span class="class-number">Clase 5</span>
+          <span class="unit-tag">Unidad 2</span>
+        </div>
+        <h3>13 de agosto</h3>
+        <p>Paradigma técnico-racional, administración científica y relaciones humanas.</p>
+        <span class="open-label">Abrir clase <span aria-hidden="true">→</span></span>
+      </a>
+    
+      <a class="class-card u2" href="clase6.html">
+        <div class="class-top">
+          <span class="class-number">Clase 6</span>
+          <span class="unit-tag">Unidad 2</span>
+        </div>
+        <h3>20 de agosto</h3>
+        <p>Teoría de la organización, burocracia y teoría de los sistemas.</p>
+        <span class="open-label">Abrir clase <span aria-hidden="true">→</span></span>
+      </a>
+    
+      <a class="class-card u2" href="clase7.html">
+        <div class="class-top">
+          <span class="class-number">Clase 7</span>
+          <span class="unit-tag">Unidad 2</span>
+        </div>
+        <h3>27 de agosto</h3>
+        <p>Enfoques interpretativo-simbólicos, sociocríticos y micropolíticos.</p>
+        <span class="open-label">Abrir clase <span aria-hidden="true">→</span></span>
+      </a>
+    
+      <a class="class-card u2" href="clase8.html">
+        <div class="class-top">
+          <span class="class-number">Clase 8</span>
+          <span class="unit-tag">Unidad 2</span>
+        </div>
+        <h3>3 de septiembre</h3>
+        <p>Enfoques latinoamericanos de administración y gestión educativa.</p>
+        <span class="open-label">Abrir clase <span aria-hidden="true">→</span></span>
+      </a>
+    
+      <a class="class-card u3" href="clase9.html">
+        <div class="class-top">
+          <span class="class-number">Clase 9</span>
+          <span class="unit-tag">Unidad 3</span>
+        </div>
+        <h3>10 de septiembre</h3>
+        <p>Innovación, reforma, cambio y regulación educativa.</p>
+        <span class="open-label">Abrir clase <span aria-hidden="true">→</span></span>
+      </a>
+    
+      <a class="class-card u3" href="clase10.html">
+        <div class="class-top">
+          <span class="class-number">Clase 10</span>
+          <span class="unit-tag">Unidad 3</span>
+        </div>
+        <h3>17 de septiembre</h3>
+        <p>Descentralización, autonomía escolar y distribución territorial del poder.</p>
+        <span class="open-label">Abrir clase <span aria-hidden="true">→</span></span>
+      </a>
+    
+      <a class="class-card u3" href="clase11.html">
+        <div class="class-top">
+          <span class="class-number">Clase 11</span>
+          <span class="unit-tag">Unidad 3</span>
+        </div>
+        <h3>24 de septiembre</h3>
+        <p>Organizaciones en red y tecnologías en la gestión educativa.</p>
+        <span class="open-label">Abrir clase <span aria-hidden="true">→</span></span>
+      </a>
+    
+      <a class="class-card u4" href="clase12.html">
+        <div class="class-top">
+          <span class="class-number">Clase 12</span>
+          <span class="unit-tag">Unidad 4</span>
+        </div>
+        <h3>1.º de octubre</h3>
+        <p>Análisis institucional: dinámicas, lo instituido y lo instituyente.</p>
+        <span class="open-label">Abrir clase <span aria-hidden="true">→</span></span>
+      </a>
+    
+      <a class="class-card u4" href="clase13.html">
+        <div class="class-top">
+          <span class="class-number">Clase 13</span>
+          <span class="unit-tag">Unidad 4</span>
+        </div>
+        <h3>8 de octubre</h3>
+        <p>Dimensiones de análisis, estilos y culturas institucionales.</p>
+        <span class="open-label">Abrir clase <span aria-hidden="true">→</span></span>
+      </a>
+    
+      <a class="class-card u4" href="clase14.html">
+        <div class="class-top">
+          <span class="class-number">Clase 14</span>
+          <span class="unit-tag">Unidad 4</span>
+        </div>
+        <h3>15 de octubre</h3>
+        <p>Actores institucionales, culturas profesionales y coherencia escolar.</p>
+        <span class="open-label">Abrir clase <span aria-hidden="true">→</span></span>
+      </a>
+    
+      <a class="class-card u5" href="clase15.html">
+        <div class="class-top">
+          <span class="class-number">Clase 15</span>
+          <span class="unit-tag">Integración</span>
+        </div>
+        <h3>22 de octubre</h3>
+        <p>Integración general y examen virtual.</p>
+        <span class="open-label">Abrir clase <span aria-hidden="true">→</span></span>
+      </a>
+    
+    </section>
+
+    <div class="legend" aria-label="Referencias por unidad">
+      <span><i class="dot" style="background:var(--u1)"></i>Unidad 1</span>
+      <span><i class="dot" style="background:var(--u2)"></i>Unidad 2</span>
+      <span><i class="dot" style="background:var(--u3)"></i>Unidad 3</span>
+      <span><i class="dot" style="background:var(--u4)"></i>Unidad 4</span>
+      <span><i class="dot" style="background:var(--u5)"></i>Integración</span>
+    </div>
+  </main>
+
+  <footer>
+    Universidad Nacional de Quilmes · 2026
+  </footer>
+</div>
+</body>
+</html>

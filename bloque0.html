@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bloque 0 · Administración de la Educación y Gestión de las Instituciones Escolares</title>
+
+<style>
+:root{
+  --fondo:#eef7fb;
+  --blanco:#ffffff;
+  --texto:#1f2a37;
+  --texto-suave:#4f6272;
+  --borde:#d6e8f2;
+  --acento:#1cabe2;
+  --acento-oscuro:#1189bb;
+  --u1:#1cabe2;
+  --u2:#3f7cc1;
+  --u3:#f3b229;
+  --u4:#6cc4a1;
+  --sombra:0 10px 28px rgba(29, 78, 110, .10);
+  --celeste-suave:#dff3fb;
+  --amarillo-suave:#fff4d4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Aptos","Segoe UI",Arial,sans-serif;background:linear-gradient(180deg,#f4fbfe 0%, #eef7fb 100%);color:var(--texto)}
+.b0-wrap{width:min(1320px,calc(100% - 32px));margin:24px auto;background:var(--blanco);border-radius:28px;overflow:hidden;box-shadow:var(--sombra);border:1px solid #d9edf7}
+.hero{position:relative;min-height:470px;display:flex;align-items:flex-end;padding:38px;background:linear-gradient(rgba(28,171,226,.25),rgba(18,84,112,.60)),url('https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:auto -70px 36px auto;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,.16);filter:blur(1px)}
+.hero::after{content:"";position:absolute;inset:36px auto auto -56px;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.18);filter:blur(1px)}
+.hero > div{position:relative;z-index:1}
+.hero-panel{max-width:980px;background:rgba(28,171,226,.96);color:#fff;padding:24px 26px;box-shadow:0 12px 32px rgba(0,0,0,.14);border-radius:0 22px 22px 0}
+.hero-kicker{margin:0 0 10px;font-size:14px;font-weight:500;letter-spacing:.4px;text-transform:uppercase;opacity:.95}
+.hero h1{margin:0;font-size:clamp(31px,4.5vw,56px);line-height:1.04;letter-spacing:-1px;font-weight:800}
+.hero-sub{margin-top:16px;max-width:920px;color:#fff;font-size:18px;line-height:1.5;text-shadow:0 1px 4px rgba(0,0,0,.25)}
+.hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.hero-meta span{display:inline-block;padding:10px 16px;background:rgba(255,255,255,.92);border:1px solid rgba(255,255,255,.98);color:#0f4058;font-size:13px;font-weight:700;border-radius:999px;backdrop-filter:blur(6px);box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.layout{display:grid;grid-template-columns:300px 1fr;gap:22px;padding:24px}
+.menu{background:linear-gradient(180deg,#e8f6fd 0%, #f7fcfe 100%);border-radius:24px;padding:18px;align-self:start;position:sticky;top:16px;border:1px solid #d4eaf5}
+.menu h3{margin:0 0 14px;font-size:14px;text-transform:uppercase;letter-spacing:.5px;color:#3b4b5c}
+.menu ul{list-style:none;padding:0;margin:0}
+.menu li{margin-bottom:10px;padding:12px 14px;border-radius:14px;background:#fff;border:1px solid #deedf5;color:#314254;font-size:14px;line-height:1.35;cursor:pointer;transition:all .2s ease;box-shadow:0 2px 6px rgba(28,171,226,.05)}
+.menu li:hover{transform:translateX(2px);border-color:#c8dcea}
+.menu li.active{background:var(--acento);color:#fff;border-color:var(--acento);box-shadow:0 6px 16px rgba(28,171,226,.28)}
+.content{display:flex;flex-direction:column;gap:18px}
+.section{display:none}.section.active{display:block}
+.card{background:#fff;border:1px solid var(--borde);border-radius:22px;padding:28px;box-shadow:0 6px 18px rgba(28,171,226,.06)}
+.card h2{margin:0 0 16px;font-size:30px;line-height:1.1;letter-spacing:-.5px;color:#0f2535}
+.card h3{color:#132a3c}
+.card p{margin:0 0 14px;font-size:16px;line-height:1.7;color:var(--texto-suave)}
+.card p strong{color:var(--texto)}
+.card ul{margin:0;padding-left:20px}.card li{margin-bottom:10px;font-size:16px;line-height:1.65;color:var(--texto-suave)}
+.destacado{margin-top:16px;padding:18px 20px;border-left:6px solid var(--acento);background:#eff8fd;border-radius:16px;font-size:15px;line-height:1.65;color:#375064}
+.grid-4{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.unidad{border-radius:18px;overflow:hidden;border:1px solid var(--borde);background:#fff}
+.unidad-head{padding:14px 16px;color:#fff;font-size:18px;font-weight:700;line-height:1.25}
+.unidad.u1 .unidad-head{background:var(--u1)}.unidad.u2 .unidad-head{background:var(--u2)}.unidad.u3 .unidad-head{background:var(--u3)}.unidad.u4 .unidad-head{background:var(--u4)}
+.unidad-body{padding:16px}.unidad-body p{font-size:15px;margin-bottom:10px}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.badges span{padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700;background:#eef2f5;color:#415264}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}.kpi{border:1px solid var(--borde);border-radius:18px;padding:16px;background:linear-gradient(180deg,#fafdff 0%, #f0f8fc 100%)}.kpi .et{font-size:12px;text-transform:uppercase;letter-spacing:.4px;color:#6b7a8c;margin-bottom:8px}.kpi .va{font-size:20px;font-weight:800;color:#132a3c}
+.docentes{display:grid;grid-template-columns:1fr;gap:16px}.docente{border:1px solid var(--borde);border-radius:20px;padding:18px;background:#fbfdff}.docente h3{margin:0 0 10px;font-size:20px;color:#132a3c}
+.recursos{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}.recurso{border:1px solid var(--borde);border-radius:18px;padding:22px;background:#fafbfc}.recurso h3{margin:0 0 10px;font-size:21px}.recurso p{font-size:15px}
+.action-btn{display:inline-block;margin-top:8px;padding:11px 18px;border-radius:999px;font-size:14px;font-weight:700;text-decoration:none;background:var(--acento);color:#fff;border:1px solid var(--acento);transition:all .2s ease;box-shadow:0 8px 18px rgba(28,171,226,.22)}.action-btn:hover{background:var(--acento-oscuro);border-color:var(--acento-oscuro);transform:translateY(-1px)}
+.action-btn.secondary{background:#fff;color:var(--acento-oscuro);border-color:#9fd5e9}.action-btn.secondary:hover{background:#f0f8fc}
+
+.notice{padding:17px 19px;border-radius:18px;background:var(--amarillo-suave);border:1px solid #f0d27d;color:#775018;font-size:15px;line-height:1.6;margin-top:16px}
+.intro-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;margin-top:22px}
+.image-banner{position:relative;min-height:300px;border-radius:24px;overflow:hidden;background:linear-gradient(rgba(28,171,226,.16),rgba(15,64,88,.58)),url('https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;box-shadow:var(--sombra)}
+.image-banner .overlay{position:absolute;left:0;right:0;bottom:0;padding:24px;color:#fff;background:linear-gradient(transparent, rgba(0,0,0,.55))}
+.image-banner .overlay h3{margin:0 0 8px;font-size:24px;color:#fff}
+.image-banner .overlay p{margin:0;color:rgba(255,255,255,.94);font-size:15px;line-height:1.55}
+.welcome-panel{display:flex;flex-direction:column;gap:14px}
+.mini-card{background:linear-gradient(180deg,#ffffff,#eff8fd);border:1px solid #d6eaf4;border-radius:20px;padding:18px 18px 16px;box-shadow:0 6px 18px rgba(28,171,226,.08)}
+.mini-card .icon{font-size:26px;line-height:1;margin-bottom:10px}
+.mini-card h3{margin:0 0 8px;font-size:18px;color:#123246}
+.mini-card p{margin:0;font-size:14px;line-height:1.6}
+.section-ribbon{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+.ribbon-item{background:linear-gradient(180deg,#ffffff 0%, #f3fbfe 100%);border:1px solid var(--borde);border-radius:18px;padding:15px 16px}
+.ribbon-item strong{display:block;font-size:14px;color:#153246;margin-bottom:6px}
+.ribbon-item span{font-size:14px;color:#5b6676;line-height:1.5}
+@media(max-width:1080px){.layout{grid-template-columns:1fr}.menu{position:relative;top:0}.grid-4,.kpis,.recursos,.intro-grid,.section-ribbon{grid-template-columns:1fr}}
+@media(max-width:720px){.b0-wrap{width:100%;margin:0;border-radius:0}.hero{min-height:390px;padding:18px}.hero-panel{padding:18px}.layout{padding:16px}.card{padding:18px}.card h2{font-size:24px}.image-banner{min-height:240px}}
+</style>
+</head>
+<body>
+<div class="b0-wrap">
+  <header class="hero">
+    <div>
+      <div class="hero-panel">
+        <p class="hero-kicker">Bloque 0 · Licenciatura en Educación</p>
+        <h1>Administración de la Educación y Gestión de las Instituciones Escolares</h1>
+      </div>
+      <p class="hero-sub">Un espacio para analizar la administración y la gestión educativa desde una perspectiva crítica, atendiendo a las políticas, las organizaciones, los actores y las dinámicas institucionales que configuran la vida escolar.</p>
+      <div class="hero-meta">
+        <span>Núcleo Básico Obligatorio</span>
+        <span>Modalidad virtual</span>
+        <span>3.º período 2026</span>
+        <span>16 de julio al 28 de octubre</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="menu">
+      <h3>Bloque de inicio</h3>
+      <ul>
+        <li data-target="presentacion">Presentación</li>
+        <li data-target="objetivos">Objetivos</li>
+        <li data-target="contenidos">Contenidos</li>
+        <li data-target="modalidad">Modalidad de trabajo</li>
+        <li data-target="evaluacion">Evaluación</li>
+        <li data-target="docentes">Equipo docente</li>
+        <li data-target="plan">Plan de trabajo</li>
+        <li data-target="encuesta">Encuesta inicial</li>
+      </ul>
+    </aside>
+
+    <main class="content">
+      <section class="card section" id="presentacion">
+        <h2>Presentación de la materia</h2>
+        <div class="destacado" style="margin-top:0;margin-bottom:18px;background:var(--celeste-suave);border-left-color:#f3b229;">Este bloque de inicio organiza la cursada con un diseño claro, amable y visual, inspirado en una estética educativa de acceso simple y lectura cuidada.</div>
+        <p><strong>Administración de la Educación y Gestión de las Instituciones Escolares</strong> aborda la administración y la gestión educativa como un campo en el que confluyen problemas de política, organización, gobierno e intervención institucional.</p>
+        <p>La propuesta recupera aportes de las ciencias sociales, la teoría política y las teorías de la organización para analizar críticamente el sistema educativo, las políticas públicas y las formas concretas que asume la gestión en las instituciones escolares.</p>
+        <p>A lo largo de la cursada se trabajará sobre las relaciones entre organización, administración y gestión; los principales enfoques teóricos del campo; los procesos de reforma y regulación educativa; y las dimensiones institucionales, culturales y micropolíticas de las escuelas.</p>
+
+        <div class="intro-grid">
+          <div class="image-banner">
+            <div class="overlay">
+              <h3>Una mirada crítica sobre la gestión educativa</h3>
+              <p>El recorrido propone articular teoría, análisis institucional y reflexión sobre las políticas educativas para comprender la complejidad de las organizaciones escolares.</p>
+            </div>
+          </div>
+          <div class="welcome-panel">
+            <div class="mini-card">
+              <div class="icon">🗂️</div>
+              <h3>Organizá tu cursada</h3>
+              <p>Consultá el plan de trabajo para ubicar fechas, clases, bibliografía y momentos de evaluación.</p>
+            </div>
+            <div class="mini-card">
+              <div class="icon">💬</div>
+              <h3>Participá activamente</h3>
+              <p>La lectura de los materiales y la participación en los espacios del aula son parte central del recorrido.</p>
+            </div>
+            <div class="mini-card">
+              <div class="icon">📝</div>
+              <h3>Completá la encuesta inicial</h3>
+              <p>Nos permitirá conocer mejor al grupo y acompañar la cursada desde el comienzo.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-ribbon">
+          <div class="ribbon-item"><strong>Duración</strong><span>Del 16 de julio al 28 de octubre de 2026.</span></div>
+          <div class="ribbon-item"><strong>Modalidad</strong><span>Cursada virtual con clases, materiales y actividades en el aula.</span></div>
+          <div class="ribbon-item"><strong>Recorrido</strong><span>Cuatro unidades para pensar la administración, la gestión y la institución escolar.</span></div>
+        </div>
+
+        <div class="kpis">
+          <div class="kpi"><div class="et">Unidad 1</div><div class="va">Introducción al campo de estudio de la organización, administración y gestión de la educación</div></div>
+          <div class="kpi"><div class="et">Unidad 2</div><div class="va">Enfoques teóricos en organización y administración de la educación</div></div>
+          <div class="kpi"><div class="et">Unidad 3</div><div class="va">La administración de la educación como proceso de gobierno e implementación de políticas</div></div>
+          <div class="kpi"><div class="et">Unidad 4</div><div class="va">La institución escolar: dimensiones y perspectivas para su análisis</div></div>
+        </div>
+      </section>
+
+      <section class="card section" id="objetivos">
+        <h2>Objetivos del curso</h2>
+        <p><strong>Que los estudiantes logren:</strong></p>
+        <ul>
+          <li>Contextualizar el campo disciplinar de la administración educativa en el marco de las corrientes teóricas de las ciencias sociales, analizando las bases epistemológicas del conocimiento sobre gestión educativa.</li>
+          <li>Apropiarse de las categorías conceptuales básicas de la organización y administración educacional.</li>
+          <li>Analizar la organización escolar, en sus diferentes niveles, como objeto y factor facilitador del cambio e innovación educativa.</li>
+          <li>Utilizar categorías teórico-conceptuales para analizar problemas relevantes de la administración educativa y el gobierno del sistema educativo argentino, identificando perspectivas de transformación en el contexto de la región latinoamericana.</li>
+          <li>Apropiarse de herramientas teórico-metodológicas que posibiliten la realización de investigaciones en el campo.</li>
+          <li>Fortalecer el compromiso ético para el desempeño en el campo profesional y académico, interviniendo de manera crítica e interdisciplinaria.</li>
+        </ul>
+      </section>
+
+      <section class="card section" id="contenidos">
+        <h2>Contenidos</h2>
+
+        <h3 style="margin:0 0 12px;font-size:22px;color:#132a3c;">Contenidos mínimos</h3>
+        <ul style="margin-bottom:24px;">
+          <li>Enfoques teóricos en la administración de la educación: el pensamiento administrativo-organizacional y los paradigmas tradicionales sobre administración.</li>
+          <li>Burocracia y administración pública.</li>
+          <li>Organización y administración de la educación en la Argentina: centralización y descentralización. La administración y los modelos de planificación: la planificación normativa y la planificación estratégica situacional.</li>
+          <li>La escuela como organización social. Abordajes teóricos: enfoques técnico-racionales, interpretativo-simbólicos y posturas sociocríticas.</li>
+          <li>Las reformas educativas y su impacto escolar. Las tecnologías de la información y la comunicación y su incidencia en la administración educativa y la gestión escolar.</li>
+        </ul>
+
+        <h3 style="margin:0 0 10px;font-size:22px;color:#132a3c;">Contenidos temáticos por unidad</h3>
+        <p style="margin-bottom:18px;">Las unidades recuperan los ejes centrales del programa: administración educativa, teorías organizacionales, políticas de gobierno del sistema e institución escolar.</p>
+        <div class="grid-4">
+          <article class="unidad u1">
+            <div class="unidad-head">Unidad 1: Introducción al campo de estudio de la organización, administración y gestión de la educación</div>
+            <div class="unidad-body">
+              <ul>
+                <li>Organización, institución, administración y gestión: aproximaciones conceptuales.</li>
+                <li>Organización, administración y gestión como campos disciplinares.</li>
+                <li>La administración educacional como práctica, como disciplina académica y como ciencia.</li>
+                <li>Principales abordajes en la administración de la educación: legal-burocrático, empresarial y sociopolítico.</li>
+                <li>Debates actuales en materia de gestión educativa. La construcción de nuevos enfoques para comprender las organizaciones escolares en la actualidad.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="unidad u2">
+            <div class="unidad-head">Unidad 2: Enfoques teóricos en organización y administración de la educación</div>
+            <div class="unidad-body">
+              <ul>
+                <li>Escuelas del pensamiento administrativo-organizacional: reconstrucción histórica y circulación de las ideas en América Latina.</li>
+                <li>Teorías de la burocracia estatal y paradigmas en la administración pública. Sus influencias en la organización y administración educativa.</li>
+                <li>Aproximaciones teóricas a la organización escolar: enfoques técnico-racionales, interpretativos-simbólicos y sociocríticos.</li>
+                <li>Perspectivas críticas: los enfoques micropolíticos de la escuela. Sus principales contribuciones y límites en el análisis de la organización escolar.</li>
+                <li>Enfoques gerencialistas: contribuciones y límites en el análisis de la organización escolar.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="unidad u3">
+            <div class="unidad-head">Unidad 3: La administración de la educación como proceso de gobierno e implementación de políticas</div>
+            <div class="unidad-body">
+              <ul>
+                <li>Innovación, reforma y cambio: aproximaciones conceptuales. Las reformas educativas como instrumentos de regulación.</li>
+                <li>Reformas educativas y modificaciones en la distribución territorial del poder: la descentralización educativa en el marco de las reformas estatales.</li>
+                <li>La perspectiva internacional y sus modalidades en América Latina. La tensión descentralización–recentralización en el caso argentino.</li>
+                <li>Descentralización y autonomía. La autonomía en la gestión como un nuevo modo de regulación.</li>
+                <li>La reforma educativa de la década de los noventa y sus impactos en la administración del sistema escolar argentino y la gestión institucional.</li>
+                <li>Las reformas educativas después de los noventa: continuidades y rupturas. Los cambios en los niveles intermedios y de base en los gobiernos provinciales: la supervisión y la dirección escolar.</li>
+                <li>Nuevos desafíos en materia de organización y gestión educativa: organizaciones en red y la incidencia de las nuevas tecnologías de la información y la comunicación.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="unidad u4">
+            <div class="unidad-head">Unidad 4: La institución escolar: dimensiones y perspectivas para su análisis</div>
+            <div class="unidad-body">
+              <ul>
+                <li>El análisis de la institución escolar como herramienta superadora de las visiones tecnocráticas de gestión escolar.</li>
+                <li>Análisis institucional: aproximaciones conceptuales. Diferentes enfoques y perspectivas.</li>
+                <li>Las instituciones educativas: conceptualización y especificidad. La institución y lo institucional.</li>
+                <li>Lo instituido y lo instituyente. La tensión y el conflicto como dinamizadores del funcionamiento institucional.</li>
+                <li>Dimensiones de análisis de la institución educativa. Contrato histórico, estilos y culturas institucionales.</li>
+                <li>La coherencia institucional.</li>
+                <li>Los actores institucionales: práctica docente y culturas profesionales.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="card section" id="modalidad">
+        <h2>Modalidad de trabajo</h2>
+        <ul>
+          <li>La cursada se desarrolla de manera virtual, mediante clases semanales en el aula.</li>
+          <li>Cada clase articula desarrollos conceptuales, bibliografía obligatoria, recursos y actividades de estudio.</li>
+          <li>Se propondrán foros, debates, análisis de casos, informes de lectura y producciones individuales o grupales.</li>
+          <li>Se utilizarán diversos recursos, como guías de lectura, materiales audiovisuales, mapas conceptuales, gráficos y documentos de trabajo.</li>
+          <li>El acompañamiento docente se realizará a través de los espacios de comunicación y consulta disponibles en el aula virtual.</li>
+        </ul>
+        <div class="destacado">La participación sostenida, la lectura de la bibliografía y la realización de las actividades previstas son fundamentales para construir el recorrido de aprendizaje.</div>
+      </section>
+
+      <section class="card section" id="evaluacion">
+        <h2>Evaluación y aprobación</h2>
+        <p>La evaluación contempla la participación en las clases y los foros, junto con la presentación de <strong>dos trabajos prácticos escritos y obligatorios</strong>, que podrán ser individuales o grupales según las consignas.</p>
+        <ul>
+          <li><strong>Trabajo Práctico N.º 1:</strong> las consignas se entregarán en la clase 7 y la entrega está prevista para la clase 9.</li>
+          <li><strong>Trabajo Práctico N.º 2:</strong> las consignas se entregarán en la clase 12 y la entrega está prevista para la clase 14.</li>
+          <li>Se incluirá al menos una instancia de recuperación, de acuerdo con el Régimen de Estudios.</li>
+          <li>La aprobación de la cursada requiere una calificación igual o superior a 4.</li>
+        </ul>
+        <div class="notice"><strong>Examen virtual:</strong> en la última clase se ofrecerá una instancia de integración general. Es una actividad orientativa para preparar el examen final presencial y no constituye una instancia de acreditación.</div>
+      </section>
+
+      <section class="card section" id="docentes">
+        <h2>Equipo docente</h2>
+        <div class="docentes">
+          <div class="docente"><h3>Linda Angélica Lopez</h3><p>Docente a cargo de la asignatura durante el 3.º período de 2026. El acompañamiento se realizará mediante las clases, los foros y los espacios de consulta disponibles en el aula virtual.</p></div>
+        </div>
+      </section>
+
+      <section class="card section" id="plan">
+        <h2>Plan de trabajo</h2>
+        <p>El plan de trabajo presenta la organización completa de la cursada: fechas de publicación de las clases, unidades, contenidos, bibliografía y momentos previstos para las actividades de evaluación.</p>
+        <p>Es importante consultarlo al comenzar la materia y retomarlo periódicamente para organizar el estudio y las entregas.</p>
+        <a class="action-btn" href="3º_periodo_2026_PT_AGEI.pdf" target="_blank" rel="noopener noreferrer">Abrir el plan de trabajo</a>
+        <div class="notice">La cursada comienza el <strong>16 de julio</strong> y finaliza el <strong>28 de octubre de 2026</strong>.</div>
+      </section>
+
+      <section class="card section" id="encuesta">
+        <h2>Encuesta inicial</h2>
+        <p>Antes de comenzar el recorrido por las clases, les solicitamos completar una breve encuesta. La información relevada permitirá conocer mejor al grupo y acompañar la cursada de acuerdo con sus trayectorias y condiciones de estudio.</p>
+        <p>La encuesta es parte de las actividades iniciales del curso.</p>
+        <a class="action-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSco8zeV1fLfmSxg76c-28Xd0rwVJjmRcuiqWyIT4fKs21NjTQ/viewform" target="_blank" rel="noopener noreferrer">Completar la encuesta</a>
+      </section>
+    </main>
+  </div>
+</div>
+<script>
+const menuItems=document.querySelectorAll('.menu li');
+const sections=document.querySelectorAll('.section');
+function showSection(id,item){sections.forEach(s=>s.classList.remove('active'));menuItems.forEach(i=>i.classList.remove('active'));document.getElementById(id).classList.add('active');item.classList.add('active');}
+menuItems.forEach(item=>item.addEventListener('click',()=>showSection(item.dataset.target,item)));
+if(menuItems.length){showSection(menuItems[0].dataset.target,menuItems[0]);}
+</script>
+</body>
+</html>
