@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Clase 2 · Administración de la Educación y Gestión de las Instituciones Escolares</title>
+
+<style>
+:root{
+  --fondo:#eef7fb;
+  --blanco:#ffffff;
+  --texto:#1f2a37;
+  --texto-suave:#4f6272;
+  --borde:#d6e8f2;
+  --acento:#1cabe2;
+  --acento-oscuro:#1189bb;
+  --u1:#1cabe2;
+  --u2:#3f7cc1;
+  --u3:#f3b229;
+  --u4:#6cc4a1;
+  --sombra:0 10px 28px rgba(29, 78, 110, .10);
+  --celeste-suave:#dff3fb;
+  --amarillo-suave:#fff4d4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:"Aptos","Segoe UI",Arial,sans-serif;
+  background:linear-gradient(180deg,#f4fbfe 0%, #eef7fb 100%);
+  color:var(--texto)
+}
+.b0-wrap{
+  width:min(1320px,calc(100% - 32px));
+  margin:24px auto;
+  background:var(--blanco);
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow:var(--sombra);
+  border:1px solid #d9edf7
+}
+.hero{
+  position:relative;
+  min-height:430px;
+  display:flex;
+  align-items:flex-end;
+  padding:38px;
+  background:
+    linear-gradient(rgba(28,171,226,.25),rgba(18,84,112,.62)),
+    url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+  overflow:hidden
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:auto -70px 36px auto;
+  width:300px;height:300px;border-radius:50%;
+  background:rgba(255,255,255,.16)
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:36px auto auto -56px;
+  width:240px;height:240px;border-radius:50%;
+  background:rgba(255,255,255,.18)
+}
+.hero>div{position:relative;z-index:1}
+.hero-panel{
+  max-width:980px;
+  background:rgba(28,171,226,.96);
+  color:#fff;
+  padding:24px 26px;
+  box-shadow:0 12px 32px rgba(0,0,0,.14);
+  border-radius:0 22px 22px 0
+}
+.hero-kicker{
+  margin:0 0 10px;
+  font-size:14px;
+  font-weight:500;
+  letter-spacing:.4px;
+  text-transform:uppercase
+}
+.hero h1{
+  margin:0;
+  font-size:clamp(31px,4.5vw,56px);
+  line-height:1.04;
+  letter-spacing:-1px;
+  font-weight:800
+}
+.hero-sub{
+  margin-top:16px;
+  max-width:920px;
+  color:#fff;
+  font-size:18px;
+  line-height:1.5;
+  text-shadow:0 1px 4px rgba(0,0,0,.25)
+}
+.hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.hero-meta span{
+  display:inline-block;
+  padding:10px 16px;
+  background:rgba(255,255,255,.92);
+  border:1px solid rgba(255,255,255,.98);
+  color:#0f4058;
+  font-size:13px;
+  font-weight:700;
+  border-radius:999px;
+  box-shadow:0 2px 8px rgba(0,0,0,.08)
+}
+.layout{
+  display:grid;
+  grid-template-columns:300px 1fr;
+  gap:22px;
+  padding:24px
+}
+.menu{
+  background:linear-gradient(180deg,#e8f6fd 0%, #f7fcfe 100%);
+  border-radius:24px;
+  padding:18px;
+  align-self:start;
+  position:sticky;
+  top:16px;
+  border:1px solid #d4eaf5
+}
+.menu h3{
+  margin:0 0 14px;
+  font-size:14px;
+  text-transform:uppercase;
+  letter-spacing:.5px;
+  color:#3b4b5c
+}
+.menu ul{list-style:none;padding:0;margin:0}
+.menu li{
+  margin-bottom:10px;
+  padding:12px 14px;
+  border-radius:14px;
+  background:#fff;
+  border:1px solid #deedf5;
+  color:#314254;
+  font-size:14px;
+  line-height:1.35;
+  cursor:pointer;
+  transition:all .2s ease;
+  box-shadow:0 2px 6px rgba(28,171,226,.05)
+}
+.menu li:hover{transform:translateX(2px);border-color:#c8dcea}
+.menu li.active{
+  background:var(--acento);
+  color:#fff;
+  border-color:var(--acento);
+  box-shadow:0 6px 16px rgba(28,171,226,.28)
+}
+.content{display:flex;flex-direction:column;gap:18px}
+.section{display:none}.section.active{display:block}
+.card{
+  background:#fff;
+  border:1px solid var(--borde);
+  border-radius:22px;
+  padding:28px;
+  box-shadow:0 6px 18px rgba(28,171,226,.06)
+}
+.card h2{
+  margin:0 0 16px;
+  font-size:30px;
+  line-height:1.1;
+  letter-spacing:-.5px;
+  color:#0f2535
+}
+.card h3{color:#132a3c;margin:20px 0 10px}
+.card p{margin:0 0 14px;font-size:16px;line-height:1.7;color:var(--texto-suave)}
+.card p strong{color:var(--texto)}
+.destacado{
+  margin-top:16px;
+  padding:18px 20px;
+  border-left:6px solid var(--acento);
+  background:#eff8fd;
+  border-radius:16px;
+  font-size:15px;
+  line-height:1.65;
+  color:#375064
+}
+.unit-card{
+  border:1px solid var(--borde);
+  border-radius:20px;
+  overflow:hidden;
+  background:#fff;
+  margin-top:18px
+}
+.unit-head{
+  padding:16px 18px;
+  background:var(--u1);
+  color:#fff;
+  font-weight:800;
+  font-size:20px;
+  line-height:1.35
+}
+.unit-body{padding:20px}
+.biblio-list{
+  list-style:none;
+  padding:0;
+  margin:0
+}
+.biblio-list li{
+  margin:0 0 16px;
+  padding:18px 20px;
+  border:1px solid var(--borde);
+  border-radius:18px;
+  background:linear-gradient(180deg,#fff,#f5fbfe);
+  color:var(--texto-suave);
+  line-height:1.65
+}
+.biblio-list li:last-child{margin-bottom:0}
+.link-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:12px
+}
+.action-btn{
+  display:inline-block;
+  padding:11px 18px;
+  border-radius:999px;
+  font-size:14px;
+  font-weight:700;
+  text-decoration:none;
+  background:var(--acento);
+  color:#fff;
+  border:1px solid var(--acento);
+  transition:all .2s ease;
+  box-shadow:0 8px 18px rgba(28,171,226,.22)
+}
+.action-btn:hover{
+  background:var(--acento-oscuro);
+  border-color:var(--acento-oscuro);
+  transform:translateY(-1px)
+}
+.action-btn.secondary{
+  background:#fff;
+  color:var(--acento-oscuro);
+  border-color:#9fd5e9
+}
+.action-btn.secondary:hover{background:#f0f8fc}
+.resource-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+  margin-top:18px
+}
+.resource-card{
+  padding:22px;
+  border:1px solid var(--borde);
+  border-radius:20px;
+  background:linear-gradient(180deg,#fff,#f4fbfe)
+}
+.resource-card .icon{font-size:30px;margin-bottom:12px}
+.resource-card h3{margin:0 0 8px}
+.resource-card p{font-size:15px}
+.footer{
+  padding:24px;
+  text-align:center;
+  color:#627382;
+  font-size:14px;
+  border-top:1px solid var(--borde);
+  background:#f8fcfe
+}
+
+.infografia-wrap{
+  margin-top:18px;
+  border:1px solid var(--borde);
+  border-radius:22px;
+  overflow:hidden;
+  background:#fff;
+  box-shadow:0 8px 24px rgba(28,171,226,.09)
+}
+.infografia-wrap img{
+  display:block;
+  width:100%;
+  height:auto;
+  background:#fff
+}
+.infografia-caption{
+  padding:14px 18px;
+  color:var(--texto-suave);
+  font-size:14px;
+  line-height:1.55;
+  background:linear-gradient(180deg,#fff,#f4fbfe);
+  border-top:1px solid var(--borde)
+}
+.ejes-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-top:18px
+}
+.eje-card{
+  padding:20px;
+  border:1px solid var(--borde);
+  border-radius:18px;
+  background:linear-gradient(180deg,#fff,#f4fbfe)
+}
+.eje-card .num{
+  display:inline-grid;
+  place-items:center;
+  width:34px;
+  height:34px;
+  margin-bottom:10px;
+  border-radius:50%;
+  background:var(--acento);
+  color:#fff;
+  font-weight:800
+}
+.eje-card h3{margin:0 0 8px}
+.eje-card p{font-size:15px;margin:0}
+@media(max-width:900px){.ejes-grid{grid-template-columns:1fr}}
+
+
+.zoomable-image{cursor:zoom-in;transition:transform .18s ease}
+.zoomable-image:hover{transform:scale(1.01)}
+.image-lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(15,37,53,.88);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:28px;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .2s ease, visibility .2s ease;
+  z-index:9999;
+}
+.image-lightbox.active{opacity:1;visibility:visible}
+.image-lightbox img{
+  max-width:min(1200px,96vw);
+  max-height:90vh;
+  width:auto;
+  height:auto;
+  border-radius:14px;
+  box-shadow:0 18px 42px rgba(0,0,0,.28);
+  background:#fff;
+  cursor:zoom-out;
+}
+.image-lightbox .close-hint{
+  position:absolute;
+  top:18px;
+  right:22px;
+  color:#fff;
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:.03em;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.18);
+  padding:10px 14px;
+  border-radius:999px;
+}
+
+@media(max-width:1080px){
+  .layout{grid-template-columns:1fr}
+  .menu{position:relative;top:0}
+}
+@media(max-width:760px){
+  .b0-wrap{width:100%;margin:0;border-radius:0}
+  .hero{min-height:370px;padding:18px}
+  .hero-panel{padding:18px}
+  .layout{padding:16px}
+  .card{padding:20px}
+  .resource-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+<div class="b0-wrap">
+  <header class="hero">
+    <div>
+      <div class="hero-panel">
+        <p class="hero-kicker">Clase 2 · Unidad 1</p>
+        <h1>Política, administración y gestión educativa</h1>
+      </div>
+      <p class="hero-sub">La relación entre política, administración y gestión en el pensamiento técnico-racional y los aportes de las ciencias sociales para comprender la organización de la educación.</p>
+      <div class="hero-meta">
+        <span>Licenciatura en Educación</span>
+        <span>Modalidad virtual</span>
+        <span>23 de julio de 2026</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="menu">
+      <h3>Clase 2</h3>
+      <ul>
+        <li data-target="contenidos">Contenidos</li>
+        <li data-target="bibliografia">Bibliografía</li>
+        <li data-target="infografia">Infografía</li>
+        <li data-target="recorrido">Recorrido de estudio</li>
+      </ul>
+    </aside>
+
+    <main class="content">
+      <section class="card section" id="contenidos">
+        <h2>Contenidos</h2>
+
+        <div class="unit-card">
+          <div class="unit-head">Unidad 1: Introducción al campo de estudio de la organización, administración y gestión de la educación</div>
+          <div class="unit-body">
+            <p><strong>La relación política-administración en el pensamiento administrativo técnico-racional.</strong> Relaciones entre política, administración y gestión en el ámbito de la educación. Aportes desde las ciencias sociales al conocimiento de la organización y administración de la educación.</p>
+          </div>
+        </div>
+
+        <div class="destacado">
+          En esta clase analizaremos el pasaje desde una concepción centrada en la administración educativa hacia una noción más amplia de gestión, vinculada con la acción humana, las políticas educativas, los contextos institucionales y la complejidad de las organizaciones.
+        </div>
+
+        <div class="ejes-grid">
+          <article class="eje-card">
+            <div class="num">1</div>
+            <h3>Un campo reciente</h3>
+            <p>La gestión educativa se constituye como un campo aplicado en el que interactúan teoría, política y práctica.</p>
+          </article>
+          <article class="eje-card">
+            <div class="num">2</div>
+            <h3>Modelos de gestión</h3>
+            <p>Casassus reconoce una secuencia de modelos: normativo, prospectivo, estratégico, estratégico-situacional, calidad total, reingeniería y comunicacional.</p>
+          </article>
+          <article class="eje-card">
+            <div class="num">3</div>
+            <h3>Paradigmas en tensión</h3>
+            <p>El paradigma tipo A supone estabilidad y linealidad; el tipo B reconoce contextos inestables, complejos y cambiantes.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card section" id="bibliografia">
+        <h2>Bibliografía</h2>
+        <ul class="biblio-list">
+          <li>
+            <strong>Casassus, J. (2000).</strong> <em>Problemas de la gestión educativa en América Latina: la tensión entre los paradigmas de tipo A y el tipo B</em>. Versión preliminar. UNESCO.
+            <div class="link-row">
+              <a class="action-btn secondary" href="https://drive.google.com/file/d/1HeNWt0FLN_hs62mTc_syzUSzfRipfnPw/view?usp=sharing" target="_blank" rel="noopener noreferrer">Abrir la lectura</a>
+            </div>
+          </li>
+        </ul>
+
+        <div class="destacado">
+          Para orientar la lectura, prestá especial atención a la definición de gestión educativa, la evolución de los modelos de gestión y la caracterización de los paradigmas tipo A y tipo B.
+        </div>
+      </section>
+
+      <section class="card section" id="infografia">
+        <h2>Infografía de la clase</h2>
+        <p>La siguiente infografía sintetiza el recorrido de la clase: el surgimiento del campo de la gestión educativa, la evolución de sus modelos y la tensión entre los paradigmas descriptos por Juan Casassus.</p>
+
+        <figure class="infografia-wrap">
+          <img class="zoomable-image" src="infografia_clase2.png" alt="Infografía de la Clase 2 sobre la evolución de la gestión educativa, los siete modelos de gestión y los paradigmas tipo A y tipo B descriptos por Juan Casassus">
+          <figcaption class="infografia-caption">
+            Síntesis visual elaborada para la Clase 2 a partir de los contenidos del plan de trabajo y del texto de Casassus. Hacé clic sobre la imagen para ampliarla y volvé a hacer clic para cerrarla.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="card section" id="recorrido">
+        <h2>Recorrido de estudio</h2>
+        <p>Para organizar el trabajo de esta semana, se sugiere realizar el siguiente recorrido:</p>
+
+        <div class="resource-grid">
+          <article class="resource-card">
+            <div class="icon">📖</div>
+            <h3>1. Leer el texto</h3>
+            <p>Identificá cómo define Casassus la gestión educativa y qué relaciones establece entre teoría, política y práctica.</p>
+            <a class="action-btn" href="https://drive.google.com/file/d/1HeNWt0FLN_hs62mTc_syzUSzfRipfnPw/view?usp=sharing" target="_blank" rel="noopener noreferrer">Abrir bibliografía</a>
+          </article>
+          <article class="resource-card">
+            <div class="icon">🧭</div>
+            <h3>2. Reconocer los modelos</h3>
+            <p>Observá qué problema intenta resolver cada modelo y por qué un nuevo enfoque no elimina necesariamente al anterior.</p>
+          </article>
+          <article class="resource-card">
+            <div class="icon">🔎</div>
+            <h3>3. Comparar los paradigmas</h3>
+            <p>Revisá la infografía y distinguí los supuestos, los tipos de cambio y las concepciones de gestión presentes en los paradigmas A y B.</p>
+          </article>
+          <article class="resource-card">
+            <div class="icon">💬</div>
+            <h3>4. Reflexionar</h3>
+            <p>¿Qué rasgos de ambos paradigmas reconocés en las instituciones educativas y en las prácticas de gestión que conocés?</p>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="image-lightbox" id="imageLightbox" aria-hidden="true">
+    <div class="close-hint">Clic para cerrar</div>
+    <img id="lightboxImage" src="" alt="Imagen ampliada">
+  </div>
+
+  <footer class="footer">
+    Administración de la Educación y Gestión de las Instituciones Escolares · Universidad Nacional de Quilmes · Julio 2026
+  </footer>
+</div>
+
+<script>
+const menuItems=document.querySelectorAll('.menu li');
+const sections=document.querySelectorAll('.section');
+
+function showSection(id,item){
+  sections.forEach(s=>s.classList.remove('active'));
+  menuItems.forEach(i=>i.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  item.classList.add('active');
+}
+menuItems.forEach(item=>{
+  item.addEventListener('click',()=>showSection(item.dataset.target,item));
+});
+if(menuItems.length){
+  showSection(menuItems[0].dataset.target,menuItems[0]);
+}
+
+const zoomableImage=document.querySelector('.zoomable-image');
+const lightbox=document.getElementById('imageLightbox');
+const lightboxImage=document.getElementById('lightboxImage');
+
+if(zoomableImage && lightbox && lightboxImage){
+  zoomableImage.addEventListener('click',()=>{
+    lightboxImage.src=zoomableImage.getAttribute('src');
+    lightboxImage.alt=zoomableImage.getAttribute('alt');
+    lightbox.classList.add('active');
+    lightbox.setAttribute('aria-hidden','false');
+  });
+
+  lightbox.addEventListener('click',()=>{
+    lightbox.classList.remove('active');
+    lightbox.setAttribute('aria-hidden','true');
+  });
+}
+</script>
+</body>
+</html>
