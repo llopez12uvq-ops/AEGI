@@ -314,45 +314,6 @@ body{
 @media(max-width:900px){.ejes-grid{grid-template-columns:1fr}}
 
 
-.zoomable-image{cursor:zoom-in;transition:transform .18s ease}
-.zoomable-image:hover{transform:scale(1.01)}
-.image-lightbox{
-  position:fixed;
-  inset:0;
-  background:rgba(15,37,53,.88);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:28px;
-  opacity:0;
-  visibility:hidden;
-  transition:opacity .2s ease, visibility .2s ease;
-  z-index:9999;
-}
-.image-lightbox.active{opacity:1;visibility:visible}
-.image-lightbox img{
-  max-width:min(1200px,96vw);
-  max-height:90vh;
-  width:auto;
-  height:auto;
-  border-radius:14px;
-  box-shadow:0 18px 42px rgba(0,0,0,.28);
-  background:#fff;
-  cursor:zoom-out;
-}
-.image-lightbox .close-hint{
-  position:absolute;
-  top:18px;
-  right:22px;
-  color:#fff;
-  font-size:14px;
-  font-weight:700;
-  letter-spacing:.03em;
-  background:rgba(255,255,255,.12);
-  border:1px solid rgba(255,255,255,.18);
-  padding:10px 14px;
-  border-radius:999px;
-}
 
 @media(max-width:1080px){
   .layout{grid-template-columns:1fr}
@@ -452,11 +413,14 @@ body{
         <p>La siguiente infografía sintetiza el recorrido de la clase: el surgimiento del campo de la gestión educativa, la evolución de sus modelos y la tensión entre los paradigmas descriptos por Juan Casassus.</p>
 
         <figure class="infografia-wrap">
-          <img class="zoomable-image" src="infografia_clase2.png" alt="Infografía de la Clase 2 sobre la evolución de la gestión educativa, los siete modelos de gestión y los paradigmas tipo A y tipo B descriptos por Juan Casassus">
+          <a href="infografia_clase2_final.png" target="_blank" rel="noopener noreferrer" aria-label="Abrir la infografía completa en una nueva pestaña"><img src="infografia_clase2_final.png" alt="Infografía de la Clase 2 sobre la evolución de la gestión educativa, los siete modelos de gestión y los paradigmas tipo A y tipo B descriptos por Juan Casassus"></a>
           <figcaption class="infografia-caption">
-            Síntesis visual elaborada para la Clase 2 a partir de los contenidos del plan de trabajo y del texto de Casassus. Hacé clic sobre la imagen para ampliarla y volvé a hacer clic para cerrarla.
+            Síntesis visual elaborada para la Clase 2 a partir de los contenidos del plan de trabajo y del texto de Casassus. Hacé clic sobre la imagen para abrirla completa en una nueva pestaña.
           </figcaption>
         </figure>
+        <div class="link-row">
+          <a class="action-btn" href="infografia_clase2_final.png" target="_blank" rel="noopener noreferrer">Abrir la infografía completa</a>
+        </div>
       </section>
 
       <section class="card section" id="recorrido">
@@ -490,11 +454,6 @@ body{
     </main>
   </div>
 
-  <div class="image-lightbox" id="imageLightbox" aria-hidden="true">
-    <div class="close-hint">Clic para cerrar</div>
-    <img id="lightboxImage" src="" alt="Imagen ampliada">
-  </div>
-
   <footer class="footer">
     Administración de la Educación y Gestión de las Instituciones Escolares · Universidad Nacional de Quilmes · Julio 2026
   </footer>
@@ -517,23 +476,6 @@ if(menuItems.length){
   showSection(menuItems[0].dataset.target,menuItems[0]);
 }
 
-const zoomableImage=document.querySelector('.zoomable-image');
-const lightbox=document.getElementById('imageLightbox');
-const lightboxImage=document.getElementById('lightboxImage');
-
-if(zoomableImage && lightbox && lightboxImage){
-  zoomableImage.addEventListener('click',()=>{
-    lightboxImage.src=zoomableImage.getAttribute('src');
-    lightboxImage.alt=zoomableImage.getAttribute('alt');
-    lightbox.classList.add('active');
-    lightbox.setAttribute('aria-hidden','false');
-  });
-
-  lightbox.addEventListener('click',()=>{
-    lightbox.classList.remove('active');
-    lightbox.setAttribute('aria-hidden','true');
-  });
-}
 </script>
 </body>
 </html>
