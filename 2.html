@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clase 2 · Administración de la Educación y Gestión de las Instituciones Escolares</title>
+<style>
+
+:root{
+  --brand:#1cabe2;
+  --brand-dark:#1189bb;
+  --bg:#eef7fb;
+  --paper:#ffffff;
+  --ink:#1f2a37;
+  --muted:#4f6272;
+  --line:#d6e8f2;
+  --soft:#f4fbfe;
+  --soft-2:#eef7fb;
+  --accent:#dff3fb;
+  --max:1100px;
+  --text:1.04rem;
+  --shadow:0 18px 42px rgba(29,78,110,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:radial-gradient(circle at top left, rgba(28,171,226,.10), transparent 22%), linear-gradient(180deg,#f4fbfe 0%, var(--bg) 100%);
+  color:var(--ink);
+  font-family:"Aptos","Segoe UI",Arial,sans-serif;
+  line-height:1.72;
+}
+a{color:inherit}
+.page{max-width:var(--max); margin:26px auto; background:var(--paper); border:1px solid #d9edf7; box-shadow:var(--shadow); border-radius:28px; overflow:hidden}
+.cover{position:relative; padding:52px 68px 56px; background:radial-gradient(circle at 82% 18%, rgba(28,171,226,.10), transparent 23%), linear-gradient(180deg,#fff,#f7fcfe 75%,#fff); border-bottom:1px solid var(--line)}
+.cover::before{content:""; position:absolute; left:0; right:0; top:0; height:12px; background:var(--brand)}
+.topline{display:flex; align-items:flex-start; justify-content:space-between; gap:24px; margin:8px 0 44px}
+.brandlock{display:flex; gap:16px; align-items:center}
+.brandmark{width:58px; height:58px; flex:0 0 58px; display:grid; place-items:center; background:var(--brand); border-radius:2px}
+.brandmark img{width:26px; height:auto; display:block}
+.kicker{max-width:520px; color:var(--muted); text-transform:uppercase; font-size:.74rem; letter-spacing:.14em; line-height:1.55}
+.series{color:var(--brand); font-size:.82rem; text-transform:uppercase; letter-spacing:.16em; border-bottom:1px solid var(--line); padding-bottom:10px; white-space:nowrap}
+.cover-grid{display:grid; grid-template-columns:minmax(0,1fr) 300px; gap:40px; align-items:center}
+h1{margin:0 0 18px; font-family:Georgia, "Times New Roman", serif; font-size:3.45rem; line-height:1.02; letter-spacing:-.03em; color:#0f2535}
+.subtitle-program{margin:10px 0 6px; font-size:1.18rem; color:var(--brand-dark); font-weight:700; letter-spacing:.01em}
+.subtitle-university{margin:0 0 18px; font-size:1rem; text-transform:uppercase; letter-spacing:.08em; color:var(--muted)}
+.cover-year{display:inline-block; margin:2px 0 22px; padding:7px 14px 6px; border:1px solid rgba(28,171,226,.22); background:linear-gradient(180deg,#f7fcfe,#eaf7fc); color:var(--brand); font-size:.84rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; border-radius:999px; box-shadow:0 8px 20px rgba(28,171,226,.12)}
+.hero-illustration{width:100%; max-width:280px; margin:0 auto; background:linear-gradient(180deg,#ffffff,#eef7fb); border:1px solid var(--line); padding:22px; display:grid; place-items:center; min-height:240px}
+.hero-illustration .hero-svg{width:190px; max-width:100%; height:auto; display:block}
+.hero-illustration .svg-soft{fill:#dff3fb}
+.hero-illustration .svg-line{fill:none; stroke:#1cabe2; stroke-width:3; stroke-linecap:round; stroke-linejoin:round}
+.hero-illustration .svg-fill{fill:#1cabe2}
+.hero-illustration .svg-muted{fill:#89cfe9}
+.cover-footer{display:grid; grid-template-columns:repeat(2,minmax(280px,1fr)); gap:22px; margin-top:36px; padding-top:24px; border-top:1px solid var(--line)}
+.cover-card{padding:22px 24px; border:1px solid var(--line); background:linear-gradient(180deg,#fff,#f4fbfe)}
+.cover-card .label{display:block; margin-bottom:10px; color:var(--brand); text-transform:uppercase; letter-spacing:.14em; font-size:.72rem; font-weight:700}
+.cover-card p{margin:0; color:var(--muted)}
+.content{padding:38px 68px 84px}
+.content p{text-align:justify; text-justify:inter-word}
+.toc{margin-bottom:30px; padding:24px 26px 20px; border:1px solid var(--line); background:linear-gradient(180deg,#fff,#f4fbfe)}
+.toc h2{margin:0 0 14px; color:var(--brand); text-transform:uppercase; letter-spacing:.14em; font-size:.76rem}
+.toc ol{margin:0; padding-left:1.35rem; font-size:1rem}.toc li{margin:9px 0}.toc a{text-decoration:none; border-bottom:1px solid transparent}.toc a:hover{color:var(--brand); border-bottom-color:var(--brand)}
+h2.section{margin:46px 0 16px; padding-top:18px; border-top:1px solid var(--line); font-family:Georgia, "Times New Roman", serif; font-size:2rem; line-height:1.12; letter-spacing:-.02em}
+h3{margin:28px 0 10px; color:var(--brand); font-size:1.08rem}
+p{margin:12px 0; font-size:var(--text)}
+.mdm-box{margin:20px 0 28px; padding:18px 20px; border:2px solid var(--brand); border-left:10px solid #f3b229; background:#fff; box-shadow:0 8px 22px rgba(29,78,110,.06)}
+.mdm-title{margin:0 0 10px; color:var(--brand-dark); font-weight:700; font-size:1.04rem}
+mark{
+  background:none;
+  color:inherit;
+  padding:0;
+  border:0;
+  border-radius:0;
+  box-shadow:none;
+  font-weight:700;
+}
+
+
+.mdm-preview-link{
+  position:relative;
+  color:var(--brand);
+  text-decoration:none;
+  border-bottom:1px solid rgba(28,171,226,.38);
+  font-weight:700;
+}
+.mdm-preview-link:hover{
+  color:var(--brand-dark);
+  border-bottom-color:var(--brand-dark);
+}
+.mdm-preview-link::after{
+  content:"Repositorio UVQ · Material Didáctico Digital\A Abrir MDM en una nueva pestaña";
+  white-space:pre-line;
+  position:absolute;
+  left:0;
+  bottom:135%;
+  width:290px;
+  padding:14px 16px;
+  background:#fff;
+  color:var(--ink);
+  border:1px solid var(--line);
+  box-shadow:0 14px 28px rgba(29,78,110,.16);
+  border-radius:6px;
+  font-size:.88rem;
+  line-height:1.45;
+  font-weight:400;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(8px);
+  transition:opacity .18s ease, transform .18s ease, visibility .18s ease;
+  z-index:20;
+}
+.mdm-preview-link::before{
+  content:"";
+  position:absolute;
+  left:22px;
+  bottom:118%;
+  border:8px solid transparent;
+  border-top-color:#fff;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .18s ease, visibility .18s ease;
+  z-index:21;
+}
+.mdm-preview-link:hover::after,
+.mdm-preview-link:hover::before,
+.mdm-preview-link:focus::after,
+.mdm-preview-link:focus::before{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+
+
+.author-line{
+  margin:6px 0 0;
+  color:var(--muted);
+  font-size:.94rem;
+  line-height:1.65;
+}
+
+.author-list{
+  margin:6px 0 0;
+  padding-left:1.15rem;
+  color:var(--muted);
+  font-size:.94rem;
+  line-height:1.55;
+}
+.author-list li{
+  margin:2px 0;
+}
+.update-note{
+  margin:16px 0 0;
+  padding-top:12px;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  font-size:.92rem;
+  line-height:1.5;
+}
+
+@media (max-width:880px){
+  .mdm-preview-link::after,
+  .mdm-preview-link::before{
+    display:none;
+  }
+}
+
+.tour-card{
+  margin:24px 0 30px;
+  padding:24px 26px;
+  border:1px solid var(--line);
+  background:linear-gradient(180deg,#fff,#f4fbfe);
+  box-shadow:0 10px 24px rgba(29,78,110,.07);
+}
+.tour-card h3{
+  margin:0 0 8px;
+  color:var(--brand);
+  font-size:1.12rem;
+}
+.tour-card p{
+  margin:8px 0 18px;
+  color:var(--muted);
+}
+.tour-button{
+  display:inline-block;
+  padding:11px 18px;
+  background:var(--brand);
+  color:#fff;
+  text-decoration:none;
+  border-radius:999px;
+  font-weight:700;
+  line-height:1.2;
+  box-shadow:0 8px 18px rgba(28,171,226,.22);
+}
+.tour-button:hover{
+  background:var(--brand-dark);
+}
+
+.tour-button{
+  position:relative;
+}
+.tour-button::after{
+  content:"Tour 360° del campus UNQ\A Abrir recorrido virtual en una nueva pestaña";
+  white-space:pre-line;
+  position:absolute;
+  left:0;
+  bottom:135%;
+  width:300px;
+  padding:14px 16px;
+  background:#fff;
+  color:var(--ink);
+  border:1px solid var(--line);
+  box-shadow:0 14px 28px rgba(29,78,110,.16);
+  border-radius:6px;
+  font-size:.88rem;
+  line-height:1.45;
+  font-weight:400;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(8px);
+  transition:opacity .18s ease, transform .18s ease, visibility .18s ease;
+  z-index:20;
+}
+.tour-button::before{
+  content:"";
+  position:absolute;
+  left:22px;
+  bottom:118%;
+  border:8px solid transparent;
+  border-top-color:#fff;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .18s ease, visibility .18s ease;
+  z-index:21;
+}
+.tour-button:hover::after,
+.tour-button:hover::before,
+.tour-button:focus::after,
+.tour-button:focus::before{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+@media (max-width:880px){
+  .tour-button::after,
+  .tour-button::before{
+    display:none;
+  }
+}
+
+
+.text-link{color:var(--brand); text-decoration:none; border-bottom:1px solid rgba(28,171,226,.38); transition:all .18s ease; overflow-wrap:anywhere; word-break:break-word}.text-link:hover{color:var(--brand-dark); border-bottom-color:var(--brand-dark)}
+.reference-group{margin:20px 0 0; padding:18px 20px 8px; border:1px solid var(--line); background:linear-gradient(180deg,#fff,#f4fbfe)}
+.ref-list{list-style:none; padding-left:0; margin:10px 0 0}.ref-list li{margin:12px 0; padding-left:1.4em; text-indent:-1.4em; overflow-wrap:anywhere; word-break:break-word; hyphens:auto}
+.back-top{margin:28px 0 0; font-size:.92rem; color:var(--muted)}.back-top a{text-decoration:none; color:var(--muted); border-bottom:1px solid transparent}.back-top a:hover{color:var(--brand); border-bottom-color:var(--brand)}
+.site-footer{margin-top:56px; padding:0 24px 30px; color:var(--muted)}.site-footer-shell{border:1px solid var(--line); background:linear-gradient(180deg,#fff 0%, #f4fbfe 100%); box-shadow:0 10px 24px rgba(29,78,110,.06)}.site-footer-grid{display:grid; grid-template-columns:minmax(0,1.45fr) 1px minmax(260px,.85fr); gap:0 22px; align-items:stretch; padding:18px 20px}.site-footer-divider{width:1px; background:linear-gradient(180deg,rgba(28,171,226,.18),rgba(28,171,226,.55),rgba(28,171,226,.18))}.site-footer-label{margin:0 0 10px; color:var(--brand); text-transform:uppercase; letter-spacing:.18em; font-size:.78rem; font-weight:700; line-height:1.4}.site-footer-note{margin:0; font-size:.95rem; line-height:1.72; color:var(--muted)}.site-footer-author{margin:0; color:var(--ink); font-weight:700; font-size:.98rem; line-height:1.55}.site-footer-role{margin:4px 0 0; color:var(--muted); font-size:.94rem; line-height:1.55}
+@media (max-width:880px){.page{margin:0; border:none; box-shadow:none}.cover,.content{padding:28px 22px 42px}.topline{flex-direction:column; align-items:flex-start; gap:14px; margin-bottom:28px}.cover-grid,.cover-footer{grid-template-columns:1fr}h1{font-size:2.45rem}.series{white-space:normal}.site-footer{padding:0 16px 24px}.site-footer-grid{grid-template-columns:1fr; gap:14px 0; padding:16px}.site-footer-divider{width:100%; height:1px}.ref-list li{padding-left:1.1em; text-indent:-1.1em; font-size:.98rem}}
+@media print{body{background:#fff}.page{margin:0; border:none; box-shadow:none; max-width:none}.toc,.back-top{display:none}}
+
+
+.concept-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:22px 0 30px}
+.concept-card{padding:20px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe);border-top:6px solid var(--brand)}
+.concept-card h3{margin:0 0 8px;font-family:Georgia,"Times New Roman",serif;font-size:1.25rem;color:var(--brand-dark)}
+.concept-card p{margin:0;text-align:left;color:var(--muted);font-size:.98rem}
+.key-list{margin:18px 0 28px;padding:22px 24px 18px;border:1px solid var(--line);background:var(--soft)}
+.key-list ul{margin:0;padding-left:1.2rem}.key-list li{margin:8px 0}
+.reflection{margin:28px 0;padding:24px 26px;border-left:8px solid var(--brand);background:linear-gradient(135deg,#f8eef1,#fff)}
+.reflection h3{margin:0 0 8px}.reflection p{margin:0;font-family:Georgia,"Times New Roman",serif;font-size:1.18rem;text-align:left}
+.timeline{margin:22px 0 30px;border-left:3px solid var(--line);padding-left:24px}
+.timeline-item{position:relative;margin:0 0 24px;padding:18px 20px;border:1px solid var(--line);background:#fff}
+.timeline-item::before{content:"";position:absolute;left:-32px;top:24px;width:13px;height:13px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 5px #f4ecef}
+.timeline-item h3{margin:0 0 8px}.timeline-item p{margin:0;text-align:left}
+.field-box{margin:22px 0 30px;padding:24px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe)}
+.field-box strong{color:var(--brand-dark)}
+.reading-card{margin:20px 0 30px;padding:22px 24px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe)}
+.reading-card h3{margin:0 0 12px}.reading-card ul{margin:0;padding-left:1.2rem}.reading-card li{margin:9px 0}
+@media(max-width:880px){.concept-grid{grid-template-columns:1fr}}
+
+
+
+.model-flow{display:grid;grid-template-columns:repeat(7,minmax(110px,1fr));gap:10px;margin:24px 0 30px;align-items:stretch}
+.model-step{position:relative;padding:18px 12px 16px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe);text-align:center;min-height:138px;display:flex;flex-direction:column;justify-content:center}
+.model-step::after{content:"→";position:absolute;right:-14px;top:50%;transform:translateY(-50%);color:var(--brand);font-weight:700;font-size:1.25rem;z-index:2}
+.model-step:last-child::after{display:none}
+.model-number{width:34px;height:34px;margin:0 auto 10px;border-radius:50%;display:grid;place-items:center;background:var(--brand);color:#fff;font-weight:800}
+.model-step h3{margin:0 0 6px;font-size:.98rem;color:var(--brand-dark)}
+.model-step p{margin:0;font-size:.86rem;line-height:1.4;text-align:center;color:var(--muted)}
+.paradigm-figure{margin:26px 0 32px;padding:20px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f7fcfe);box-shadow:0 10px 24px rgba(29,78,110,.07)}
+.paradigm-figure svg{width:100%;height:auto;display:block}
+.paradigm-caption{margin:12px 2px 0;color:var(--muted);font-size:.92rem;line-height:1.55;text-align:left!important}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:22px 0 30px}
+.compare-card{padding:22px;border:1px solid var(--line);background:#fff;border-top:7px solid var(--brand)}
+.compare-card.type-b{border-top-color:#6cc4a1}
+.compare-card h3{margin:0 0 10px;font-family:Georgia,"Times New Roman",serif;font-size:1.3rem;color:var(--brand-dark)}
+.compare-card.type-b h3{color:#397e62}
+.compare-card ul{margin:0;padding-left:1.2rem}.compare-card li{margin:8px 0}
+.intersection{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:22px 0 30px}
+.intersection-card{padding:20px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe)}
+.intersection-card .badge{display:inline-block;margin-bottom:10px;padding:6px 10px;border-radius:999px;background:var(--accent);color:var(--brand-dark);font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.intersection-card h3{margin:0 0 8px}.intersection-card p{margin:0;text-align:left}
+.question-box{margin:28px 0;padding:24px 26px;border:2px solid var(--brand);background:#fff}
+.question-box h3{margin:0 0 12px}.question-box ul{margin:0;padding-left:1.2rem}.question-box li{margin:10px 0}
+@media(max-width:980px){.model-flow{grid-template-columns:repeat(2,1fr)}.model-step::after{display:none}.intersection,.compare-grid{grid-template-columns:1fr}}
+@media(max-width:560px){.model-flow{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="page" id="top">
+<section class="cover">
+<div class="topline">
+<div class="brandlock">
+<div class="brandmark"><img alt="UNQ" src="data:image/png;base64,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"/></div>
+<div class="kicker">Universidad Nacional de Quilmes · Licenciatura en Educación</div>
+</div>
+<div class="series">Administración de la Educación y Gestión de las Instituciones Escolares</div>
+</div>
+<div class="cover-grid">
+<div class="cover-copy">
+<h1>Clase 2</h1>
+<p class="subtitle-program">La evolución de la gestión educativa</p>
+<p class="subtitle-university">De la administración técnico-racional a los nuevos paradigmas</p>
+<div class="cover-year">Unidad 1 · 2026</div>
+</div>
+<figure aria-label="Ilustración sobre los paradigmas de gestión educativa" class="hero-illustration">
+<svg aria-labelledby="hero2-title" class="hero-svg" role="img" viewbox="0 0 220 190" xmlns="http://www.w3.org/2000/svg">
+<title id="hero2-title">Dos paradigmas de gestión educativa en tensión</title>
+<circle class="svg-soft" cx="110" cy="94" r="78"></circle>
+<rect fill="#fff" height="90" rx="8" stroke="#1cabe2" stroke-width="3" width="68" x="28" y="52"></rect>
+<rect fill="#fff" height="90" rx="8" stroke="#6cc4a1" stroke-width="3" width="68" x="124" y="52"></rect>
+<path class="svg-line" d="M45 78h34M45 96h34M45 114h34"></path>
+<path d="M141 78c10-12 24-12 34 0M141 99c10 12 24 12 34 0M141 120c10-12 24-12 34 0" fill="none" stroke="#6cc4a1" stroke-linecap="round" stroke-width="3"></path>
+<circle cx="110" cy="96" fill="#0f2535" r="20"></circle>
+<text fill="#fff" font-family="Arial" font-size="15" font-weight="700" text-anchor="middle" x="110" y="102">VS</text>
+<text fill="#1189bb" font-family="Arial" font-size="14" font-weight="700" text-anchor="middle" x="62" y="44">TIPO A</text>
+<text fill="#397e62" font-family="Arial" font-size="14" font-weight="700" text-anchor="middle" x="158" y="44">TIPO B</text>
+</svg>
+</figure>
+</div>
+<div class="cover-footer">
+<div class="cover-card"><span class="label">Eje de la clase</span><p>La evolución de los modelos de gestión y la tensión entre los paradigmas de tipo A y tipo B.</p></div>
+<div class="cover-card"><span class="label">Lectura principal</span><p>Casassus, J. (2000). <em>Problemas de la gestión educativa en América Latina</em>.</p></div>
+</div>
+</section>
+<main class="content">
+<nav aria-label="Índice de la clase" class="toc" id="indice">
+<h2>Índice</h2>
+<ol>
+<li><a href="#introduccion">Introducción</a></li>
+<li><a href="#lectura">Lectura de la semana</a></li>
+<li><a href="#campo">Un campo reciente y en construcción</a></li>
+<li><a href="#modelos">La evolución de los modelos de gestión</a></li>
+<li><a href="#paradigmas">Paradigmas de tipo A y tipo B</a></li>
+<li><a href="#articulacion">Política, administración y gestión</a></li>
+<li><a href="#cierre">Cierre y preguntas para reflexionar</a></li>
+<li><a href="#referencias">Referencias</a></li>
+</ol>
+</nav>
+<h2 class="section" id="introduccion">Introducción</h2>
+<p>Bienvenidos a la segunda clase. En esta oportunidad analizaremos cómo fue cambiando la comprensión de la administración y la gestión en el ámbito educativo. El recorrido parte de enfoques técnico-racionales y lineales y avanza hacia perspectivas que reconocen la incertidumbre, la complejidad de las organizaciones y el carácter no lineal de la acción humana.</p>
+<div class="mdm-box">
+<p class="mdm-title">Propósito de la clase</p>
+<p>Comprender la evolución de los principales modelos de gestión educativa y analizar la tensión entre los paradigmas de tipo A y tipo B propuestos por Juan Casassus.</p>
+</div>
+<h2 class="section" id="lectura">Lectura de la semana</h2>
+<div class="reading-card">
+<h3>Texto obligatorio</h3>
+<ul>
+<li>Casassus, J. (2000). <em>Problemas de la gestión educativa en América Latina: la tensión entre los paradigmas de tipo A y tipo B</em>. Versión preliminar. UNESCO. <a class="text-link" href="AE_Casassus_J_Unidad_1.pdf" rel="noopener noreferrer" target="_blank">Abrir el texto</a>.</li>
+</ul>
+</div>
+<p>El texto presenta la gestión educativa como una disciplina aplicada y todavía en gestación, atravesada por la interacción entre teoría, política y práctica. También reconstruye una secuencia de modelos que orientaron los procesos de cambio institucional y propone dos grandes paradigmas para comprender las concepciones de gestión que se encuentran en tensión.</p>
+<h2 class="section" id="campo">Un campo reciente y en construcción</h2>
+<p>Según Casassus, la gestión educativa se desarrolla desde la década de 1960 en Estados Unidos, durante los años setenta en el Reino Unido y recién en los años ochenta en América Latina. Se trata, por lo tanto, de un campo reciente, con un nivel todavía bajo de especificidad y estructuración.</p>
+<p>Su objeto es la organización del trabajo en el campo educativo. Por eso, la gestión educativa se encuentra determinada tanto por las teorías generales de la gestión como por los desarrollos propios de la educación. No es únicamente una disciplina teórica: se constituye en la puesta en práctica de principios de gestión y educación y se encuentra fuertemente influida por las políticas educativas y por la vida cotidiana de las instituciones.</p>
+<div class="field-box">
+<p><strong>Gestión educativa</strong> no equivale a la mera ejecución de instrucciones. Incluye la planificación, la administración, la interpretación del contexto, la adecuación de recursos y la construcción de condiciones para que las decisiones puedan concretarse.</p>
+</div>
+<p>Este desplazamiento permite comprender por qué en América Latina se pasó de hablar principalmente de <em>administración educativa</em> a utilizar el concepto más amplio de <em>gestión educativa</em>. En contextos descentralizados, quienes conducen las instituciones no se limitan a ejecutar un plan: deben ajustar, replanificar, negociar y actuar políticamente frente a situaciones concretas.</p>
+<h2 class="section" id="modelos">La evolución de los modelos de gestión educativa</h2>
+<p>Casassus identifica siete marcos conceptuales, técnicos e instrumentales que orientaron el cambio institucional. Cada modelo surge como respuesta a las limitaciones del anterior o a nuevas condiciones del entorno. La aparición de un nuevo modelo no elimina completamente a los anteriores: los complementa, los reformula y amplía el repertorio disponible para pensar la gestión.</p>
+<div aria-label="Secuencia de modelos de gestión educativa" class="model-flow">
+<div class="model-step"><div class="model-number">1</div><h3>Normativo</h3><p>Futuro único y cierto; planificación lineal y centralizada.</p></div>
+<div class="model-step"><div class="model-number">2</div><h3>Prospectivo</h3><p>Futuros múltiples; construcción de escenarios posibles.</p></div>
+<div class="model-step"><div class="model-number">3</div><h3>Estratégico</h3><p>Articulación de recursos para alcanzar objetivos organizacionales.</p></div>
+<div class="model-step"><div class="model-number">4</div><h3>Estratégico-situacional</h3><p>Actores, conflictos, viabilidad y resolución de nudos críticos.</p></div>
+<div class="model-step"><div class="model-number">5</div><h3>Calidad total</h3><p>Resultados, procesos, estándares y mejora continua.</p></div>
+<div class="model-step"><div class="model-number">6</div><h3>Reingeniería</h3><p>Rediseño radical de procesos frente a cambios del entorno.</p></div>
+<div class="model-step"><div class="model-number">7</div><h3>Comunicacional</h3><p>Conversaciones, compromisos y coordinación de acciones.</p></div>
+</div>
+<div class="destacado">La trayectoria de estos modelos muestra un desplazamiento desde visiones abstractas, lineales y centralizadas hacia perspectivas más situadas, complejas y atentas a los procesos humanos y comunicacionales.</div>
+<h2 class="section" id="paradigmas">Dos grandes paradigmas en tensión: tipo A y tipo B</h2>
+<p>Junto con la evolución de los modelos, Casassus distingue dos grandes paradigmas. No se trata solamente de técnicas diferentes, sino de supuestos distintos acerca del ser humano, el contexto, el cambio y la relación entre teoría y práctica.</p>
+<figure class="paradigm-figure">
+<svg aria-labelledby="paradigma-title paradigma-desc" role="img" viewbox="0 0 1000 570" xmlns="http://www.w3.org/2000/svg">
+<title id="paradigma-title">Paradigmas de tipo A y tipo B en la gestión educativa</title>
+<desc id="paradigma-desc">Comparación entre un paradigma técnico-racionalista-lineal, basado en un universo estable, y un paradigma emotivo-no lineal-holístico, asociado a un universo inestable.</desc>
+<defs>
+<filter height="140%" id="shadow" width="140%" x="-20%" y="-20%"><fedropshadow dx="0" dy="8" flood-color="#1d4e6e" flood-opacity=".12" stddeviation="10"></fedropshadow></filter>
+<lineargradient id="aHead" x1="0" x2="1"><stop offset="0" stop-color="#dff3fb"></stop><stop offset="1" stop-color="#bfe7f7"></stop></lineargradient>
+<lineargradient id="bHead" x1="0" x2="1"><stop offset="0" stop-color="#e9f7f0"></stop><stop offset="1" stop-color="#cbead9"></stop></lineargradient>
+</defs>
+<rect fill="#fff" height="534" rx="24" stroke="#d6e8f2" width="964" x="18" y="18"></rect>
+<text fill="#0f2535" font-family="Georgia,serif" font-size="29" font-weight="700" text-anchor="middle" x="500" y="58">Paradigmas descriptos por Juan Casassus</text>
+<rect fill="#fff" filter="url(#shadow)" height="402" rx="22" stroke="#1cabe2" stroke-width="2" width="400" x="55" y="92"></rect>
+<rect fill="url(#aHead)" height="72" rx="22" width="400" x="55" y="92"></rect>
+<text fill="#1189bb" font-family="Arial" font-size="22" font-weight="700" text-anchor="middle" x="255" y="124">PARADIGMA TIPO A</text>
+<text fill="#36586a" font-family="Arial" font-size="17" font-weight="700" text-anchor="middle" x="255" y="150">Universo estable</text>
+<text fill="#1189bb" font-family="Arial" font-size="17" font-weight="700" x="88" y="205">Supuestos</text>
+<circle cx="94" cy="234" fill="#1cabe2" r="5"></circle><text fill="#1f2a37" font-family="Arial" font-size="16" x="108" y="240">Ser humano y contexto como invariantes</text>
+<text fill="#1189bb" font-family="Arial" font-size="17" font-weight="700" x="88" y="285">Cambio</text>
+<circle cx="94" cy="314" fill="#1cabe2" r="5"></circle><text fill="#1f2a37" font-family="Arial" font-size="16" x="108" y="320">Acumulativo y orientado por objetivos</text>
+<circle cx="94" cy="341" fill="#1cabe2" r="5"></circle><text fill="#1f2a37" font-family="Arial" font-size="16" x="108" y="347">preestablecidos</text>
+<text fill="#1189bb" font-family="Arial" font-size="17" font-weight="700" x="88" y="390">Modelo de gestión</text>
+<circle cx="94" cy="419" fill="#1cabe2" r="5"></circle><text fill="#1f2a37" font-family="Arial" font-size="16" x="108" y="425">La teoría orienta una práctica técnica</text>
+<rect fill="#dff3fb" height="28" rx="14" width="327" x="91" y="448"></rect><text fill="#0f6f98" font-family="Arial" font-size="15" font-weight="700" text-anchor="middle" x="255" y="468">Técnico-racionalista-lineal</text>
+<rect fill="#fff" filter="url(#shadow)" height="402" rx="22" stroke="#6cc4a1" stroke-width="2" width="400" x="545" y="92"></rect>
+<rect fill="url(#bHead)" height="72" rx="22" width="400" x="545" y="92"></rect>
+<text fill="#397e62" font-family="Arial" font-size="22" font-weight="700" text-anchor="middle" x="745" y="124">PARADIGMA TIPO B</text>
+<text fill="#46695a" font-family="Arial" font-size="17" font-weight="700" text-anchor="middle" x="745" y="150">Universo inestable</text>
+<text fill="#397e62" font-family="Arial" font-size="17" font-weight="700" x="578" y="205">Supuestos</text>
+<circle cx="584" cy="234" fill="#6cc4a1" r="5"></circle><text fill="#1f2a37" font-family="Arial" font-size="16" x="598" y="240">Ser humano y contexto como variantes</text>
+<circle cx="584" cy="261" fill="#6cc4a1" r="5"></circle><text fill="#1f2a37" font-family="Arial" font-size="16" x="598" y="267">Complejos, fluidos y cambiantes</text>
+<text fill="#397e62" font-family="Arial" font-size="17" font-weight="700" x="578" y="312">Cambio</text>
+<circle cx="584" cy="341" fill="#6cc4a1" r="5"></circle><text fill="#1f2a37" font-family="Arial" font-size="16" x="598" y="347">Turbulento e impredecible</text>
+<text fill="#397e62" font-family="Arial" font-size="17" font-weight="700" x="578" y="390">Modelo de gestión</text>
+<circle cx="584" cy="419" fill="#6cc4a1" r="5"></circle><text fill="#1f2a37" font-family="Arial" font-size="16" x="598" y="425">Teoría y práctica se integran en situación</text>
+<rect fill="#e7f5ee" height="28" rx="14" width="327" x="581" y="448"></rect><text fill="#397e62" font-family="Arial" font-size="15" font-weight="700" text-anchor="middle" x="745" y="468">Emotivo-no lineal-holístico</text>
+<circle cx="500" cy="293" fill="#0f2535" r="34"></circle><text fill="#fff" font-family="Arial" font-size="20" font-weight="700" text-anchor="middle" x="500" y="301">EN TENSIÓN</text>
+<text fill="#4f6272" font-family="Arial" font-size="16" text-anchor="middle" x="500" y="530">La gestión educativa se desplaza hacia una mayor atención a la complejidad, el contexto y la acción humana.</text>
+</svg>
+<figcaption class="paradigm-caption">Infografía elaborada para esta clase a partir de la caracterización de los paradigmas de tipo A y tipo B propuesta por Casassus (2000).</figcaption>
+</figure>
+<div class="compare-grid">
+<div class="compare-card">
+<h3>Paradigma tipo A</h3>
+<ul>
+<li>Supone un universo estable y previsible.</li>
+<li>Considera al ser humano y al contexto como invariantes.</li>
+<li>Concibe el cambio como acumulativo y orientado hacia objetivos preestablecidos.</li>
+<li>Se asocia con una visión técnico-racionalista y lineal.</li>
+</ul>
+</div>
+<div class="compare-card type-b">
+<h3>Paradigma tipo B</h3>
+<ul>
+<li>Parte de un universo inestable y cambiante.</li>
+<li>Reconoce al ser humano y al contexto como variables complejas y fluidas.</li>
+<li>Comprende el cambio como turbulento e impredecible.</li>
+<li>Propone una visión emotiva, no lineal y holística de la gestión.</li>
+</ul>
+</div>
+</div>
+<p>El paradigma tipo B reconoce que las personas no responden de manera mecánica ante los mismos estímulos y que las organizaciones educativas se relacionan con contextos internos y externos específicos. Por eso, la utilidad de las recetas generales es limitada: la gestión requiere reflexión sobre la situación concreta, comprensión de los actores y capacidad de aprendizaje continuo.</p>
+<h2 class="section" id="articulacion">Política, administración y gestión en el ámbito educativo</h2>
+<p>Los cambios en los modelos y paradigmas no ocurren de manera aislada. La gestión educativa se encuentra atravesada por transformaciones sociales, económicas y políticas y se desarrolla en la intersección entre las políticas educativas, la administración de los sistemas y las prácticas institucionales.</p>
+<div class="intersection">
+<div class="intersection-card"><span class="badge">Política educativa</span><h3>Define orientaciones</h3><p>Establece marcos generales, prioridades y objetivos para el sistema educativo.</p></div>
+<div class="intersection-card"><span class="badge">Administración</span><h3>Organiza condiciones</h3><p>Proporciona estructuras, normas, recursos y procedimientos para implementar las decisiones.</p></div>
+<div class="intersection-card"><span class="badge">Gestión</span><h3>Integra y actúa</h3><p>Articula decisiones, recursos, personas y contextos para construir respuestas situadas.</p></div>
+</div>
+<p>Las ciencias sociales aportan categorías para comprender estas relaciones. La sociología permite analizar las estructuras y desigualdades que atraviesan a la educación; la psicología organizacional contribuye a comprender el comportamiento humano en las instituciones; y las teorías de la administración y la gestión ofrecen marcos para estudiar la organización del trabajo y la conducción institucional.</p>
+<h2 class="section" id="cierre">Cierre y preguntas para reflexionar</h2>
+<p>La evolución reconstruida en esta clase muestra un pasaje desde modelos rígidos, jerárquicos y lineales hacia enfoques más flexibles, situados y atentos a la complejidad. Esto no supone una sustitución simple de un paradigma por otro, sino una tensión permanente entre distintas formas de comprender la organización, el cambio y la acción humana.</p>
+<p>Gestionar instituciones educativas implica actuar en escenarios atravesados por incertidumbres, conflictos, restricciones y demandas diversas. Requiere articular teoría y práctica, interpretar contextos y reconocer que las personas participan activamente en la construcción de las organizaciones.</p>
+<div class="question-box">
+<h3>Para reflexionar</h3>
+<ul>
+<li>¿Cómo pueden equilibrarse las demandas de eficiencia y control con la necesidad de flexibilidad y adaptación?</li>
+<li>¿Qué rasgos de los paradigmas tipo A y tipo B reconocen en las instituciones educativas que conocen?</li>
+<li>¿Cómo pueden incorporarse las dimensiones emocionales, relacionales y contextuales en la gestión educativa?</li>
+<li>¿Qué aportes de las ciencias sociales resultan relevantes para comprender los problemas de gestión?</li>
+</ul>
+</div>
+<p>Estas preguntas permitirán retomar, en las próximas clases, los enfoques teóricos que influyeron en la organización y administración de la educación.</p>
+<div class="back-top"><a href="#indice">↑ Volver al índice</a></div>
+<h2 class="section" id="referencias">Referencias</h2>
+<div class="reference-group">
+<ul class="ref-list">
+<li>Casassus, J. (2000). <em>Problemas de la gestión educativa en América Latina: la tensión entre los paradigmas de tipo A y tipo B</em>. Versión preliminar. UNESCO.</li>
+</ul>
+</div>
+<div class="back-top"><a href="#top">↑ Volver al inicio</a></div>
+</main>
+<footer class="site-footer"><div class="site-footer-shell"><div class="site-footer-grid">
+<div><p class="site-footer-label">Administración de la Educación y Gestión de las Instituciones Escolares</p><p class="site-footer-note">Material de clase elaborado por Linda Angelica Lopez</p></div>
+<div class="site-footer-divider"></div>
+<div><p class="site-footer-author">Universidad Nacional de Quilmes · Julio 2026</p></div>
+</div></div></footer>
+</div>
+</body>
+</html>
