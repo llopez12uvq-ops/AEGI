@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Clase 4 · Administración de la Educación y Gestión de las Instituciones Escolares</title>
+
+<style>
+:root{
+  --fondo:#eef7fb;
+  --blanco:#ffffff;
+  --texto:#1f2a37;
+  --texto-suave:#4f6272;
+  --borde:#d6e8f2;
+  --acento:#1cabe2;
+  --acento-oscuro:#1189bb;
+  --u1:#1cabe2;
+  --u2:#3f7cc1;
+  --u3:#f3b229;
+  --u4:#6cc4a1;
+  --sombra:0 10px 28px rgba(29, 78, 110, .10);
+  --celeste-suave:#dff3fb;
+  --amarillo-suave:#fff4d4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:"Aptos","Segoe UI",Arial,sans-serif;
+  background:linear-gradient(180deg,#f4fbfe 0%, #eef7fb 100%);
+  color:var(--texto)
+}
+.b0-wrap{
+  width:min(1320px,calc(100% - 32px));
+  margin:24px auto;
+  background:var(--blanco);
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow:var(--sombra);
+  border:1px solid #d9edf7
+}
+.hero{
+  position:relative;
+  min-height:430px;
+  display:flex;
+  align-items:flex-end;
+  padding:38px;
+  background:
+    linear-gradient(rgba(28,171,226,.27),rgba(18,84,112,.64)),
+    url('https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+  overflow:hidden
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:auto -70px 36px auto;
+  width:300px;height:300px;border-radius:50%;
+  background:rgba(255,255,255,.16)
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:36px auto auto -56px;
+  width:240px;height:240px;border-radius:50%;
+  background:rgba(255,255,255,.18)
+}
+.hero>div{position:relative;z-index:1}
+.hero-panel{
+  max-width:980px;
+  background:rgba(28,171,226,.96);
+  color:#fff;
+  padding:24px 26px;
+  box-shadow:0 12px 32px rgba(0,0,0,.14);
+  border-radius:0 22px 22px 0
+}
+.hero-kicker{
+  margin:0 0 10px;
+  font-size:14px;
+  font-weight:500;
+  letter-spacing:.4px;
+  text-transform:uppercase
+}
+.hero h1{
+  margin:0;
+  font-size:clamp(31px,4.5vw,56px);
+  line-height:1.04;
+  letter-spacing:-1px;
+  font-weight:800
+}
+.hero-sub{
+  margin-top:16px;
+  max-width:920px;
+  color:#fff;
+  font-size:18px;
+  line-height:1.5;
+  text-shadow:0 1px 4px rgba(0,0,0,.25)
+}
+.hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.hero-meta span{
+  display:inline-block;
+  padding:10px 16px;
+  background:rgba(255,255,255,.92);
+  border:1px solid rgba(255,255,255,.98);
+  color:#0f4058;
+  font-size:13px;
+  font-weight:700;
+  border-radius:999px;
+  box-shadow:0 2px 8px rgba(0,0,0,.08)
+}
+.layout{
+  display:grid;
+  grid-template-columns:300px 1fr;
+  gap:22px;
+  padding:24px
+}
+.menu{
+  background:linear-gradient(180deg,#e8f6fd 0%, #f7fcfe 100%);
+  border-radius:24px;
+  padding:18px;
+  align-self:start;
+  position:sticky;
+  top:16px;
+  border:1px solid #d4eaf5
+}
+.menu h3{
+  margin:0 0 14px;
+  font-size:14px;
+  text-transform:uppercase;
+  letter-spacing:.5px;
+  color:#3b4b5c
+}
+.menu ul{list-style:none;padding:0;margin:0}
+.menu li{
+  margin-bottom:10px;
+  padding:12px 14px;
+  border-radius:14px;
+  background:#fff;
+  border:1px solid #deedf5;
+  color:#314254;
+  font-size:14px;
+  line-height:1.35;
+  cursor:pointer;
+  transition:all .2s ease;
+  box-shadow:0 2px 6px rgba(28,171,226,.05)
+}
+.menu li:hover{transform:translateX(2px);border-color:#c8dcea}
+.menu li.active{
+  background:var(--acento);
+  color:#fff;
+  border-color:var(--acento);
+  box-shadow:0 6px 16px rgba(28,171,226,.28)
+}
+.content{display:flex;flex-direction:column;gap:18px}
+.section{display:none}.section.active{display:block}
+.card{
+  background:#fff;
+  border:1px solid var(--borde);
+  border-radius:22px;
+  padding:28px;
+  box-shadow:0 6px 18px rgba(28,171,226,.06)
+}
+.card h2{
+  margin:0 0 16px;
+  font-size:30px;
+  line-height:1.1;
+  letter-spacing:-.5px;
+  color:#0f2535
+}
+.card h3{color:#132a3c;margin:20px 0 10px}
+.card p{margin:0 0 14px;font-size:16px;line-height:1.7;color:var(--texto-suave)}
+.card p strong{color:var(--texto)}
+.destacado{
+  margin-top:16px;
+  padding:18px 20px;
+  border-left:6px solid var(--acento);
+  background:#eff8fd;
+  border-radius:16px;
+  font-size:15px;
+  line-height:1.65;
+  color:#375064
+}
+.unit-card{
+  border:1px solid var(--borde);
+  border-radius:20px;
+  overflow:hidden;
+  background:#fff;
+  margin-top:18px
+}
+.unit-head{
+  padding:16px 18px;
+  background:var(--u1);
+  color:#fff;
+  font-weight:800;
+  font-size:20px;
+  line-height:1.35
+}
+.unit-body{padding:20px}
+.biblio-list{list-style:none;padding:0;margin:0}
+.biblio-list li{
+  margin:0 0 16px;
+  padding:18px 20px;
+  border:1px solid var(--borde);
+  border-radius:18px;
+  background:linear-gradient(180deg,#fff,#f5fbfe);
+  color:var(--texto-suave);
+  line-height:1.65
+}
+.biblio-list li:last-child{margin-bottom:0}
+.link-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.action-btn{
+  display:inline-block;
+  padding:11px 18px;
+  border-radius:999px;
+  font-size:14px;
+  font-weight:700;
+  text-decoration:none;
+  background:var(--acento);
+  color:#fff;
+  border:1px solid var(--acento);
+  transition:all .2s ease;
+  box-shadow:0 8px 18px rgba(28,171,226,.22)
+}
+.action-btn:hover{
+  background:var(--acento-oscuro);
+  border-color:var(--acento-oscuro);
+  transform:translateY(-1px)
+}
+.action-btn.secondary{
+  background:#fff;
+  color:var(--acento-oscuro);
+  border-color:#9fd5e9
+}
+.action-btn.secondary:hover{background:#f0f8fc}
+.resource-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+  margin-top:18px
+}
+.resource-card{
+  padding:22px;
+  border:1px solid var(--borde);
+  border-radius:20px;
+  background:linear-gradient(180deg,#fff,#f4fbfe)
+}
+.resource-card .icon{font-size:30px;margin-bottom:12px}
+.resource-card h3{margin:0 0 8px}
+.resource-card p{font-size:15px}
+.footer{
+  padding:24px;
+  text-align:center;
+  color:#627382;
+  font-size:14px;
+  border-top:1px solid var(--borde);
+  background:#f8fcfe
+}
+.ejes-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-top:18px
+}
+.eje-card{
+  padding:20px;
+  border:1px solid var(--borde);
+  border-radius:18px;
+  background:linear-gradient(180deg,#fff,#f4fbfe)
+}
+.eje-card .num{
+  display:inline-grid;
+  place-items:center;
+  width:34px;
+  height:34px;
+  margin-bottom:10px;
+  border-radius:50%;
+  background:var(--acento);
+  color:#fff;
+  font-weight:800
+}
+.eje-card h3{margin:0 0 8px}
+.eje-card p{font-size:15px;margin:0}
+@media(max-width:900px){.ejes-grid{grid-template-columns:1fr}}
+@media(max-width:1080px){
+  .layout{grid-template-columns:1fr}
+  .menu{position:relative;top:0}
+}
+@media(max-width:760px){
+  .b0-wrap{width:100%;margin:0;border-radius:0}
+  .hero{min-height:370px;padding:18px}
+  .hero-panel{padding:18px}
+  .layout{padding:16px}
+  .card{padding:20px}
+  .resource-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+<div class="b0-wrap">
+  <header class="hero">
+    <div>
+      <div class="hero-panel">
+        <p class="hero-kicker">Clase 4 · Unidad 1</p>
+        <h1>La escuela como institución y organización social</h1>
+      </div>
+      <p class="hero-sub">La especificidad de la institución educativa y el uso de metáforas y modelos para comprender la complejidad de la organización escolar.</p>
+      <div class="hero-meta">
+        <span>Licenciatura en Educación</span>
+        <span>Modalidad virtual</span>
+        <span>6 de agosto de 2026</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="menu">
+      <h3>Clase 4</h3>
+      <ul>
+        <li data-target="contenidos">Contenidos</li>
+        <li data-target="bibliografia">Bibliografía</li>
+        <li data-target="clase">Clase</li>
+      </ul>
+    </aside>
+
+    <main class="content">
+      <section class="card section" id="contenidos">
+        <h2>Contenidos</h2>
+
+        <div class="unit-card">
+          <div class="unit-head">Unidad 1: Introducción al campo de estudio de la organización, administración y gestión de la educación</div>
+          <div class="unit-body">
+            <p><strong>La escuela como institución y organización social.</strong> La especificidad de la institución educativa.</p>
+          </div>
+        </div>
+
+        <div class="destacado">
+          En esta clase abordaremos la escuela como una organización social y analizaremos cómo las metáforas y los modelos permiten estudiar sus estructuras, relaciones, prácticas y formas de funcionamiento.
+        </div>
+
+        <div class="ejes-grid">
+          <article class="eje-card">
+            <div class="num">1</div>
+            <h3>Metáforas y modelos</h3>
+            <p>Tyler examina el modo en que distintas imágenes conceptuales orientan la comprensión de la organización escolar.</p>
+          </article>
+          <article class="eje-card">
+            <div class="num">2</div>
+            <h3>Organización social</h3>
+            <p>La escuela se analiza como un entramado de actores, normas, vínculos, decisiones, conflictos y procesos institucionales.</p>
+          </article>
+          <article class="eje-card">
+            <div class="num">3</div>
+            <h3>Especificidad educativa</h3>
+            <p>La tarea de enseñar distingue a la institución escolar y vincula sus procesos organizacionales con las decisiones pedagógicas.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card section" id="bibliografia">
+        <h2>Bibliografía obligatoria</h2>
+        <ul class="biblio-list">
+          <li>
+            <strong>Tyler, W. (1991).</strong> La estructura escolar: metáforas y modelos. En <em>Organización escolar</em>. Morata.
+            <div class="link-row">
+              <a class="action-btn secondary" href="https://drive.google.com/file/d/1zrDMUBVXqrKELxdxHbejlMIwNTM8dhew/view?usp=sharing" target="_blank" rel="noopener noreferrer">Abrir la lectura</a>
+            </div>
+          </li>
+          <li>
+            <strong>García, L., et al. (2013).</strong> <em>Carpeta de trabajo. Administración de la educación y gestión de las instituciones escolares</em>. Universidad Nacional de Quilmes.
+            <div class="link-row">
+              <a class="action-btn secondary" href="https://drive.google.com/file/d/1s0nUuZzjiOBaIocCsXybDhWz2cwP-vLG/view?usp=sharing" target="_blank" rel="noopener noreferrer">Abrir la carpeta de trabajo</a>
+            </div>
+          </li>
+        </ul>
+
+        <div class="destacado">
+          En la carpeta de trabajo de García et al. (2013), durante las primeras cuatro clases corresponde leer la <strong>Unidad 1</strong>.
+        </div>
+      </section>
+
+      <section class="card section" id="clase">
+        <h2>Clase 4</h2>
+        <p>Accedé al desarrollo completo de la clase sobre la escuela como institución y organización social, las metáforas propuestas para analizarla y los elementos que configuran la vida institucional.</p>
+
+        <div class="resource-grid">
+          <article class="resource-card">
+            <div class="icon">💻</div>
+            <h3>Material de la clase</h3>
+            <p>El recurso incluye el desarrollo conceptual, el análisis de Tyler, los elementos de las instituciones educativas y preguntas para la reflexión.</p>
+            <a class="action-btn" href="4.html" target="_blank" rel="noopener noreferrer">Abrir la Clase 4</a>
+          </article>
+          <article class="resource-card">
+            <div class="icon">▶️</div>
+            <h3>Recurso optativo</h3>
+            <p>El video complementa la reflexión sobre la escuela como institución y organización social.</p>
+            <a class="action-btn secondary" href="https://www.youtube.com/watch?v=Zlj72x0fXMo" target="_blank" rel="noopener noreferrer">Ver el video</a>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="footer">
+    Administración de la Educación y Gestión de las Instituciones Escolares · Universidad Nacional de Quilmes · Agosto 2026
+  </footer>
+</div>
+
+<script>
+const menuItems=document.querySelectorAll('.menu li');
+const sections=document.querySelectorAll('.section');
+
+function showSection(id,item){
+  sections.forEach(s=>s.classList.remove('active'));
+  menuItems.forEach(i=>i.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  item.classList.add('active');
+}
+menuItems.forEach(item=>{
+  item.addEventListener('click',()=>showSection(item.dataset.target,item));
+});
+if(menuItems.length){
+  showSection(menuItems[0].dataset.target,menuItems[0]);
+}
+</script>
+</body>
+</html>
