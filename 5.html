@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clase 5 · Administración de la Educación y Gestión de las Instituciones Escolares</title>
+<style>
+
+:root{
+  --brand:#1cabe2;
+  --brand-dark:#1189bb;
+  --bg:#eef7fb;
+  --paper:#ffffff;
+  --ink:#1f2a37;
+  --muted:#4f6272;
+  --line:#d6e8f2;
+  --soft:#f4fbfe;
+  --soft-2:#eef7fb;
+  --accent:#dff3fb;
+  --max:1100px;
+  --text:1.04rem;
+  --shadow:0 18px 42px rgba(29,78,110,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:radial-gradient(circle at top left, rgba(28,171,226,.10), transparent 22%), linear-gradient(180deg,#f4fbfe 0%, var(--bg) 100%);
+  color:var(--ink);
+  font-family:"Aptos","Segoe UI",Arial,sans-serif;
+  line-height:1.72;
+}
+a{color:inherit}
+.page{max-width:var(--max); margin:26px auto; background:var(--paper); border:1px solid #d9edf7; box-shadow:var(--shadow); border-radius:28px; overflow:hidden}
+.cover{position:relative; padding:52px 68px 56px; background:radial-gradient(circle at 82% 18%, rgba(28,171,226,.10), transparent 23%), linear-gradient(180deg,#fff,#f7fcfe 75%,#fff); border-bottom:1px solid var(--line)}
+.cover::before{content:""; position:absolute; left:0; right:0; top:0; height:12px; background:var(--brand)}
+.topline{display:flex; align-items:flex-start; justify-content:space-between; gap:24px; margin:8px 0 44px}
+.brandlock{display:flex; gap:16px; align-items:center}
+.brandmark{width:58px; height:58px; flex:0 0 58px; display:grid; place-items:center; background:var(--brand); border-radius:2px}
+.brandmark img{width:26px; height:auto; display:block}
+.kicker{max-width:520px; color:var(--muted); text-transform:uppercase; font-size:.74rem; letter-spacing:.14em; line-height:1.55}
+.series{color:var(--brand); font-size:.82rem; text-transform:uppercase; letter-spacing:.16em; border-bottom:1px solid var(--line); padding-bottom:10px; white-space:nowrap}
+.cover-grid{display:grid; grid-template-columns:minmax(0,1fr) 300px; gap:40px; align-items:center}
+h1{margin:0 0 18px; font-family:Georgia, "Times New Roman", serif; font-size:3.45rem; line-height:1.02; letter-spacing:-.03em; color:#0f2535}
+.subtitle-program{margin:10px 0 6px; font-size:1.18rem; color:var(--brand-dark); font-weight:700; letter-spacing:.01em}
+.subtitle-university{margin:0 0 18px; font-size:1rem; text-transform:uppercase; letter-spacing:.08em; color:var(--muted)}
+.cover-year{display:inline-block; margin:2px 0 22px; padding:7px 14px 6px; border:1px solid rgba(28,171,226,.22); background:linear-gradient(180deg,#f7fcfe,#eaf7fc); color:var(--brand); font-size:.84rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; border-radius:999px; box-shadow:0 8px 20px rgba(28,171,226,.12)}
+.hero-illustration{width:100%; max-width:280px; margin:0 auto; background:linear-gradient(180deg,#ffffff,#eef7fb); border:1px solid var(--line); padding:22px; display:grid; place-items:center; min-height:240px}
+.hero-illustration .hero-svg{width:190px; max-width:100%; height:auto; display:block}
+.hero-illustration .svg-soft{fill:#dff3fb}
+.hero-illustration .svg-line{fill:none; stroke:#1cabe2; stroke-width:3; stroke-linecap:round; stroke-linejoin:round}
+.hero-illustration .svg-fill{fill:#1cabe2}
+.hero-illustration .svg-muted{fill:#89cfe9}
+.cover-footer{display:grid; grid-template-columns:repeat(2,minmax(280px,1fr)); gap:22px; margin-top:36px; padding-top:24px; border-top:1px solid var(--line)}
+.cover-card{padding:22px 24px; border:1px solid var(--line); background:linear-gradient(180deg,#fff,#f4fbfe)}
+.cover-card .label{display:block; margin-bottom:10px; color:var(--brand); text-transform:uppercase; letter-spacing:.14em; font-size:.72rem; font-weight:700}
+.cover-card p{margin:0; color:var(--muted)}
+.content{padding:38px 68px 84px}
+.content p{text-align:justify; text-justify:inter-word}
+.toc{margin-bottom:30px; padding:24px 26px 20px; border:1px solid var(--line); background:linear-gradient(180deg,#fff,#f4fbfe)}
+.toc h2{margin:0 0 14px; color:var(--brand); text-transform:uppercase; letter-spacing:.14em; font-size:.76rem}
+.toc ol{margin:0; padding-left:1.35rem; font-size:1rem}.toc li{margin:9px 0}.toc a{text-decoration:none; border-bottom:1px solid transparent}.toc a:hover{color:var(--brand); border-bottom-color:var(--brand)}
+h2.section{margin:46px 0 16px; padding-top:18px; border-top:1px solid var(--line); font-family:Georgia, "Times New Roman", serif; font-size:2rem; line-height:1.12; letter-spacing:-.02em}
+h3{margin:28px 0 10px; color:var(--brand); font-size:1.08rem}
+p{margin:12px 0; font-size:var(--text)}
+.mdm-box{margin:20px 0 28px; padding:18px 20px; border:2px solid var(--brand); border-left:10px solid #f3b229; background:#fff; box-shadow:0 8px 22px rgba(29,78,110,.06)}
+.mdm-title{margin:0 0 10px; color:var(--brand-dark); font-weight:700; font-size:1.04rem}
+mark{
+  background:none;
+  color:inherit;
+  padding:0;
+  border:0;
+  border-radius:0;
+  box-shadow:none;
+  font-weight:700;
+}
+
+
+.mdm-preview-link{
+  position:relative;
+  color:var(--brand);
+  text-decoration:none;
+  border-bottom:1px solid rgba(28,171,226,.38);
+  font-weight:700;
+}
+.mdm-preview-link:hover{
+  color:var(--brand-dark);
+  border-bottom-color:var(--brand-dark);
+}
+.mdm-preview-link::after{
+  content:"Repositorio UVQ · Material Didáctico Digital\A Abrir MDM en una nueva pestaña";
+  white-space:pre-line;
+  position:absolute;
+  left:0;
+  bottom:135%;
+  width:290px;
+  padding:14px 16px;
+  background:#fff;
+  color:var(--ink);
+  border:1px solid var(--line);
+  box-shadow:0 14px 28px rgba(29,78,110,.16);
+  border-radius:6px;
+  font-size:.88rem;
+  line-height:1.45;
+  font-weight:400;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(8px);
+  transition:opacity .18s ease, transform .18s ease, visibility .18s ease;
+  z-index:20;
+}
+.mdm-preview-link::before{
+  content:"";
+  position:absolute;
+  left:22px;
+  bottom:118%;
+  border:8px solid transparent;
+  border-top-color:#fff;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .18s ease, visibility .18s ease;
+  z-index:21;
+}
+.mdm-preview-link:hover::after,
+.mdm-preview-link:hover::before,
+.mdm-preview-link:focus::after,
+.mdm-preview-link:focus::before{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+
+
+.author-line{
+  margin:6px 0 0;
+  color:var(--muted);
+  font-size:.94rem;
+  line-height:1.65;
+}
+
+.author-list{
+  margin:6px 0 0;
+  padding-left:1.15rem;
+  color:var(--muted);
+  font-size:.94rem;
+  line-height:1.55;
+}
+.author-list li{
+  margin:2px 0;
+}
+.update-note{
+  margin:16px 0 0;
+  padding-top:12px;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  font-size:.92rem;
+  line-height:1.5;
+}
+
+@media (max-width:880px){
+  .mdm-preview-link::after,
+  .mdm-preview-link::before{
+    display:none;
+  }
+}
+
+.tour-card{
+  margin:24px 0 30px;
+  padding:24px 26px;
+  border:1px solid var(--line);
+  background:linear-gradient(180deg,#fff,#f4fbfe);
+  box-shadow:0 10px 24px rgba(29,78,110,.07);
+}
+.tour-card h3{
+  margin:0 0 8px;
+  color:var(--brand);
+  font-size:1.12rem;
+}
+.tour-card p{
+  margin:8px 0 18px;
+  color:var(--muted);
+}
+.tour-button{
+  display:inline-block;
+  padding:11px 18px;
+  background:var(--brand);
+  color:#fff;
+  text-decoration:none;
+  border-radius:999px;
+  font-weight:700;
+  line-height:1.2;
+  box-shadow:0 8px 18px rgba(28,171,226,.22);
+}
+.tour-button:hover{
+  background:var(--brand-dark);
+}
+
+.tour-button{
+  position:relative;
+}
+.tour-button::after{
+  content:"Tour 360° del campus UNQ\A Abrir recorrido virtual en una nueva pestaña";
+  white-space:pre-line;
+  position:absolute;
+  left:0;
+  bottom:135%;
+  width:300px;
+  padding:14px 16px;
+  background:#fff;
+  color:var(--ink);
+  border:1px solid var(--line);
+  box-shadow:0 14px 28px rgba(29,78,110,.16);
+  border-radius:6px;
+  font-size:.88rem;
+  line-height:1.45;
+  font-weight:400;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(8px);
+  transition:opacity .18s ease, transform .18s ease, visibility .18s ease;
+  z-index:20;
+}
+.tour-button::before{
+  content:"";
+  position:absolute;
+  left:22px;
+  bottom:118%;
+  border:8px solid transparent;
+  border-top-color:#fff;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .18s ease, visibility .18s ease;
+  z-index:21;
+}
+.tour-button:hover::after,
+.tour-button:hover::before,
+.tour-button:focus::after,
+.tour-button:focus::before{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+@media (max-width:880px){
+  .tour-button::after,
+  .tour-button::before{
+    display:none;
+  }
+}
+
+
+.text-link{color:var(--brand); text-decoration:none; border-bottom:1px solid rgba(28,171,226,.38); transition:all .18s ease; overflow-wrap:anywhere; word-break:break-word}.text-link:hover{color:var(--brand-dark); border-bottom-color:var(--brand-dark)}
+.reference-group{margin:20px 0 0; padding:18px 20px 8px; border:1px solid var(--line); background:linear-gradient(180deg,#fff,#f4fbfe)}
+.ref-list{list-style:none; padding-left:0; margin:10px 0 0}.ref-list li{margin:12px 0; padding-left:1.4em; text-indent:-1.4em; overflow-wrap:anywhere; word-break:break-word; hyphens:auto}
+.back-top{margin:28px 0 0; font-size:.92rem; color:var(--muted)}.back-top a{text-decoration:none; color:var(--muted); border-bottom:1px solid transparent}.back-top a:hover{color:var(--brand); border-bottom-color:var(--brand)}
+.site-footer{margin-top:56px; padding:0 24px 30px; color:var(--muted)}.site-footer-shell{border:1px solid var(--line); background:linear-gradient(180deg,#fff 0%, #f4fbfe 100%); box-shadow:0 10px 24px rgba(29,78,110,.06)}.site-footer-grid{display:grid; grid-template-columns:minmax(0,1.45fr) 1px minmax(260px,.85fr); gap:0 22px; align-items:stretch; padding:18px 20px}.site-footer-divider{width:1px; background:linear-gradient(180deg,rgba(28,171,226,.18),rgba(28,171,226,.55),rgba(28,171,226,.18))}.site-footer-label{margin:0 0 10px; color:var(--brand); text-transform:uppercase; letter-spacing:.18em; font-size:.78rem; font-weight:700; line-height:1.4}.site-footer-note{margin:0; font-size:.95rem; line-height:1.72; color:var(--muted)}.site-footer-author{margin:0; color:var(--ink); font-weight:700; font-size:.98rem; line-height:1.55}.site-footer-role{margin:4px 0 0; color:var(--muted); font-size:.94rem; line-height:1.55}
+@media (max-width:880px){.page{margin:0; border:none; box-shadow:none}.cover,.content{padding:28px 22px 42px}.topline{flex-direction:column; align-items:flex-start; gap:14px; margin-bottom:28px}.cover-grid,.cover-footer{grid-template-columns:1fr}h1{font-size:2.45rem}.series{white-space:normal}.site-footer{padding:0 16px 24px}.site-footer-grid{grid-template-columns:1fr; gap:14px 0; padding:16px}.site-footer-divider{width:100%; height:1px}.ref-list li{padding-left:1.1em; text-indent:-1.1em; font-size:.98rem}}
+@media print{body{background:#fff}.page{margin:0; border:none; box-shadow:none; max-width:none}.toc,.back-top{display:none}}
+
+
+.concept-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:22px 0 30px}
+.concept-card{padding:20px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe);border-top:6px solid var(--brand)}
+.concept-card h3{margin:0 0 8px;font-family:Georgia,"Times New Roman",serif;font-size:1.25rem;color:var(--brand-dark)}
+.concept-card p{margin:0;text-align:left;color:var(--muted);font-size:.98rem}
+.key-list{margin:18px 0 28px;padding:22px 24px 18px;border:1px solid var(--line);background:var(--soft)}
+.key-list ul{margin:0;padding-left:1.2rem}.key-list li{margin:8px 0}
+.reflection{margin:28px 0;padding:24px 26px;border-left:8px solid var(--brand);background:linear-gradient(135deg,#f8eef1,#fff)}
+.reflection h3{margin:0 0 8px}.reflection p{margin:0;font-family:Georgia,"Times New Roman",serif;font-size:1.18rem;text-align:left}
+.timeline{margin:22px 0 30px;border-left:3px solid var(--line);padding-left:24px}
+.timeline-item{position:relative;margin:0 0 24px;padding:18px 20px;border:1px solid var(--line);background:#fff}
+.timeline-item::before{content:"";position:absolute;left:-32px;top:24px;width:13px;height:13px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 5px #f4ecef}
+.timeline-item h3{margin:0 0 8px}.timeline-item p{margin:0;text-align:left}
+.field-box{margin:22px 0 30px;padding:24px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe)}
+.field-box strong{color:var(--brand-dark)}
+.reading-card{margin:20px 0 30px;padding:22px 24px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe)}
+.reading-card h3{margin:0 0 12px}.reading-card ul{margin:0;padding-left:1.2rem}.reading-card li{margin:9px 0}
+@media(max-width:880px){.concept-grid{grid-template-columns:1fr}}
+
+
+.author-card{margin:22px 0 30px;padding:24px 26px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe);border-left:7px solid var(--brand)}
+.author-card h3{margin:0 0 10px;font-family:Georgia,"Times New Roman",serif;font-size:1.35rem;color:var(--brand-dark)}
+.author-card p{margin:9px 0}
+.logic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:20px 0 30px}
+.logic-card{padding:20px 22px;border:1px solid var(--line);background:#fff}
+.logic-card h3{margin:0 0 8px;color:var(--brand-dark)}
+.logic-card p{margin:0;text-align:left;color:var(--muted)}
+.quote-box{margin:24px 0;padding:22px 24px;border-left:8px solid #f3b229;background:linear-gradient(135deg,#fffaf0,#fff)}
+.quote-box p{margin:0;font-family:Georgia,"Times New Roman",serif;font-size:1.16rem;text-align:left}
+@media(max-width:880px){.logic-grid{grid-template-columns:1fr}}
+
+.optional-resource{margin:24px 0 30px;padding:24px 26px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe);box-shadow:0 10px 24px rgba(29,78,110,.07);border-top:6px solid #f3b229}
+.optional-resource .eyebrow{margin:0 0 8px;color:var(--brand);text-transform:uppercase;letter-spacing:.14em;font-size:.74rem;font-weight:700}
+.optional-resource h3{margin:0 0 10px;font-family:Georgia,"Times New Roman",serif;font-size:1.35rem;color:var(--brand-dark)}
+.optional-resource p{margin:8px 0 16px;text-align:left;color:var(--muted)}
+.optional-resource .resource-button{display:inline-block;padding:11px 18px;background:var(--brand);color:#fff;text-decoration:none;border-radius:999px;font-weight:700;line-height:1.2;box-shadow:0 8px 18px rgba(28,171,226,.22)}
+.optional-resource .resource-button:hover{background:var(--brand-dark)}
+</style>
+</head>
+
+<body>
+<div class="page" id="top">
+<section class="cover">
+  <div class="topline">
+    <div class="brandlock">
+      <div class="brandmark"><svg aria-label="UNQ" role="img" viewBox="0 0 32 32" width="28" height="28"><rect width="32" height="32" fill="#1cabe2"/><path d="M8 7h4v11c0 3 1.5 4.5 4 4.5S20 21 20 18V7h4v11c0 5.5-3.2 8.5-8 8.5S8 23.5 8 18V7z" fill="#fff"/></svg></div>
+      <div class="kicker">Administración de la Educación y Gestión de las Instituciones Escolares<br>Licenciatura en Educación · Modalidad virtual</div>
+    </div>
+    <div class="series">Clase 5</div>
+  </div>
+  <div class="cover-grid">
+    <div>
+      <h1>Enfoques teóricos en organización y administración de la educación</h1>
+      <p class="subtitle-program">El paradigma técnico-racional, la administración científica y las Relaciones Humanas</p>
+      <p class="subtitle-university">Universidad Nacional de Quilmes</p>
+      <span class="cover-year">Unidad 2 · 2026</span>
+    </div>
+    <figure class="hero-illustration" aria-label="Esquema de organización y relaciones">
+      <svg class="hero-svg" viewBox="0 0 220 190" role="img" aria-hidden="true"><rect x="77" y="20" width="66" height="44" rx="4" class="svg-soft"/><rect x="77" y="20" width="66" height="44" rx="4" class="svg-line"/><circle cx="110" cy="42" r="9" class="svg-fill"/><path d="M110 64v25M110 89H48M110 89h62" class="svg-line"/><rect x="20" y="102" width="56" height="42" rx="4" fill="#fff" stroke="#1cabe2" stroke-width="3"/><rect x="82" y="102" width="56" height="42" rx="4" fill="#fff" stroke="#1cabe2" stroke-width="3"/><rect x="144" y="102" width="56" height="42" rx="4" fill="#fff" stroke="#1cabe2" stroke-width="3"/><circle cx="48" cy="123" r="8" class="svg-muted"/><circle cx="110" cy="123" r="8" class="svg-fill"/><circle cx="172" cy="123" r="8" class="svg-muted"/><path d="M48 144v20M110 144v20M172 144v20M48 164h124" class="svg-line"/></svg>
+    </figure>
+  </div>
+  <div class="cover-footer">
+    <div class="cover-card"><span class="label">Pregunta orientadora</span><p>¿Qué supuestos sobre las organizaciones y sobre las personas están presentes en la administración científica y en las Relaciones Humanas?</p></div>
+    <div class="cover-card"><span class="label">Ejes de análisis</span><p>Paradigmas, racionalidad, eficiencia, división del trabajo, motivación, participación, grupos, poder y organización escolar.</p></div>
+  </div>
+</section>
+<main class="content">
+<section class="toc" id="indice"><h2>Índice</h2><ol>
+<li><a href="#introduccion">Introducción</a></li><li><a href="#lecturas">Lecturas de la semana</a></li><li><a href="#paradigmas">Tres perspectivas para mirar la escuela</a></li><li><a href="#cientifico-racional">El paradigma científico-racional</a></li><li><a href="#taylor">Taylor y la administración científica</a></li><li><a href="#fayol">Fayol y la administración industrial y general</a></li><li><a href="#relaciones-humanas">Las Relaciones Humanas</a></li><li><a href="#aportes-limites">Aportes y límites de las corrientes</a></li><li><a href="#lectura-orientada">Propuesta de lectura</a></li><li><a href="#cierre">Cierre de la clase</a></li><li><a href="#referencias">Referencias</a></li>
+</ol></section>
+<h2 class="section" id="introduccion">Introducción</h2>
+<p>¡Hola a todos! En esta clase comenzamos la Unidad 2 y abordamos distintos enfoques teóricos para estudiar la organización y la administración de la educación. El propósito es reconocer que cada perspectiva parte de determinados supuestos acerca de la realidad, las organizaciones, las personas y las relaciones que se establecen en ellas.</p>
+<p>El contenido de esta semana se concentra especialmente en el <strong>paradigma científico-racional o técnico-racional</strong>, en la administración científica y en la corriente de las <strong>Relaciones Humanas</strong>. Al mismo tiempo, ubicaremos estas propuestas dentro de un mapa más amplio que incluye también los enfoques interpretativo-simbólico y sociocrítico.</p>
+<div class="concept-grid"><div class="concept-card"><h3>Racionalidad</h3><p>Remite a la búsqueda de procedimientos sistemáticos, previsibles y controlables para organizar el trabajo y alcanzar objetivos.</p></div><div class="concept-card"><h3>Eficiencia</h3><p>Expresa la preocupación por la relación entre medios, resultados, tiempos, costos y productividad.</p></div><div class="concept-card"><h3>Relaciones humanas</h3><p>Introduce el análisis de los grupos, la motivación, la participación, la comunicación y los vínculos dentro de las organizaciones.</p></div></div>
+<h2 class="section" id="lecturas">Lecturas de la semana</h2>
+<div class="reading-card"><h3>Bibliografía obligatoria</h3><ul><li>Aguerrondo, I., Lugo, M. T., &amp; Rossi, M. (2001). <em>La gestión de la escuela y el diseño de proyectos institucionales</em> (Cuadernos Universitarios N.º 5). Universidad Nacional de Quilmes.</li><li>Taylor, F. W. (1975). Estudio del tiempo, trabajo a destajo y el obrero destacado. En H. Merrill (Ed.), <em>Clásicos en administración</em> (pp. 67–75). Limusa.</li><li>Taylor, F. W. (1975). Los principios de la administración científica. En H. Merrill (Ed.), <em>Clásicos en administración</em> (pp. 81–107). Limusa.</li></ul></div>
+<div class="field-box"><p>El texto de <strong>Aguerrondo et al. (2001)</strong> permite ubicar las principales perspectivas del pensamiento administrativo y organizacional y relacionarlas con diferentes modos de comprender la escuela. Los textos de <strong>Taylor (1975)</strong> permiten trabajar con una fuente directa de la administración científica y analizar sus principios, procedimientos y supuestos.</p></div>
+<h2 class="section" id="paradigmas">Tres perspectivas para mirar la escuela</h2>
+<p>Los materiales de la clase presentan tres grandes posturas paradigmáticas. Cada una propone una forma diferente de construir el objeto de análisis y de interpretar la vida de las organizaciones educativas.</p>
+<div class="logic-grid"><div class="logic-card"><h3>Científico-racional</h3><p><strong>La escuela como herramienta.</strong> La realidad se concibe como objetiva, lineal y racional. Se privilegian la estructura, los fines, la planificación, la eficiencia y el control.</p></div><div class="logic-card"><h3>Interpretativo-simbólico</h3><p><strong>La escuela como escenario de interacción social.</strong> La realidad se construye mediante significados, valores, creencias, rituales y procesos de interacción.</p></div><div class="logic-card"><h3>Sociocrítico</h3><p><strong>La escuela como sistema político.</strong> El análisis incorpora las relaciones de poder, el conflicto, la negociación y las condiciones socioculturales y políticas.</p></div><div class="logic-card"><h3>Una advertencia metodológica</h3><p>Estos enfoques no son solamente clasificaciones. Cada uno orienta qué problemas se consideran relevantes, qué preguntas se formulan y qué aspectos de la organización quedan en primer plano.</p></div></div>
+<div class="reflection"><h3>Para pensar</h3><p>Si una escuela se analiza solamente desde la eficiencia, la estructura y el control, ¿qué dimensiones de su vida institucional podrían quedar fuera del análisis?</p></div>
+<h2 class="section" id="cientifico-racional">El paradigma científico-racional</h2>
+<p>Desde el paradigma científico-racional o técnico-racional, la organización es concebida como un instrumento diseñado para alcanzar determinados fines. La realidad aparece como objetiva y susceptible de ser estudiada mediante procedimientos racionales, mientras que el trabajo se organiza procurando previsibilidad, control y eficiencia.</p>
+<p>En esta perspectiva, las organizaciones pueden representarse mediante la metáfora de la <strong>máquina</strong>: funciones diferenciadas, tareas delimitadas, jerarquías, procedimientos y mecanismos de supervisión deben articularse para que el conjunto alcance los objetivos establecidos.</p>
+<div class="key-list"><ul><li>La organización se explica a partir de sus fines y objetivos.</li><li>El trabajo tiende a ser concebido como una función rutinaria, exacta y predecible.</li><li>La racionalidad organizativa se vincula con indicadores de eficiencia y control.</li><li>Se asigna especial importancia a la estructura formal, la especialización y la división de tareas.</li><li>Dentro de este campo se ubican la administración científica, la administración industrial y general, la teoría burocrática y, con importantes desplazamientos, las Relaciones Humanas.</li></ul></div>
+<h2 class="section" id="taylor">Taylor y la administración científica</h2>
+<div class="author-card"><h3>Frederick W. Taylor (1856–1915)</h3><p>La administración científica propone estudiar sistemáticamente el trabajo para determinar procedimientos, tiempos y movimientos que permitan organizar la producción de manera racional.</p></div>
+<p>En <em>Principios de la administración científica</em>, publicado originalmente en 1911, Taylor desarrolla una propuesta orientada a sustituir procedimientos basados en la experiencia individual por métodos de trabajo definidos mediante un estudio sistemático de las tareas.</p>
+<p>El análisis de tiempos y movimientos busca descomponer actividades complejas en operaciones simples, distribuir tareas y responsabilidades, reducir costos y establecer criterios homogéneos de producción. En este marco, la especialización y la división del trabajo ocupan un lugar relevante.</p>
+<div class="logic-grid"><div class="logic-card"><h3>1. Métodos de trabajo</h3><p>Sustituir procedimientos empíricos por métodos establecidos a partir del estudio sistemático de las tareas.</p></div><div class="logic-card"><h3>2. Selección y formación</h3><p>Seleccionar, instruir y formar a los trabajadores de acuerdo con los métodos definidos para la tarea.</p></div><div class="logic-card"><h3>3. Cooperación</h3><p>Promover la cooperación entre dirección y trabajadores para aplicar los procedimientos establecidos.</p></div><div class="logic-card"><h3>4. Distribución de responsabilidades</h3><p>Distribuir el trabajo y la responsabilidad entre quienes planifican y quienes ejecutan las tareas.</p></div></div>
+<p>En los textos propuestos para esta clase, Taylor también analiza la relación entre <strong>tiempos, movimientos, salarios y productividad</strong>. El pago a destajo aparece asociado a una concepción económica de la motivación: una mayor producción se vincula con una mayor remuneración.</p>
+<div class="quote-box"><p>La administración científica no es solamente un conjunto de técnicas: supone una determinada manera de concebir el trabajo, la organización, la autoridad y la motivación.</p></div>
+<h2 class="section" id="fayol">Fayol y la administración industrial y general</h2>
+<p>El material ampliatorio recupera también el aporte de <strong>Henri Fayol (1845–1925)</strong>. En <em>Administración industrial y general</em>, de 1916, Fayol clasifica las operaciones de la empresa y distingue entre funciones técnicas, comerciales, financieras, de seguridad, contables y administrativas.</p>
+<p>Entre las funciones administrativas identifica la previsión, la organización, la dirección, la coordinación y el control. Su propuesta contribuye al estudio sistemático de la organización formal y de las funciones de dirección.</p>
+<div class="concept-grid"><div class="concept-card"><h3>Previsión</h3><p>Anticipar y pensar el futuro de la organización.</p></div><div class="concept-card"><h3>Organización</h3><p>Disponer los recursos materiales y sociales necesarios para el funcionamiento.</p></div><div class="concept-card"><h3>Dirección</h3><p>Conducir el cuerpo social y sostener la unidad de mando.</p></div><div class="concept-card"><h3>Coordinación</h3><p>Articular las distintas acciones para favorecer el funcionamiento del conjunto.</p></div><div class="concept-card"><h3>Control</h3><p>Verificar la realización de las tareas, detectar desvíos y realizar correcciones.</p></div><div class="concept-card"><h3>Organización formal</h3><p>Jerarquías, división del trabajo, autoridad, disciplina, orden y distribución de funciones.</p></div></div>
+<h2 class="section" id="relaciones-humanas">Las Relaciones Humanas</h2>
+<p>La corriente de las Relaciones Humanas se desarrolla en Estados Unidos desde la segunda mitad de la década de 1920, en un contexto marcado por transformaciones económicas y sociales, el desarrollo de la legislación laboral y el crecimiento de los estudios psicológicos y sociológicos.</p>
+<div class="author-card"><h3>Elton Mayo y los estudios de Hawthorne</h3><p>Los trabajos vinculados con la Western Electric permitieron observar que la conducta de los trabajadores no podía explicarse únicamente por condiciones materiales o incentivos económicos. Los grupos informales, el reconocimiento social, la pertenencia y las relaciones interpersonales incidían en el comportamiento dentro de la organización.</p></div>
+<p>Esta corriente desplaza parte de la atención desde la estructura formal hacia las relaciones que se producen entre las personas. El trabajo comienza a analizarse también como una <strong>actividad grupal</strong>, y adquieren importancia la comunicación, la participación, la motivación, el liderazgo y el sentimiento de pertenencia.</p>
+<div class="logic-grid"><div class="logic-card"><h3>Grupo</h3><p>Los grupos informales influyen en las conductas, las normas y las formas de participación.</p></div><div class="logic-card"><h3>Motivación</h3><p>Los incentivos económicos no alcanzan para explicar por sí solos el comportamiento de las personas.</p></div><div class="logic-card"><h3>Participación</h3><p>El intercambio y la intervención en las decisiones adquieren importancia en la dinámica organizacional.</p></div><div class="logic-card"><h3>Liderazgo</h3><p>Se diferencia la autoridad formal de los procesos de influencia que se construyen dentro de los grupos.</p></div></div>
+<p>El material ampliatorio también recupera desarrollos posteriores vinculados con <strong>Kurt Lewin</strong> y el análisis de los grupos y el liderazgo, así como aportes de <strong>Maslow, McGregor, Herzberg y Allport</strong> para estudiar la motivación, la percepción y otros aspectos del comportamiento individual.</p>
+<div class="field-box"><p>Estos aportes permiten comprender que la organización no funciona únicamente por medio de normas, jerarquías y procedimientos formales. También intervienen expectativas, vínculos, reconocimientos, pertenencias, motivaciones y relaciones entre los integrantes.</p></div>
+<h2 class="section" id="aportes-limites">Aportes y límites de las corrientes</h2>
+<p>Las corrientes clásicas realizaron contribuciones importantes al estudio sistemático de las organizaciones, especialmente en relación con la estructura formal, las funciones administrativas, la dirección, la división del trabajo y la construcción de métodos de análisis.</p>
+<p>Al mismo tiempo, los materiales señalan límites vinculados con el pragmatismo, la búsqueda del máximo rendimiento, la concepción mecanicista del trabajo, la especialización excesiva y una comprensión rígida de la autoridad.</p>
+<p>Las Relaciones Humanas incorporaron las ciencias de la conducta al estudio de la administración y ampliaron el análisis hacia la comunicación, los grupos, la participación y las relaciones interpersonales. Sin embargo, también presentan límites cuando el análisis se concentra excesivamente en el individuo y el grupo y deja en segundo plano las dimensiones estructurales, contextuales, el conflicto y las relaciones de poder.</p>
+<div class="reflection"><h3>Para reflexionar</h3><p>¿Qué elementos de la administración científica y de las Relaciones Humanas pueden reconocerse todavía en las formas actuales de organizar el trabajo en las instituciones educativas?</p></div>
+<h2 class="section" id="lectura-orientada">Propuesta de lectura</h2>
+<p>Para esta clase se proponen tres textos obligatorios. El capítulo de <strong>Aguerrondo et al. (2001)</strong> ofrece una presentación de las características y de los principales autores de distintas perspectivas del pensamiento administrativo y organizacional, además de trabajar con diferentes metáforas para comprender la institución educativa.</p>
+<p>Los dos textos de <strong>Taylor (1975)</strong> permiten entrar directamente en la lógica de la administración científica. En el primero, conviene observar especialmente la relación que establece entre tiempos, movimientos, salarios, costos y productividad. En el segundo, resulta importante identificar los cuatro principios de la administración científica y los ejemplos mediante los cuales Taylor explica la aplicación de su método.</p>
+<div class="key-list"><ul><li>¿Cómo define cada enfoque a la organización?</li><li>¿Qué lugar asigna a las personas y a los grupos?</li><li>¿Cómo entiende la autoridad, la participación y la toma de decisiones?</li><li>¿Qué idea de eficiencia y de trabajo aparece en Taylor?</li><li>¿Qué aspectos incorpora la corriente de las Relaciones Humanas que no estaban presentes en las perspectivas clásicas?</li><li>¿Qué aportes y qué límites reconocen los materiales en cada enfoque?</li></ul></div>
+
+<h2 class="section" id="video">Recurso audiovisual optativo</h2>
+
+<div class="optional-resource">
+  <p class="eyebrow">Para ampliar</p>
+  <h3>Video complementario de la Clase 5</h3>
+  <p>Este recurso audiovisual acompaña los contenidos trabajados en la clase y puede servir para recuperar y profundizar algunos de los enfoques sobre organización, administración y relaciones humanas.</p>
+  <a class="resource-button" href="https://www.youtube.com/watch?v=gn09ddtGJgE" target="_blank" rel="noopener noreferrer">Ver el video</a>
+</div>
+
+<h2 class="section" id="cierre">Cierre de la clase</h2>
+<p>En esta clase presentamos distintos enfoques para analizar las organizaciones y nos detuvimos especialmente en el paradigma científico-racional, la administración científica y la corriente de las Relaciones Humanas.</p>
+<p>La propuesta de Taylor permite observar una forma de organización apoyada en la racionalización del trabajo, la división de tareas, la especialización, el control y la búsqueda de eficiencia. Los aportes de Fayol amplían esta perspectiva hacia las funciones administrativas y la organización formal.</p>
+<p>Las Relaciones Humanas introducen otras preguntas al incorporar los grupos, la motivación, la participación, la comunicación y el liderazgo. Este desplazamiento permite reconocer que las organizaciones no pueden comprenderse solamente a partir de su estructura formal, aunque tampoco resulta suficiente explicar su funcionamiento únicamente por las relaciones interpersonales.</p>
+<p>Estas discusiones ofrecen una base para continuar analizando cómo diferentes teorías han influido en la administración y en la organización escolar.</p>
+<p>Hasta la próxima clase.</p><p><strong>Linda</strong></p>
+<div class="back-top"><a href="#indice">↑ Volver al índice</a></div>
+<h2 class="section" id="referencias">Referencias</h2>
+<div class="reference-group"><ul class="ref-list"><li>Aguerrondo, I., Lugo, M. T., &amp; Rossi, M. (2001). <em>La gestión de la escuela y el diseño de proyectos institucionales</em> (Cuadernos Universitarios N.º 5). Universidad Nacional de Quilmes.</li><li>Taylor, F. W. (1975). Estudio del tiempo, trabajo a destajo y el obrero destacado. En H. Merrill (Ed.), <em>Clásicos en administración</em> (pp. 67–75). Limusa.</li><li>Taylor, F. W. (1975). Los principios de la administración científica. En H. Merrill (Ed.), <em>Clásicos en administración</em> (pp. 81–107). Limusa.</li></ul></div>
+<div class="back-top"><a href="#top">↑ Volver al inicio</a></div>
+</main>
+<footer class="site-footer"><div class="site-footer-shell"><div class="site-footer-grid"><div><p class="site-footer-label">Administración de la Educación y Gestión de las Instituciones Escolares</p><p class="site-footer-note">Material de clase · Licenciatura en Educación · Universidad Nacional de Quilmes · Agosto de 2026</p></div><div class="site-footer-divider"></div><div><p class="site-footer-author">Linda Angélica López</p><p class="site-footer-role">Docente</p></div></div></div></footer>
+</div>
+</body>
+</html>
