@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clase 6 · Administración de la Educación y Gestión de las Instituciones Escolares</title>
+<style>
+
+:root{
+  --brand:#1cabe2;
+  --brand-dark:#1189bb;
+  --bg:#eef7fb;
+  --paper:#ffffff;
+  --ink:#1f2a37;
+  --muted:#4f6272;
+  --line:#d6e8f2;
+  --soft:#f4fbfe;
+  --soft-2:#eef7fb;
+  --accent:#dff3fb;
+  --max:1100px;
+  --text:1.04rem;
+  --shadow:0 18px 42px rgba(29,78,110,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:radial-gradient(circle at top left, rgba(28,171,226,.10), transparent 22%), linear-gradient(180deg,#f4fbfe 0%, var(--bg) 100%);
+  color:var(--ink);
+  font-family:"Aptos","Segoe UI",Arial,sans-serif;
+  line-height:1.72;
+}
+a{color:inherit}
+.page{max-width:var(--max); margin:26px auto; background:var(--paper); border:1px solid #d9edf7; box-shadow:var(--shadow); border-radius:28px; overflow:hidden}
+.cover{position:relative; padding:52px 68px 56px; background:radial-gradient(circle at 82% 18%, rgba(28,171,226,.10), transparent 23%), linear-gradient(180deg,#fff,#f7fcfe 75%,#fff); border-bottom:1px solid var(--line)}
+.cover::before{content:""; position:absolute; left:0; right:0; top:0; height:12px; background:var(--brand)}
+.topline{display:flex; align-items:flex-start; justify-content:space-between; gap:24px; margin:8px 0 44px}
+.brandlock{display:flex; gap:16px; align-items:center}
+.brandmark{width:58px; height:58px; flex:0 0 58px; display:grid; place-items:center; background:var(--brand); border-radius:2px}
+.brandmark img{width:26px; height:auto; display:block}
+.kicker{max-width:520px; color:var(--muted); text-transform:uppercase; font-size:.74rem; letter-spacing:.14em; line-height:1.55}
+.series{color:var(--brand); font-size:.82rem; text-transform:uppercase; letter-spacing:.16em; border-bottom:1px solid var(--line); padding-bottom:10px; white-space:nowrap}
+.cover-grid{display:grid; grid-template-columns:minmax(0,1fr) 300px; gap:40px; align-items:center}
+h1{margin:0 0 18px; font-family:Georgia, "Times New Roman", serif; font-size:3.45rem; line-height:1.02; letter-spacing:-.03em; color:#0f2535}
+.subtitle-program{margin:10px 0 6px; font-size:1.18rem; color:var(--brand-dark); font-weight:700; letter-spacing:.01em}
+.subtitle-university{margin:0 0 18px; font-size:1rem; text-transform:uppercase; letter-spacing:.08em; color:var(--muted)}
+.cover-year{display:inline-block; margin:2px 0 22px; padding:7px 14px 6px; border:1px solid rgba(28,171,226,.22); background:linear-gradient(180deg,#f7fcfe,#eaf7fc); color:var(--brand); font-size:.84rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; border-radius:999px; box-shadow:0 8px 20px rgba(28,171,226,.12)}
+.hero-illustration{width:100%; max-width:280px; margin:0 auto; background:linear-gradient(180deg,#ffffff,#eef7fb); border:1px solid var(--line); padding:22px; display:grid; place-items:center; min-height:240px}
+.hero-illustration .hero-svg{width:190px; max-width:100%; height:auto; display:block}
+.hero-illustration .svg-soft{fill:#dff3fb}
+.hero-illustration .svg-line{fill:none; stroke:#1cabe2; stroke-width:3; stroke-linecap:round; stroke-linejoin:round}
+.hero-illustration .svg-fill{fill:#1cabe2}
+.hero-illustration .svg-muted{fill:#89cfe9}
+.cover-footer{display:grid; grid-template-columns:repeat(2,minmax(280px,1fr)); gap:22px; margin-top:36px; padding-top:24px; border-top:1px solid var(--line)}
+.cover-card{padding:22px 24px; border:1px solid var(--line); background:linear-gradient(180deg,#fff,#f4fbfe)}
+.cover-card .label{display:block; margin-bottom:10px; color:var(--brand); text-transform:uppercase; letter-spacing:.14em; font-size:.72rem; font-weight:700}
+.cover-card p{margin:0; color:var(--muted)}
+.content{padding:38px 68px 84px}
+.content p{text-align:justify; text-justify:inter-word}
+.toc{margin-bottom:30px; padding:24px 26px 20px; border:1px solid var(--line); background:linear-gradient(180deg,#fff,#f4fbfe)}
+.toc h2{margin:0 0 14px; color:var(--brand); text-transform:uppercase; letter-spacing:.14em; font-size:.76rem}
+.toc ol{margin:0; padding-left:1.35rem; font-size:1rem}.toc li{margin:9px 0}.toc a{text-decoration:none; border-bottom:1px solid transparent}.toc a:hover{color:var(--brand); border-bottom-color:var(--brand)}
+h2.section{margin:46px 0 16px; padding-top:18px; border-top:1px solid var(--line); font-family:Georgia, "Times New Roman", serif; font-size:2rem; line-height:1.12; letter-spacing:-.02em}
+h3{margin:28px 0 10px; color:var(--brand); font-size:1.08rem}
+p{margin:12px 0; font-size:var(--text)}
+.mdm-box{margin:20px 0 28px; padding:18px 20px; border:2px solid var(--brand); border-left:10px solid #f3b229; background:#fff; box-shadow:0 8px 22px rgba(29,78,110,.06)}
+.mdm-title{margin:0 0 10px; color:var(--brand-dark); font-weight:700; font-size:1.04rem}
+mark{
+  background:none;
+  color:inherit;
+  padding:0;
+  border:0;
+  border-radius:0;
+  box-shadow:none;
+  font-weight:700;
+}
+
+
+.mdm-preview-link{
+  position:relative;
+  color:var(--brand);
+  text-decoration:none;
+  border-bottom:1px solid rgba(28,171,226,.38);
+  font-weight:700;
+}
+.mdm-preview-link:hover{
+  color:var(--brand-dark);
+  border-bottom-color:var(--brand-dark);
+}
+.mdm-preview-link::after{
+  content:"Repositorio UVQ · Material Didáctico Digital\A Abrir MDM en una nueva pestaña";
+  white-space:pre-line;
+  position:absolute;
+  left:0;
+  bottom:135%;
+  width:290px;
+  padding:14px 16px;
+  background:#fff;
+  color:var(--ink);
+  border:1px solid var(--line);
+  box-shadow:0 14px 28px rgba(29,78,110,.16);
+  border-radius:6px;
+  font-size:.88rem;
+  line-height:1.45;
+  font-weight:400;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(8px);
+  transition:opacity .18s ease, transform .18s ease, visibility .18s ease;
+  z-index:20;
+}
+.mdm-preview-link::before{
+  content:"";
+  position:absolute;
+  left:22px;
+  bottom:118%;
+  border:8px solid transparent;
+  border-top-color:#fff;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .18s ease, visibility .18s ease;
+  z-index:21;
+}
+.mdm-preview-link:hover::after,
+.mdm-preview-link:hover::before,
+.mdm-preview-link:focus::after,
+.mdm-preview-link:focus::before{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+
+
+.author-line{
+  margin:6px 0 0;
+  color:var(--muted);
+  font-size:.94rem;
+  line-height:1.65;
+}
+
+.author-list{
+  margin:6px 0 0;
+  padding-left:1.15rem;
+  color:var(--muted);
+  font-size:.94rem;
+  line-height:1.55;
+}
+.author-list li{
+  margin:2px 0;
+}
+.update-note{
+  margin:16px 0 0;
+  padding-top:12px;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  font-size:.92rem;
+  line-height:1.5;
+}
+
+@media (max-width:880px){
+  .mdm-preview-link::after,
+  .mdm-preview-link::before{
+    display:none;
+  }
+}
+
+.tour-card{
+  margin:24px 0 30px;
+  padding:24px 26px;
+  border:1px solid var(--line);
+  background:linear-gradient(180deg,#fff,#f4fbfe);
+  box-shadow:0 10px 24px rgba(29,78,110,.07);
+}
+.tour-card h3{
+  margin:0 0 8px;
+  color:var(--brand);
+  font-size:1.12rem;
+}
+.tour-card p{
+  margin:8px 0 18px;
+  color:var(--muted);
+}
+.tour-button{
+  display:inline-block;
+  padding:11px 18px;
+  background:var(--brand);
+  color:#fff;
+  text-decoration:none;
+  border-radius:999px;
+  font-weight:700;
+  line-height:1.2;
+  box-shadow:0 8px 18px rgba(28,171,226,.22);
+}
+.tour-button:hover{
+  background:var(--brand-dark);
+}
+
+.tour-button{
+  position:relative;
+}
+.tour-button::after{
+  content:"Tour 360° del campus UNQ\A Abrir recorrido virtual en una nueva pestaña";
+  white-space:pre-line;
+  position:absolute;
+  left:0;
+  bottom:135%;
+  width:300px;
+  padding:14px 16px;
+  background:#fff;
+  color:var(--ink);
+  border:1px solid var(--line);
+  box-shadow:0 14px 28px rgba(29,78,110,.16);
+  border-radius:6px;
+  font-size:.88rem;
+  line-height:1.45;
+  font-weight:400;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(8px);
+  transition:opacity .18s ease, transform .18s ease, visibility .18s ease;
+  z-index:20;
+}
+.tour-button::before{
+  content:"";
+  position:absolute;
+  left:22px;
+  bottom:118%;
+  border:8px solid transparent;
+  border-top-color:#fff;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .18s ease, visibility .18s ease;
+  z-index:21;
+}
+.tour-button:hover::after,
+.tour-button:hover::before,
+.tour-button:focus::after,
+.tour-button:focus::before{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+@media (max-width:880px){
+  .tour-button::after,
+  .tour-button::before{
+    display:none;
+  }
+}
+
+
+.text-link{color:var(--brand); text-decoration:none; border-bottom:1px solid rgba(28,171,226,.38); transition:all .18s ease; overflow-wrap:anywhere; word-break:break-word}.text-link:hover{color:var(--brand-dark); border-bottom-color:var(--brand-dark)}
+.reference-group{margin:20px 0 0; padding:18px 20px 8px; border:1px solid var(--line); background:linear-gradient(180deg,#fff,#f4fbfe)}
+.ref-list{list-style:none; padding-left:0; margin:10px 0 0}.ref-list li{margin:12px 0; padding-left:1.4em; text-indent:-1.4em; overflow-wrap:anywhere; word-break:break-word; hyphens:auto}
+.back-top{margin:28px 0 0; font-size:.92rem; color:var(--muted)}.back-top a{text-decoration:none; color:var(--muted); border-bottom:1px solid transparent}.back-top a:hover{color:var(--brand); border-bottom-color:var(--brand)}
+.site-footer{margin-top:56px; padding:0 24px 30px; color:var(--muted)}.site-footer-shell{border:1px solid var(--line); background:linear-gradient(180deg,#fff 0%, #f4fbfe 100%); box-shadow:0 10px 24px rgba(29,78,110,.06)}.site-footer-grid{display:grid; grid-template-columns:minmax(0,1.45fr) 1px minmax(260px,.85fr); gap:0 22px; align-items:stretch; padding:18px 20px}.site-footer-divider{width:1px; background:linear-gradient(180deg,rgba(28,171,226,.18),rgba(28,171,226,.55),rgba(28,171,226,.18))}.site-footer-label{margin:0 0 10px; color:var(--brand); text-transform:uppercase; letter-spacing:.18em; font-size:.78rem; font-weight:700; line-height:1.4}.site-footer-note{margin:0; font-size:.95rem; line-height:1.72; color:var(--muted)}.site-footer-author{margin:0; color:var(--ink); font-weight:700; font-size:.98rem; line-height:1.55}.site-footer-role{margin:4px 0 0; color:var(--muted); font-size:.94rem; line-height:1.55}
+@media (max-width:880px){.page{margin:0; border:none; box-shadow:none}.cover,.content{padding:28px 22px 42px}.topline{flex-direction:column; align-items:flex-start; gap:14px; margin-bottom:28px}.cover-grid,.cover-footer{grid-template-columns:1fr}h1{font-size:2.45rem}.series{white-space:normal}.site-footer{padding:0 16px 24px}.site-footer-grid{grid-template-columns:1fr; gap:14px 0; padding:16px}.site-footer-divider{width:100%; height:1px}.ref-list li{padding-left:1.1em; text-indent:-1.1em; font-size:.98rem}}
+@media print{body{background:#fff}.page{margin:0; border:none; box-shadow:none; max-width:none}.toc,.back-top{display:none}}
+
+
+.concept-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:22px 0 30px}
+.concept-card{padding:20px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe);border-top:6px solid var(--brand)}
+.concept-card h3{margin:0 0 8px;font-family:Georgia,"Times New Roman",serif;font-size:1.25rem;color:var(--brand-dark)}
+.concept-card p{margin:0;text-align:left;color:var(--muted);font-size:.98rem}
+.key-list{margin:18px 0 28px;padding:22px 24px 18px;border:1px solid var(--line);background:var(--soft)}
+.key-list ul{margin:0;padding-left:1.2rem}.key-list li{margin:8px 0}
+.reflection{margin:28px 0;padding:24px 26px;border-left:8px solid var(--brand);background:linear-gradient(135deg,#f8eef1,#fff)}
+.reflection h3{margin:0 0 8px}.reflection p{margin:0;font-family:Georgia,"Times New Roman",serif;font-size:1.18rem;text-align:left}
+.timeline{margin:22px 0 30px;border-left:3px solid var(--line);padding-left:24px}
+.timeline-item{position:relative;margin:0 0 24px;padding:18px 20px;border:1px solid var(--line);background:#fff}
+.timeline-item::before{content:"";position:absolute;left:-32px;top:24px;width:13px;height:13px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 5px #f4ecef}
+.timeline-item h3{margin:0 0 8px}.timeline-item p{margin:0;text-align:left}
+.field-box{margin:22px 0 30px;padding:24px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe)}
+.field-box strong{color:var(--brand-dark)}
+.reading-card{margin:20px 0 30px;padding:22px 24px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe)}
+.reading-card h3{margin:0 0 12px}.reading-card ul{margin:0;padding-left:1.2rem}.reading-card li{margin:9px 0}
+@media(max-width:880px){.concept-grid{grid-template-columns:1fr}}
+
+
+.author-card{margin:22px 0 30px;padding:24px 26px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe);border-left:7px solid var(--brand)}
+.author-card h3{margin:0 0 10px;font-family:Georgia,"Times New Roman",serif;font-size:1.35rem;color:var(--brand-dark)}
+.author-card p{margin:9px 0}
+.logic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:20px 0 30px}
+.logic-card{padding:20px 22px;border:1px solid var(--line);background:#fff}
+.logic-card h3{margin:0 0 8px;color:var(--brand-dark)}
+.logic-card p{margin:0;text-align:left;color:var(--muted)}
+.quote-box{margin:24px 0;padding:22px 24px;border-left:8px solid #f3b229;background:linear-gradient(135deg,#fffaf0,#fff)}
+.quote-box p{margin:0;font-family:Georgia,"Times New Roman",serif;font-size:1.16rem;text-align:left}
+@media(max-width:880px){.logic-grid{grid-template-columns:1fr}}
+
+.optional-resource{margin:24px 0 30px;padding:24px 26px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe);box-shadow:0 10px 24px rgba(29,78,110,.07);border-top:6px solid #f3b229}
+.optional-resource .eyebrow{margin:0 0 8px;color:var(--brand);text-transform:uppercase;letter-spacing:.14em;font-size:.74rem;font-weight:700}
+.optional-resource h3{margin:0 0 10px;font-family:Georgia,"Times New Roman",serif;font-size:1.35rem;color:var(--brand-dark)}
+.optional-resource p{margin:8px 0 16px;text-align:left;color:var(--muted)}
+.optional-resource .resource-button{display:inline-block;padding:11px 18px;background:var(--brand);color:#fff;text-decoration:none;border-radius:999px;font-weight:700;line-height:1.2;box-shadow:0 8px 18px rgba(28,171,226,.22)}
+.optional-resource .resource-button:hover{background:var(--brand-dark)}
+</style>
+</head>
+
+<body>
+<div class="page" id="top">
+<section class="cover">
+  <div class="topline">
+    <div class="brandlock">
+      <div class="brandmark">
+        <svg aria-label="UNQ" role="img" viewBox="0 0 32 32" width="28" height="28">
+          <rect width="32" height="32" fill="#1cabe2"/>
+          <path d="M8 7h4v11c0 3 1.5 4.5 4 4.5S20 21 20 18V7h4v11c0 5.5-3.2 8.5-8 8.5S8 23.5 8 18V7z" fill="#fff"/>
+        </svg>
+      </div>
+      <div class="kicker">Administración de la Educación y Gestión de las Instituciones Escolares<br>Licenciatura en Educación · Modalidad virtual</div>
+    </div>
+    <div class="series">Clase 6</div>
+  </div>
+
+  <div class="cover-grid">
+    <div>
+      <h1>Enfoques teóricos en organización y administración de la educación</h1>
+      <p class="subtitle-program">Teoría de la Organización, burocracia y Teoría de los Sistemas</p>
+      <p class="subtitle-university">Universidad Nacional de Quilmes</p>
+      <span class="cover-year">Unidad 2 · 2026</span>
+    </div>
+
+    <figure class="hero-illustration" aria-label="Esquema de organización, burocracia y sistemas">
+      <svg class="hero-svg" viewBox="0 0 220 190" role="img" aria-hidden="true">
+        <rect x="78" y="18" width="64" height="40" rx="4" class="svg-soft"/>
+        <rect x="78" y="18" width="64" height="40" rx="4" class="svg-line"/>
+        <circle cx="110" cy="38" r="8" class="svg-fill"/>
+        <path d="M110 58v24M110 82H52M110 82h58" class="svg-line"/>
+        <rect x="23" y="96" width="58" height="38" rx="4" fill="#fff" stroke="#1cabe2" stroke-width="3"/>
+        <rect x="81" y="96" width="58" height="38" rx="4" fill="#fff" stroke="#1cabe2" stroke-width="3"/>
+        <rect x="139" y="96" width="58" height="38" rx="4" fill="#fff" stroke="#1cabe2" stroke-width="3"/>
+        <path d="M52 134v20M110 134v20M168 134v20M52 154h116" class="svg-line"/>
+        <circle cx="52" cy="115" r="7" class="svg-muted"/>
+        <circle cx="110" cy="115" r="7" class="svg-fill"/>
+        <circle cx="168" cy="115" r="7" class="svg-muted"/>
+        <path d="M76 170c10-9 22-13 34-13s24 4 34 13" class="svg-line"/>
+      </svg>
+    </figure>
+  </div>
+
+  <div class="cover-footer">
+    <div class="cover-card">
+      <span class="label">Pregunta orientadora</span>
+      <p>¿Qué aportan la Teoría de la Organización, la burocracia y la Teoría de los Sistemas para comprender el funcionamiento de las instituciones educativas?</p>
+    </div>
+    <div class="cover-card">
+      <span class="label">Ejes de análisis</span>
+      <p>Toma de decisiones, autoridad, comunicación, conflicto, burocracia, legitimidad, estructura, sistemas, entorno e interdependencia.</p>
+    </div>
+  </div>
+</section>
+
+<main class="content">
+<section class="toc" id="indice">
+  <h2>Índice</h2>
+  <ol>
+    <li><a href="#introduccion">Introducción</a></li>
+    <li><a href="#lecturas">Lecturas de la semana</a></li>
+    <li><a href="#teoria-organizacion">La Teoría de la Organización</a></li>
+    <li><a href="#burocracia">La organización como burocracia</a></li>
+    <li><a href="#funcional-estructuralista">El modelo funcional-estructuralista</a></li>
+    <li><a href="#sistemas">La Teoría de los Sistemas</a></li>
+    <li><a href="#lectura-orientada">Propuesta de lectura</a></li>
+    <li><a href="#video">Recurso audiovisual optativo</a></li>
+    <li><a href="#cierre">Cierre de la clase</a></li>
+    <li><a href="#referencias">Referencias</a></li>
+  </ol>
+</section>
+
+<h2 class="section" id="introduccion">Introducción</h2>
+
+<p>¡Hola a todos! En esta clase continuaremos explorando el paradigma científico-racional o tradicional, que examina la escuela desde la perspectiva de una herramienta, un instrumento o una máquina.</p>
+
+<p>Tal como analizamos en la clase anterior, dentro de este paradigma encontramos diferentes modelos. En esta oportunidad profundizaremos en la <strong>Teoría de la Organización</strong>, la <strong>organización como burocracia</strong> y la <strong>Teoría de los Sistemas</strong>, atendiendo a los aportes que cada perspectiva realiza para comprender las organizaciones y a sus influencias en el ámbito escolar.</p>
+
+<div class="concept-grid">
+  <div class="concept-card">
+    <h3>Decisiones</h3>
+    <p>La Teoría de la Organización estudia la racionalidad del comportamiento administrativo y el proceso de toma de decisiones.</p>
+  </div>
+  <div class="concept-card">
+    <h3>Burocracia</h3>
+    <p>Weber analiza una forma de organización basada en jerarquías, reglas, procedimientos formales y autoridad legítima.</p>
+  </div>
+  <div class="concept-card">
+    <h3>Sistemas</h3>
+    <p>La organización se comprende como un conjunto de componentes interdependientes que se relacionan entre sí y con el entorno.</p>
+  </div>
+</div>
+
+<h2 class="section" id="lecturas">Lecturas de la semana</h2>
+
+<div class="reading-card">
+  <h3>Bibliografía obligatoria</h3>
+  <ul>
+    <li>García et al. (2013). <em>Carpeta de trabajo. Administración de la educación y gestión de las instituciones escolares</em>. Universidad Nacional de Quilmes.</li>
+    <li>Oszlak, O. (1984). Notas críticas para una teoría de la burocracia estatal. En O. Oszlak (Comp.), <em>Teoría de la burocracia estatal: Enfoques críticos</em>. Paidós.</li>
+    <li>Weber, M. (1944). Burocracia. En <em>Economía y sociedad</em> (t. 4, Tipos de dominación). Fondo de Cultura Económica.</li>
+    <li>Tyler, W. (1991). La escuela como institución burocrática. En <em>Organización escolar</em>. Morata.</li>
+  </ul>
+</div>
+
+<div class="field-box">
+  <p>Las lecturas permiten analizar distintas formas de conceptualizar la organización, la autoridad, la burocracia y la relación entre la institución y su entorno. La <strong>Carpeta de trabajo de García et al. (2013)</strong> acompaña este recorrido y permite articular los aportes de Weber y Tyler con la organización escolar.</p>
+</div>
+
+<h2 class="section" id="teoria-organizacion">1. La Teoría de la Organización</h2>
+
+<p>La Teoría de la Organización destaca temas como el área de influencia, la búsqueda del equilibrio organizacional y el análisis del proceso de toma de decisiones. Este enfoque examina la racionalidad en el comportamiento administrativo, la autoridad, la comunicación y el conflicto.</p>
+
+<p>Las decisiones se consideran actos intencionados orientados a alcanzar metas. El proceso decisorio puede desglosarse en diferentes momentos: identificación de necesidades, análisis de problemas, generación de alternativas, evaluación y selección de una opción.</p>
+
+<div class="logic-grid">
+  <div class="logic-card">
+    <h3>Equilibrio organizacional</h3>
+    <p>Se alcanza cuando la organización genera los incentivos necesarios para sostener la participación de sus integrantes.</p>
+  </div>
+  <div class="logic-card">
+    <h3>Autoridad</h3>
+    <p>Se entiende como la aceptación de que las decisiones de un superior orienten el comportamiento de un subordinado.</p>
+  </div>
+  <div class="logic-card">
+    <h3>Comunicación</h3>
+    <p>Se vincula con la transmisión de premisas para la toma de decisiones y puede ser formal o informal.</p>
+  </div>
+  <div class="logic-card">
+    <h3>Conflicto</h3>
+    <p>Puede presentarse en el plano individual, organizacional o interorganizacional, y dar lugar a diferentes formas de resolución.</p>
+  </div>
+</div>
+
+<p>Aunque esta perspectiva critica algunos aspectos de la administración científica, conserva la idea de la decisión como una <strong>cadena de medios a fines</strong> y no cuestiona la especialización, sino que procura organizarla de manera más adecuada para alcanzar los objetivos.</p>
+
+<div class="reflection">
+  <h3>Para pensar</h3>
+  <p>¿Qué lugar ocupa la toma de decisiones en una institución educativa y qué aspectos quedarían fuera del análisis si se la comprendiera únicamente como una secuencia racional de medios y fines?</p>
+</div>
+
+<h2 class="section" id="burocracia">2. La organización como burocracia</h2>
+
+<div class="author-card">
+  <h3>Max Weber y la burocracia</h3>
+  <p>La burocracia es analizada como una forma de organización vinculada con la dominación legal-racional. Se caracteriza por una estructura jerárquica e impersonal, procedimientos formales, división del trabajo y selección basada en méritos.</p>
+</div>
+
+<p>Weber distingue entre <strong>poder</strong> y <strong>autoridad</strong>. El poder refiere a la posibilidad de obtener obediencia, mientras que la autoridad supone una obediencia reconocida como legítima.</p>
+
+<div class="concept-grid">
+  <div class="concept-card">
+    <h3>Tradicional</h3>
+    <p>La legitimidad se apoya en costumbres y tradiciones reconocidas como válidas.</p>
+  </div>
+  <div class="concept-card">
+    <h3>Carismática</h3>
+    <p>La obediencia se vincula con cualidades atribuidas a una persona y con el reconocimiento de su liderazgo.</p>
+  </div>
+  <div class="concept-card">
+    <h3>Racional-legal</h3>
+    <p>La autoridad se funda en normas impersonales y en funciones formalmente establecidas.</p>
+  </div>
+</div>
+
+<p>En el modelo burocrático, la obediencia se dirige a un orden impersonal y no a una persona particular. La comunicación formal, los procedimientos estandarizados, la división del trabajo y la jerarquía permiten organizar las responsabilidades y delimitar funciones.</p>
+
+<h2 class="section" id="funcional-estructuralista">El modelo funcional-estructuralista</h2>
+
+<p>Desde la década de 1940, autores como Parsons, Merton, Selznick y Gouldner amplían el análisis de la burocracia incorporando aspectos sociológicos y psicológicos.</p>
+
+<div class="logic-grid">
+  <div class="logic-card">
+    <h3>Merton</h3>
+    <p>Distingue entre funciones manifiestas y latentes, mostrando que las organizaciones pueden producir efectos no previstos.</p>
+  </div>
+  <div class="logic-card">
+    <h3>Selznick</h3>
+    <p>Atiende a las funciones deseadas y no deseadas y reconoce que los objetivos personales pueden producir disfunciones.</p>
+  </div>
+  <div class="logic-card">
+    <h3>Gouldner</h3>
+    <p>Analiza las normas como fuentes de seguridad y control, pero también como posibles generadoras de disfunciones.</p>
+  </div>
+  <div class="logic-card">
+    <h3>Comportamiento burocrático</h3>
+    <p>Gouldner distingue burocracia fingida, representativa y punitiva.</p>
+  </div>
+</div>
+
+<div class="field-box">
+  <p>Entre los aportes de estas perspectivas se encuentran la estandarización, la especialización y la organización formal. Entre sus limitaciones, el material señala una visión rígida de lo organizacional y una atención insuficiente al factor humano y al entorno.</p>
+</div>
+
+<h2 class="section" id="sistemas">3. La Teoría de los Sistemas</h2>
+
+<p>Un sistema se define como un conjunto de elementos interdependientes. La conducta de cada elemento influye en el comportamiento del conjunto, los efectos de las partes sobre el todo están relacionados entre sí y ningún elemento actúa de manera completamente independiente.</p>
+
+<p>Desde esta perspectiva, la organización se concibe como un conjunto de componentes en interacción. El pensamiento sistémico busca producir información para la toma de decisiones y atender a las relaciones entre las partes y el conjunto.</p>
+
+<div class="logic-grid">
+  <div class="logic-card">
+    <h3>Interdependencia</h3>
+    <p>Las partes no pueden comprenderse aisladamente porque sus comportamientos y efectos se relacionan con el conjunto.</p>
+  </div>
+  <div class="logic-card">
+    <h3>Sistema abierto</h3>
+    <p>La organización mantiene intercambios con su entorno y recibe influencias de diferentes condiciones externas.</p>
+  </div>
+  <div class="logic-card">
+    <h3>Retroalimentación</h3>
+    <p>La información sobre el funcionamiento del sistema permite revisar procesos y tomar decisiones.</p>
+  </div>
+  <div class="logic-card">
+    <h3>Subsistemas</h3>
+    <p>En la escuela pueden distinguirse componentes administrativos, operativos y pedagógicos que interactúan entre sí.</p>
+  </div>
+</div>
+
+<p>El material destaca que este enfoque favorece la integración de múltiples elementos teóricos, el uso de un lenguaje común y la interdisciplina. Al mismo tiempo, señala limitaciones cuando se atiende de manera insuficiente a los aspectos históricos, culturales, organizacionales y ecológicos.</p>
+
+<h2 class="section" id="lectura-orientada">Propuesta de lectura</h2>
+
+<p>El texto de <strong>Oszlak (1984)</strong> problematiza la forma en que ha sido estudiada la burocracia estatal. Señala la necesidad de contextualizar cultural e históricamente sus rasgos y de delimitar con mayor precisión las unidades de análisis y las categorías utilizadas para comprenderla.</p>
+
+<p>Oszlak organiza su análisis a partir de tres perspectivas: la histórico-estructural, las corrientes de administración y organización, y la ciencia política. Este recorrido permite advertir que la burocracia estatal no puede reducirse a una simple patología administrativa ni analizarse exclusivamente desde criterios de racionalidad y productividad.</p>
+
+<p>El texto de <strong>Weber (1944)</strong> aborda las formas de legitimidad de la autoridad y distingue tres tipos puros de dominación legítima: racional, tradicional y carismática. La dominación legal constituye la base del ideal burocrático y se apoya en un sistema administrativo racional y profesional.</p>
+
+<p><strong>Tyler (1991)</strong>, por su parte, recupera las influencias weberianas en la administración y organización escolar y plantea una lectura crítica de los estudios que tomaron la escuela como ejemplo empírico del tipo ideal burocrático.</p>
+
+<div class="quote-box">
+  <p>La lectura de la burocracia escolar exige considerar no solo los aspectos formales de la organización, sino también las relaciones, los conflictos y las condiciones sociales que atraviesan a la institución.</p>
+</div>
+
+<div class="key-list">
+  <ul>
+    <li>¿Cómo se define la autoridad en la Teoría de la Organización y en Weber?</li>
+    <li>¿Qué diferencias pueden establecerse entre poder y autoridad?</li>
+    <li>¿Qué características presenta el modelo burocrático?</li>
+    <li>¿Qué aportes y qué límites presenta el análisis funcional-estructuralista?</li>
+    <li>¿Qué implica pensar la escuela como un sistema abierto?</li>
+    <li>¿Qué aspectos del entorno deberían considerarse al analizar una institución educativa?</li>
+  </ul>
+</div>
+
+<h2 class="section" id="video">Recurso audiovisual optativo</h2>
+
+<div class="optional-resource">
+  <p class="eyebrow">Para ampliar</p>
+  <h3>Video complementario de la Clase 6</h3>
+  <p>El recurso audiovisual acompaña los contenidos trabajados en esta clase y puede utilizarse para ampliar la reflexión sobre la organización, la burocracia y los enfoques sistémicos.</p>
+  <a class="resource-button" href="https://www.youtube.com/watch?v=ZCw6Cstey2M" target="_blank" rel="noopener noreferrer">Ver el video</a>
+</div>
+
+<h2 class="section" id="cierre">Cierre de la clase</h2>
+
+<p>En esta clase continuamos el recorrido por el paradigma técnico-racional a partir de tres desarrollos: la Teoría de la Organización, la organización como burocracia y la Teoría de los Sistemas.</p>
+
+<p>La Teoría de la Organización incorpora el análisis de la toma de decisiones, la autoridad, la comunicación y el conflicto. El enfoque burocrático permite estudiar las jerarquías, las normas, la legitimidad y la organización formal. La Teoría de los Sistemas, por su parte, propone comprender la organización como un conjunto de elementos interdependientes y en relación con el entorno.</p>
+
+<p>Estos enfoques ofrecen herramientas para analizar diferentes dimensiones de las instituciones educativas, pero también requieren atender a sus límites y a los aspectos históricos, culturales y sociales que pueden quedar fuera de sus categorías de análisis.</p>
+
+<p>Saludos,<br><strong>Linda</strong></p>
+
+<div class="back-top"><a href="#indice">↑ Volver al índice</a></div>
+
+<h2 class="section" id="referencias">Referencias</h2>
+
+<div class="reference-group">
+  <ul class="ref-list">
+    <li>García et al. (2013). <em>Carpeta de trabajo. Administración de la educación y gestión de las instituciones escolares</em>. Universidad Nacional de Quilmes.</li>
+    <li>Oszlak, O. (1984). Notas críticas para una teoría de la burocracia estatal. En O. Oszlak (Comp.), <em>Teoría de la burocracia estatal: Enfoques críticos</em>. Paidós.</li>
+    <li>Tyler, W. (1991). La escuela como institución burocrática. En <em>Organización escolar</em>. Morata.</li>
+    <li>Weber, M. (1944). Burocracia. En <em>Economía y sociedad</em> (t. 4, Tipos de dominación). Fondo de Cultura Económica.</li>
+  </ul>
+</div>
+<p class="update-note"><strong>Nota sobre la referencia de García et al. (2013):</strong> en el material proporcionado la autoría aparece abreviada como “García et al.”. Para una referencia APA 7 completa se requiere la nómina completa de autores de la obra.</p>
+
+<div class="back-top"><a href="#top">↑ Volver al inicio</a></div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer-shell">
+    <div class="site-footer-grid">
+      <div>
+        <p class="site-footer-label">Administración de la Educación y Gestión de las Instituciones Escolares</p>
+        <p class="site-footer-note">Material de clase · Licenciatura en Educación · Universidad Nacional de Quilmes · Agosto de 2026</p>
+      </div>
+      <div class="site-footer-divider"></div>
+      <div>
+        <p class="site-footer-author">Linda Angélica López</p>
+        <p class="site-footer-role">Docente</p>
+      </div>
+    </div>
+  </div>
+</footer>
+</div>
+</body>
+</html>
