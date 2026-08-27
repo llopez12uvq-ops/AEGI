@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clase 7 · Administración de la Educación y Gestión de las Instituciones Escolares</title>
+<style>
+
+:root{
+  --brand:#1cabe2;
+  --brand-dark:#1189bb;
+  --bg:#eef7fb;
+  --paper:#ffffff;
+  --ink:#1f2a37;
+  --muted:#4f6272;
+  --line:#d6e8f2;
+  --soft:#f4fbfe;
+  --soft-2:#eef7fb;
+  --accent:#dff3fb;
+  --max:1100px;
+  --text:1.04rem;
+  --shadow:0 18px 42px rgba(29,78,110,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:radial-gradient(circle at top left, rgba(28,171,226,.10), transparent 22%), linear-gradient(180deg,#f4fbfe 0%, var(--bg) 100%);
+  color:var(--ink);
+  font-family:"Aptos","Segoe UI",Arial,sans-serif;
+  line-height:1.72;
+}
+a{color:inherit}
+.page{max-width:var(--max); margin:26px auto; background:var(--paper); border:1px solid #d9edf7; box-shadow:var(--shadow); border-radius:28px; overflow:hidden}
+.cover{position:relative; padding:52px 68px 56px; background:radial-gradient(circle at 82% 18%, rgba(28,171,226,.10), transparent 23%), linear-gradient(180deg,#fff,#f7fcfe 75%,#fff); border-bottom:1px solid var(--line)}
+.cover::before{content:""; position:absolute; left:0; right:0; top:0; height:12px; background:var(--brand)}
+.topline{display:flex; align-items:flex-start; justify-content:space-between; gap:24px; margin:8px 0 44px}
+.brandlock{display:flex; gap:16px; align-items:center}
+.brandmark{width:58px; height:58px; flex:0 0 58px; display:grid; place-items:center; background:var(--brand); border-radius:2px}
+.brandmark img{width:26px; height:auto; display:block}
+.kicker{max-width:520px; color:var(--muted); text-transform:uppercase; font-size:.74rem; letter-spacing:.14em; line-height:1.55}
+.series{color:var(--brand); font-size:.82rem; text-transform:uppercase; letter-spacing:.16em; border-bottom:1px solid var(--line); padding-bottom:10px; white-space:nowrap}
+.cover-grid{display:grid; grid-template-columns:minmax(0,1fr) 300px; gap:40px; align-items:center}
+h1{margin:0 0 18px; font-family:Georgia, "Times New Roman", serif; font-size:3.45rem; line-height:1.02; letter-spacing:-.03em; color:#0f2535}
+.subtitle-program{margin:10px 0 6px; font-size:1.18rem; color:var(--brand-dark); font-weight:700; letter-spacing:.01em}
+.subtitle-university{margin:0 0 18px; font-size:1rem; text-transform:uppercase; letter-spacing:.08em; color:var(--muted)}
+.cover-year{display:inline-block; margin:2px 0 22px; padding:7px 14px 6px; border:1px solid rgba(28,171,226,.22); background:linear-gradient(180deg,#f7fcfe,#eaf7fc); color:var(--brand); font-size:.84rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; border-radius:999px; box-shadow:0 8px 20px rgba(28,171,226,.12)}
+.hero-illustration{width:100%; max-width:280px; margin:0 auto; background:linear-gradient(180deg,#ffffff,#eef7fb); border:1px solid var(--line); padding:22px; display:grid; place-items:center; min-height:240px}
+.hero-illustration .hero-svg{width:190px; max-width:100%; height:auto; display:block}
+.hero-illustration .svg-soft{fill:#dff3fb}
+.hero-illustration .svg-line{fill:none; stroke:#1cabe2; stroke-width:3; stroke-linecap:round; stroke-linejoin:round}
+.hero-illustration .svg-fill{fill:#1cabe2}
+.hero-illustration .svg-muted{fill:#89cfe9}
+.cover-footer{display:grid; grid-template-columns:repeat(2,minmax(280px,1fr)); gap:22px; margin-top:36px; padding-top:24px; border-top:1px solid var(--line)}
+.cover-card{padding:22px 24px; border:1px solid var(--line); background:linear-gradient(180deg,#fff,#f4fbfe)}
+.cover-card .label{display:block; margin-bottom:10px; color:var(--brand); text-transform:uppercase; letter-spacing:.14em; font-size:.72rem; font-weight:700}
+.cover-card p{margin:0; color:var(--muted)}
+.content{padding:38px 68px 84px}
+.content p{text-align:justify; text-justify:inter-word}
+.toc{margin-bottom:30px; padding:24px 26px 20px; border:1px solid var(--line); background:linear-gradient(180deg,#fff,#f4fbfe)}
+.toc h2{margin:0 0 14px; color:var(--brand); text-transform:uppercase; letter-spacing:.14em; font-size:.76rem}
+.toc ol{margin:0; padding-left:1.35rem; font-size:1rem}.toc li{margin:9px 0}.toc a{text-decoration:none; border-bottom:1px solid transparent}.toc a:hover{color:var(--brand); border-bottom-color:var(--brand)}
+h2.section{margin:46px 0 16px; padding-top:18px; border-top:1px solid var(--line); font-family:Georgia, "Times New Roman", serif; font-size:2rem; line-height:1.12; letter-spacing:-.02em}
+h3{margin:28px 0 10px; color:var(--brand); font-size:1.08rem}
+p{margin:12px 0; font-size:var(--text)}
+.mdm-box{margin:20px 0 28px; padding:18px 20px; border:2px solid var(--brand); border-left:10px solid #f3b229; background:#fff; box-shadow:0 8px 22px rgba(29,78,110,.06)}
+.mdm-title{margin:0 0 10px; color:var(--brand-dark); font-weight:700; font-size:1.04rem}
+mark{
+  background:none;
+  color:inherit;
+  padding:0;
+  border:0;
+  border-radius:0;
+  box-shadow:none;
+  font-weight:700;
+}
+
+
+.mdm-preview-link{
+  position:relative;
+  color:var(--brand);
+  text-decoration:none;
+  border-bottom:1px solid rgba(28,171,226,.38);
+  font-weight:700;
+}
+.mdm-preview-link:hover{
+  color:var(--brand-dark);
+  border-bottom-color:var(--brand-dark);
+}
+.mdm-preview-link::after{
+  content:"Repositorio UVQ · Material Didáctico Digital\A Abrir MDM en una nueva pestaña";
+  white-space:pre-line;
+  position:absolute;
+  left:0;
+  bottom:135%;
+  width:290px;
+  padding:14px 16px;
+  background:#fff;
+  color:var(--ink);
+  border:1px solid var(--line);
+  box-shadow:0 14px 28px rgba(29,78,110,.16);
+  border-radius:6px;
+  font-size:.88rem;
+  line-height:1.45;
+  font-weight:400;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(8px);
+  transition:opacity .18s ease, transform .18s ease, visibility .18s ease;
+  z-index:20;
+}
+.mdm-preview-link::before{
+  content:"";
+  position:absolute;
+  left:22px;
+  bottom:118%;
+  border:8px solid transparent;
+  border-top-color:#fff;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .18s ease, visibility .18s ease;
+  z-index:21;
+}
+.mdm-preview-link:hover::after,
+.mdm-preview-link:hover::before,
+.mdm-preview-link:focus::after,
+.mdm-preview-link:focus::before{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+
+
+.author-line{
+  margin:6px 0 0;
+  color:var(--muted);
+  font-size:.94rem;
+  line-height:1.65;
+}
+
+.author-list{
+  margin:6px 0 0;
+  padding-left:1.15rem;
+  color:var(--muted);
+  font-size:.94rem;
+  line-height:1.55;
+}
+.author-list li{
+  margin:2px 0;
+}
+.update-note{
+  margin:16px 0 0;
+  padding-top:12px;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  font-size:.92rem;
+  line-height:1.5;
+}
+
+@media (max-width:880px){
+  .mdm-preview-link::after,
+  .mdm-preview-link::before{
+    display:none;
+  }
+}
+
+.tour-card{
+  margin:24px 0 30px;
+  padding:24px 26px;
+  border:1px solid var(--line);
+  background:linear-gradient(180deg,#fff,#f4fbfe);
+  box-shadow:0 10px 24px rgba(29,78,110,.07);
+}
+.tour-card h3{
+  margin:0 0 8px;
+  color:var(--brand);
+  font-size:1.12rem;
+}
+.tour-card p{
+  margin:8px 0 18px;
+  color:var(--muted);
+}
+.tour-button{
+  display:inline-block;
+  padding:11px 18px;
+  background:var(--brand);
+  color:#fff;
+  text-decoration:none;
+  border-radius:999px;
+  font-weight:700;
+  line-height:1.2;
+  box-shadow:0 8px 18px rgba(28,171,226,.22);
+}
+.tour-button:hover{
+  background:var(--brand-dark);
+}
+
+.tour-button{
+  position:relative;
+}
+.tour-button::after{
+  content:"Tour 360° del campus UNQ\A Abrir recorrido virtual en una nueva pestaña";
+  white-space:pre-line;
+  position:absolute;
+  left:0;
+  bottom:135%;
+  width:300px;
+  padding:14px 16px;
+  background:#fff;
+  color:var(--ink);
+  border:1px solid var(--line);
+  box-shadow:0 14px 28px rgba(29,78,110,.16);
+  border-radius:6px;
+  font-size:.88rem;
+  line-height:1.45;
+  font-weight:400;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(8px);
+  transition:opacity .18s ease, transform .18s ease, visibility .18s ease;
+  z-index:20;
+}
+.tour-button::before{
+  content:"";
+  position:absolute;
+  left:22px;
+  bottom:118%;
+  border:8px solid transparent;
+  border-top-color:#fff;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .18s ease, visibility .18s ease;
+  z-index:21;
+}
+.tour-button:hover::after,
+.tour-button:hover::before,
+.tour-button:focus::after,
+.tour-button:focus::before{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+@media (max-width:880px){
+  .tour-button::after,
+  .tour-button::before{
+    display:none;
+  }
+}
+
+
+.text-link{color:var(--brand); text-decoration:none; border-bottom:1px solid rgba(28,171,226,.38); transition:all .18s ease; overflow-wrap:anywhere; word-break:break-word}.text-link:hover{color:var(--brand-dark); border-bottom-color:var(--brand-dark)}
+.reference-group{margin:20px 0 0; padding:18px 20px 8px; border:1px solid var(--line); background:linear-gradient(180deg,#fff,#f4fbfe)}
+.ref-list{list-style:none; padding-left:0; margin:10px 0 0}.ref-list li{margin:12px 0; padding-left:1.4em; text-indent:-1.4em; overflow-wrap:anywhere; word-break:break-word; hyphens:auto}
+.back-top{margin:28px 0 0; font-size:.92rem; color:var(--muted)}.back-top a{text-decoration:none; color:var(--muted); border-bottom:1px solid transparent}.back-top a:hover{color:var(--brand); border-bottom-color:var(--brand)}
+.site-footer{margin-top:56px; padding:0 24px 30px; color:var(--muted)}.site-footer-shell{border:1px solid var(--line); background:linear-gradient(180deg,#fff 0%, #f4fbfe 100%); box-shadow:0 10px 24px rgba(29,78,110,.06)}.site-footer-grid{display:grid; grid-template-columns:minmax(0,1.45fr) 1px minmax(260px,.85fr); gap:0 22px; align-items:stretch; padding:18px 20px}.site-footer-divider{width:1px; background:linear-gradient(180deg,rgba(28,171,226,.18),rgba(28,171,226,.55),rgba(28,171,226,.18))}.site-footer-label{margin:0 0 10px; color:var(--brand); text-transform:uppercase; letter-spacing:.18em; font-size:.78rem; font-weight:700; line-height:1.4}.site-footer-note{margin:0; font-size:.95rem; line-height:1.72; color:var(--muted)}.site-footer-author{margin:0; color:var(--ink); font-weight:700; font-size:.98rem; line-height:1.55}.site-footer-role{margin:4px 0 0; color:var(--muted); font-size:.94rem; line-height:1.55}
+@media (max-width:880px){.page{margin:0; border:none; box-shadow:none}.cover,.content{padding:28px 22px 42px}.topline{flex-direction:column; align-items:flex-start; gap:14px; margin-bottom:28px}.cover-grid,.cover-footer{grid-template-columns:1fr}h1{font-size:2.45rem}.series{white-space:normal}.site-footer{padding:0 16px 24px}.site-footer-grid{grid-template-columns:1fr; gap:14px 0; padding:16px}.site-footer-divider{width:100%; height:1px}.ref-list li{padding-left:1.1em; text-indent:-1.1em; font-size:.98rem}}
+@media print{body{background:#fff}.page{margin:0; border:none; box-shadow:none; max-width:none}.toc,.back-top{display:none}}
+
+
+.concept-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:22px 0 30px}
+.concept-card{padding:20px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe);border-top:6px solid var(--brand)}
+.concept-card h3{margin:0 0 8px;font-family:Georgia,"Times New Roman",serif;font-size:1.25rem;color:var(--brand-dark)}
+.concept-card p{margin:0;text-align:left;color:var(--muted);font-size:.98rem}
+.key-list{margin:18px 0 28px;padding:22px 24px 18px;border:1px solid var(--line);background:var(--soft)}
+.key-list ul{margin:0;padding-left:1.2rem}.key-list li{margin:8px 0}
+.reflection{margin:28px 0;padding:24px 26px;border-left:8px solid var(--brand);background:linear-gradient(135deg,#f8eef1,#fff)}
+.reflection h3{margin:0 0 8px}.reflection p{margin:0;font-family:Georgia,"Times New Roman",serif;font-size:1.18rem;text-align:left}
+.timeline{margin:22px 0 30px;border-left:3px solid var(--line);padding-left:24px}
+.timeline-item{position:relative;margin:0 0 24px;padding:18px 20px;border:1px solid var(--line);background:#fff}
+.timeline-item::before{content:"";position:absolute;left:-32px;top:24px;width:13px;height:13px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 5px #f4ecef}
+.timeline-item h3{margin:0 0 8px}.timeline-item p{margin:0;text-align:left}
+.field-box{margin:22px 0 30px;padding:24px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe)}
+.field-box strong{color:var(--brand-dark)}
+.reading-card{margin:20px 0 30px;padding:22px 24px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe)}
+.reading-card h3{margin:0 0 12px}.reading-card ul{margin:0;padding-left:1.2rem}.reading-card li{margin:9px 0}
+@media(max-width:880px){.concept-grid{grid-template-columns:1fr}}
+
+
+.author-card{margin:22px 0 30px;padding:24px 26px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe);border-left:7px solid var(--brand)}
+.author-card h3{margin:0 0 10px;font-family:Georgia,"Times New Roman",serif;font-size:1.35rem;color:var(--brand-dark)}
+.author-card p{margin:9px 0}
+.logic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:20px 0 30px}
+.logic-card{padding:20px 22px;border:1px solid var(--line);background:#fff}
+.logic-card h3{margin:0 0 8px;color:var(--brand-dark)}
+.logic-card p{margin:0;text-align:left;color:var(--muted)}
+.quote-box{margin:24px 0;padding:22px 24px;border-left:8px solid #f3b229;background:linear-gradient(135deg,#fffaf0,#fff)}
+.quote-box p{margin:0;font-family:Georgia,"Times New Roman",serif;font-size:1.16rem;text-align:left}
+@media(max-width:880px){.logic-grid{grid-template-columns:1fr}}
+
+.optional-resource{margin:24px 0 30px;padding:24px 26px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe);box-shadow:0 10px 24px rgba(29,78,110,.07);border-top:6px solid #f3b229}
+.optional-resource .eyebrow{margin:0 0 8px;color:var(--brand);text-transform:uppercase;letter-spacing:.14em;font-size:.74rem;font-weight:700}
+.optional-resource h3{margin:0 0 10px;font-family:Georgia,"Times New Roman",serif;font-size:1.35rem;color:var(--brand-dark)}
+.optional-resource p{margin:8px 0 16px;text-align:left;color:var(--muted)}
+.optional-resource .resource-button{display:inline-block;padding:11px 18px;background:var(--brand);color:#fff;text-decoration:none;border-radius:999px;font-weight:700;line-height:1.2;box-shadow:0 8px 18px rgba(28,171,226,.22)}
+.optional-resource .resource-button:hover{background:var(--brand-dark)}
+</style>
+</head>
+
+<body>
+<div class="page" id="top">
+<section class="cover">
+  <div class="topline">
+    <div class="brandlock">
+      <div class="brandmark">
+        <svg aria-label="UNQ" role="img" viewBox="0 0 32 32" width="28" height="28">
+          <rect width="32" height="32" fill="#1cabe2"/>
+          <path d="M8 7h4v11c0 3 1.5 4.5 4 4.5S20 21 20 18V7h4v11c0 5.5-3.2 8.5-8 8.5S8 23.5 8 18V7z" fill="#fff"/>
+        </svg>
+      </div>
+      <div class="kicker">Administración de la Educación y Gestión de las Instituciones Escolares<br>Licenciatura en Educación · Modalidad virtual</div>
+    </div>
+    <div class="series">Clase 7</div>
+  </div>
+
+  <div class="cover-grid">
+    <div>
+      <h1>Aproximaciones teóricas a la organización escolar</h1>
+      <p class="subtitle-program">Paradigmas interpretativo-simbólico y sociocrítico, micropolítica y enfoques gerencialistas</p>
+      <p class="subtitle-university">Universidad Nacional de Quilmes</p>
+      <span class="cover-year">Unidad 2 · 2026</span>
+    </div>
+    <figure class="hero-illustration" aria-label="Esquema de interacción, poder y organización">
+      <svg class="hero-svg" viewBox="0 0 220 190" role="img" aria-hidden="true">
+        <circle cx="110" cy="48" r="18" class="svg-soft"/><circle cx="110" cy="48" r="8" class="svg-fill"/>
+        <circle cx="48" cy="110" r="18" class="svg-soft"/><circle cx="48" cy="110" r="8" class="svg-muted"/>
+        <circle cx="172" cy="110" r="18" class="svg-soft"/><circle cx="172" cy="110" r="8" class="svg-muted"/>
+        <circle cx="110" cy="152" r="18" class="svg-soft"/><circle cx="110" cy="152" r="8" class="svg-fill"/>
+        <path d="M98 60L60 98M122 60l38 38M66 117l31 25M154 117l-31 25M66 110h88" class="svg-line"/>
+      </svg>
+    </figure>
+  </div>
+
+  <div class="cover-footer">
+    <div class="cover-card">
+      <span class="label">Pregunta orientadora</span>
+      <p>¿Qué cambia en el análisis de la escuela cuando la entendemos como espacio de significados, relaciones de poder, conflictos e intereses?</p>
+    </div>
+    <div class="cover-card">
+      <span class="label">Ejes de análisis</span>
+      <p>Cultura institucional, interacción social, poder, conflicto, intereses, micropolítica, cambio organizacional y gerencialismo.</p>
+    </div>
+  </div>
+</section>
+
+<main class="content">
+<section class="toc" id="indice">
+  <h2>Índice</h2>
+  <ol>
+    <li><a href="#introduccion">Introducción</a></li>
+    <li><a href="#lecturas">Lecturas de la semana</a></li>
+    <li><a href="#interpretativo">Paradigma interpretativo-simbólico</a></li>
+    <li><a href="#sociocritico">Paradigma sociocrítico</a></li>
+    <li><a href="#micropolitica">La micropolítica de la escuela</a></li>
+    <li><a href="#gerencialismo">Los modelos gerencialistas en educación</a></li>
+    <li><a href="#lectura-orientada">Propuesta de lectura</a></li>
+    <li><a href="#video">Recurso audiovisual optativo</a></li>
+    <li><a href="#cierre">Cierre de la clase</a></li>
+    <li><a href="#referencias">Referencias</a></li>
+  </ol>
+</section>
+
+<h2 class="section" id="introduccion">Introducción</h2>
+<p>¡Hola a todos! En esta clase abordaremos enfoques críticos a los paradigmas técnico-racionales trabajados en las clases anteriores. Nos centraremos en dos perspectivas: el <strong>paradigma interpretativo-simbólico</strong>, que concibe la escuela como un escenario de interacción social, y el <strong>paradigma sociocrítico</strong>, que la analiza como un sistema político.</p>
+<p>También incorporaremos la mirada micropolítica sobre la vida escolar y discutiremos los enfoques gerencialistas que adquirieron fuerza durante la década de 1990. El propósito es reconocer que las instituciones educativas no pueden comprenderse únicamente a partir de estructuras formales, reglas o procedimientos, sino que en ellas intervienen significados, valores, intereses, relaciones de poder, conflictos, negociaciones y condiciones históricas y sociales.</p>
+
+<div class="concept-grid">
+  <div class="concept-card"><h3>Significados</h3><p>La vida institucional se construye mediante valores, creencias, símbolos, rituales e interpretaciones compartidas.</p></div>
+  <div class="concept-card"><h3>Poder</h3><p>Las organizaciones educativas están atravesadas por intereses, conflictos, negociaciones y relaciones de influencia.</p></div>
+  <div class="concept-card"><h3>Micropolítica</h3><p>Permite analizar lo que ocurre en la vida cotidiana de las escuelas, atendiendo a estrategias, actores, recursos y disputas.</p></div>
+</div>
+
+<h2 class="section" id="lecturas">Lecturas de la semana</h2>
+<div class="reading-card">
+  <h3>Bibliografía obligatoria</h3>
+  <ul>
+    <li>García et al. (2013). <em>Carpeta de trabajo. Administración de la educación y gestión de las instituciones escolares</em>. Universidad Nacional de Quilmes.</li>
+    <li>González González, T. (1998). La micropolítica de las organizaciones escolares. <em>Revista de Educación</em>, (316).</li>
+    <li>Ball, S. J. (1989). Ortodoxia y alternativa. En <em>La micropolítica de la escuela: Hacia una teoría de la organización escolar</em>. Paidós/MEC.</li>
+    <li>Duschatzky, S. (2001). Todo lo sólido se desvanece en el aire. En S. Duschatzky &amp; A. Birgin (Comps.), <em>¿Dónde está la escuela? Ensayos sobre la gestión institucional en tiempos de turbulencia</em> (pp. 127–149). FLACSO/Manantial.</li>
+    <li>Gerstner, L., Jr., et al. (1996). El cambio en un mundo cambiante: las escuelas para el siglo que viene. En <em>Reinventando la educación: Nuevas formas de gestión de las instituciones educativas</em> (pp. 15–27). Paidós.</li>
+    <li>Blejmar, B. (2000). De la gestión de resistencia a la gestión requerida. En S. Duschatzky &amp; A. Birgin (Comps.), <em>¿Dónde está la escuela? Ensayos sobre la gestión institucional en tiempos de turbulencia</em> (pp. 35–44). FLACSO/Manantial.</li>
+    <li>Blejmar, B. (2005). La gestión como palabra; el poder de la palabra. En <em>Gestionar es hacer que las cosas sucedan: Competencias, actitudes y dispositivos para diseñar instituciones educativas</em> (pp. 21–48). Noveduc.</li>
+  </ul>
+</div>
+
+<div class="field-box"><p>Las lecturas permiten contrastar distintas formas de comprender la organización escolar: como construcción simbólica, como espacio político y como objeto de discursos gerencialistas. En conjunto, proponen mirar tanto los procesos internos de la institución como las condiciones sociales y políticas que la atraviesan.</p></div>
+
+<h2 class="section" id="interpretativo">1. El paradigma interpretativo-simbólico</h2>
+<p>El paradigma interpretativo-simbólico considera la realidad como una construcción cultural sustentada en significados, valores y creencias compartidos. Desde esta perspectiva, la escuela puede entenderse como un escenario en el que las personas construyen y reconstruyen sentidos a través de la interacción social.</p>
+<div class="logic-grid">
+  <div class="logic-card"><h3>Interacción</h3><p>El aprendizaje y el conocimiento se producen mediante procesos activos de intercambio, participación y compromiso.</p></div>
+  <div class="logic-card"><h3>Contexto</h3><p>Lo que se aprende y se conoce está relacionado con las condiciones en las que se construyen esos saberes.</p></div>
+  <div class="logic-card"><h3>Valores y creencias</h3><p>Las interpretaciones sobre la institución se apoyan en marcos compartidos que orientan prácticas y decisiones.</p></div>
+  <div class="logic-card"><h3>Cultura institucional</h3><p>Rituales, ceremonias, imágenes y símbolos participan en la construcción del perfil de una organización escolar.</p></div>
+</div>
+<div class="field-box"><p>Entre sus aportes, este paradigma permite comprender el cambio organizacional atendiendo a los significados compartidos. Entre sus límites, el material advierte que puede conducir a una lectura excesivamente cerrada sobre las propias creencias de la organización, dificultando la comprensión de otras condiciones que intervienen en los procesos de cambio.</p></div>
+<div class="reflection"><h3>Para pensar</h3><p>¿Qué aspectos de una institución educativa se vuelven visibles cuando analizamos sus rituales, símbolos, valores y creencias compartidas?</p></div>
+
+<h2 class="section" id="sociocritico">2. El paradigma sociocrítico</h2>
+<p>El paradigma sociocrítico concibe la realidad como una construcción social atravesada por factores socioculturales y políticos. Desde esta perspectiva, la escuela puede analizarse como un <strong>sistema político</strong> en el que confluyen intereses individuales, grupales e institucionales.</p>
+<p>Las organizaciones educativas se entienden como espacios en los que se producen conflictos, negociaciones y disputas por recursos y por capacidad de influencia. Las relaciones de poder se manifiestan tanto en el plano interno de la institución como en las condiciones externas que la afectan.</p>
+<div class="logic-grid">
+  <div class="logic-card"><h3>Intereses</h3><p>Los actores pueden sostener objetivos diferentes y desplegar estrategias para promoverlos dentro de la organización.</p></div>
+  <div class="logic-card"><h3>Conflicto</h3><p>El conflicto deja de ser entendido solamente como una anomalía y pasa a formar parte de la dinámica organizativa.</p></div>
+  <div class="logic-card"><h3>Negociación</h3><p>Las decisiones se producen en contextos donde los actores intercambian, acuerdan, resisten o disputan posiciones.</p></div>
+  <div class="logic-card"><h3>Poder</h3><p>La capacidad de influir en decisiones y acontecimientos depende de posiciones, recursos y relaciones construidas en la institución.</p></div>
+</div>
+<div class="field-box"><p>Entre sus aportes, el paradigma sociocrítico cuestiona la idea de una racionalidad organizacional única y permite analizar el comportamiento institucional considerando intereses y relaciones de poder. Como límite, el material señala que una lectura excesivamente concentrada en el conflicto puede dejar en segundo plano otros procesos, como la transmisión cultural y las prácticas pedagógicas.</p></div>
+
+<h2 class="section" id="micropolitica">3. La micropolítica de la escuela</h2>
+<p>Los enfoques micropolíticos recuperan aquello que las teorías organizacionales más tradicionales tendieron a dejar en segundo plano: lo que ocurre cotidianamente dentro de las escuelas, en sus relaciones, estrategias, disputas e intentos de influencia.</p>
+<div class="author-card"><h3>Stephen J. Ball (1989)</h3><p>Ball (1989) cuestiona las teorías que describen o prescriben el funcionamiento de las organizaciones sin explicar suficientemente lo que sucede en su interior. Propone atender a los procesos intraorganizativos para comprender cómo las escuelas cambian, resisten o permanecen relativamente estables.</p></div>
+<p>Desde esta perspectiva, no existe una única organización abstracta que pueda explicarse de la misma manera en todos los contextos. El análisis necesita considerar las relaciones entre estructura y acción, los conflictos, los intereses de los actores y las decisiones que se construyen en situaciones concretas.</p>
+<div class="author-card"><h3>Teresa González González (1998)</h3><p>González González (1998) señala que la teoría de la organización escolar se concentró durante mucho tiempo en la macropolítica y prestó menor atención a los aspectos interactivos, conflictivos, estratégicos e ideológicos de la vida cotidiana de las escuelas.</p></div>
+<div class="key-list">
+  <ul>
+    <li>Intereses y objetivos de los actores.</li>
+    <li>Estrategias utilizadas para ejercer influencia.</li>
+    <li>Recursos de poder movilizados en situaciones concretas.</li>
+    <li>Conflictos y negociaciones que atraviesan la vida institucional.</li>
+    <li>Relaciones entre actores, grupos y posiciones dentro de la organización.</li>
+  </ul>
+</div>
+<div class="quote-box"><p>La micropolítica propone observar la escuela desde las relaciones que se construyen en su vida cotidiana y no solamente desde sus estructuras formales.</p></div>
+
+<h2 class="section" id="gerencialismo">4. Los modelos gerencialistas en educación</h2>
+<p>El material de la clase sitúa la expansión de los enfoques gerencialistas en la década de 1990, en un contexto de políticas de orientación neoliberal y de incorporación de categorías procedentes del mundo empresarial a los sistemas educativos.</p>
+<p>Estos enfoques promovieron una preocupación por la eficiencia y la eficacia organizacional y trasladaron al ámbito educativo lenguajes y prácticas provenientes de la gestión empresarial. El material plantea que estas tendencias pueden entrar en tensión con las necesidades pedagógicas y contribuir a procesos de fragmentación curricular y profundización de desigualdades sociales y culturales.</p>
+<div class="logic-grid">
+  <div class="logic-card"><h3>Eficiencia y eficacia</h3><p>El análisis se orienta hacia resultados, rendimiento, administración de recursos y cumplimiento de objetivos.</p></div>
+  <div class="logic-card"><h3>Lógicas de mercado</h3><p>Se incorporan lenguajes y criterios del ámbito empresarial para interpretar y organizar instituciones educativas.</p></div>
+  <div class="logic-card"><h3>Implementación situada</h3><p>Las políticas no se aplican de manera idéntica en todas las escuelas: son reinterpretadas por las dinámicas propias de cada institución.</p></div>
+  <div class="logic-card"><h3>Tensiones</h3><p>El enfoque invita a discutir qué ocurre cuando los criterios administrativos desplazan preguntas pedagógicas, políticas o institucionales.</p></div>
+</div>
+
+<h2 class="section" id="lectura-orientada">Propuesta de lectura</h2>
+<p>El texto de <strong>Gerstner et al. (1996)</strong> permite introducir una reflexión sobre el gerencialismo y su vinculación con la gestión escolar, recuperando experiencias de escuelas de Gran Bretaña y Estados Unidos y discutiendo los factores que intervienen en los procesos de cambio.</p>
+<p><strong>Ball (1989)</strong> propone cuestionar las perspectivas que explican poco acerca de lo que sucede en el interior de las organizaciones. Su planteo invita a atender a los procesos intraorganizativos y a revisar categorías tomadas del mundo industrial, empresarial o burocrático cuando se utilizan para comprender las escuelas.</p>
+<p><strong>González González (1998)</strong> profundiza la perspectiva micropolítica y ofrece herramientas para analizar intereses, estrategias, dimensiones del poder, conflictos y actores que intervienen en la vida organizativa escolar.</p>
+<p>El texto de <strong>Duschatzky (2001)</strong>, junto con los aportes de <strong>Blejmar (2000, 2005)</strong>, permite discutir cómo el término gestión fue adquiriendo nuevos sentidos y cómo esos sentidos se relacionan con cambios más amplios en los discursos sobre las instituciones educativas. Estos trabajos proponen poner en diálogo las experiencias escolares con las teorías que pretenden explicarlas y distinguir entre la organización percibida y la organización existente.</p>
+<div class="reflection"><h3>Para reflexionar</h3><p>¿Qué aspectos de la vida escolar permiten comprender los enfoques interpretativo-simbólicos y micropolíticos que resultaban menos visibles desde los modelos técnico-racionales?</p></div>
+
+<h2 class="section" id="video">Recurso audiovisual optativo</h2>
+<div class="optional-resource">
+  <p class="eyebrow">Para ampliar</p>
+  <h3>Video complementario de la Clase 7</h3>
+  <p>El recurso audiovisual acompaña los contenidos trabajados en esta clase y puede utilizarse para ampliar la reflexión sobre los enfoques críticos de la organización escolar.</p>
+  <a class="resource-button" href="https://www.youtube.com/watch?v=E1iU30_0kGs" target="_blank" rel="noopener noreferrer">Ver el video</a>
+</div>
+
+<h2 class="section" id="cierre">Cierre de la clase</h2>
+<p>En esta clase ampliamos el análisis de las organizaciones escolares incorporando perspectivas que cuestionan los supuestos de los enfoques técnico-racionales.</p>
+<p>El paradigma interpretativo-simbólico permite comprender la institución a partir de significados, valores, creencias y procesos de interacción. El paradigma sociocrítico incorpora las relaciones de poder, los intereses, los conflictos y las negociaciones. Los enfoques micropolíticos profundizan esta mirada al estudiar las estrategias y relaciones que se construyen en la vida cotidiana de las escuelas.</p>
+<p>Finalmente, el análisis de los modelos gerencialistas permite discutir la incorporación de lenguajes y prácticas procedentes del ámbito empresarial y las tensiones que pueden producirse cuando esos criterios se trasladan al campo educativo.</p>
+<p>Saludos,<br><strong>Linda</strong></p>
+
+<div class="back-top"><a href="#indice">↑ Volver al índice</a></div>
+
+<h2 class="section" id="referencias">Referencias</h2>
+<div class="reference-group">
+  <ul class="ref-list">
+    <li>Ball, S. J. (1989). Ortodoxia y alternativa. En <em>La micropolítica de la escuela: Hacia una teoría de la organización escolar</em>. Paidós/MEC.</li>
+    <li>Blejmar, B. (2000). De la gestión de resistencia a la gestión requerida. En S. Duschatzky &amp; A. Birgin (Comps.), <em>¿Dónde está la escuela? Ensayos sobre la gestión institucional en tiempos de turbulencia</em> (pp. 35–44). FLACSO/Manantial.</li>
+    <li>Blejmar, B. (2005). La gestión como palabra; el poder de la palabra. En <em>Gestionar es hacer que las cosas sucedan: Competencias, actitudes y dispositivos para diseñar instituciones educativas</em> (pp. 21–48). Noveduc.</li>
+    <li>Duschatzky, S. (2001). Todo lo sólido se desvanece en el aire. En S. Duschatzky &amp; A. Birgin (Comps.), <em>¿Dónde está la escuela? Ensayos sobre la gestión institucional en tiempos de turbulencia</em> (pp. 127–149). FLACSO/Manantial.</li>
+    <li>García et al. (2013). <em>Carpeta de trabajo. Administración de la educación y gestión de las instituciones escolares</em>. Universidad Nacional de Quilmes.</li>
+    <li>Gerstner, L., Jr., et al. (1996). El cambio en un mundo cambiante: las escuelas para el siglo que viene. En <em>Reinventando la educación: Nuevas formas de gestión de las instituciones educativas</em> (pp. 15–27). Paidós.</li>
+    <li>González González, T. (1998). La micropolítica de las organizaciones escolares. <em>Revista de Educación</em>, (316).</li>
+  </ul>
+</div>
+
+<div class="back-top"><a href="#top">↑ Volver al inicio</a></div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer-shell">
+    <div class="site-footer-grid">
+      <div>
+        <p class="site-footer-label">Administración de la Educación y Gestión de las Instituciones Escolares</p>
+        <p class="site-footer-note">Material de clase · Licenciatura en Educación · Universidad Nacional de Quilmes · Agosto de 2026</p>
+      </div>
+      <div class="site-footer-divider"></div>
+      <div>
+        <p class="site-footer-author">Linda Angélica López</p>
+        <p class="site-footer-role">Docente</p>
+      </div>
+    </div>
+  </div>
+</footer>
+</div>
+</body>
+</html>
