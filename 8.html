@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clase 8 · Administración de la Educación y Gestión de las Instituciones Escolares</title>
+<style>
+
+:root{
+  --brand:#1cabe2;
+  --brand-dark:#1189bb;
+  --bg:#eef7fb;
+  --paper:#ffffff;
+  --ink:#1f2a37;
+  --muted:#4f6272;
+  --line:#d6e8f2;
+  --soft:#f4fbfe;
+  --soft-2:#eef7fb;
+  --accent:#dff3fb;
+  --max:1100px;
+  --text:1.04rem;
+  --shadow:0 18px 42px rgba(29,78,110,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:radial-gradient(circle at top left, rgba(28,171,226,.10), transparent 22%), linear-gradient(180deg,#f4fbfe 0%, var(--bg) 100%);
+  color:var(--ink);
+  font-family:"Aptos","Segoe UI",Arial,sans-serif;
+  line-height:1.72;
+}
+a{color:inherit}
+.page{max-width:var(--max); margin:26px auto; background:var(--paper); border:1px solid #d9edf7; box-shadow:var(--shadow); border-radius:28px; overflow:hidden}
+.cover{position:relative; padding:52px 68px 56px; background:radial-gradient(circle at 82% 18%, rgba(28,171,226,.10), transparent 23%), linear-gradient(180deg,#fff,#f7fcfe 75%,#fff); border-bottom:1px solid var(--line)}
+.cover::before{content:""; position:absolute; left:0; right:0; top:0; height:12px; background:var(--brand)}
+.topline{display:flex; align-items:flex-start; justify-content:space-between; gap:24px; margin:8px 0 44px}
+.brandlock{display:flex; gap:16px; align-items:center}
+.brandmark{width:58px; height:58px; flex:0 0 58px; display:grid; place-items:center; background:var(--brand); border-radius:2px}
+.brandmark img{width:26px; height:auto; display:block}
+.kicker{max-width:520px; color:var(--muted); text-transform:uppercase; font-size:.74rem; letter-spacing:.14em; line-height:1.55}
+.series{color:var(--brand); font-size:.82rem; text-transform:uppercase; letter-spacing:.16em; border-bottom:1px solid var(--line); padding-bottom:10px; white-space:nowrap}
+.cover-grid{display:grid; grid-template-columns:minmax(0,1fr) 300px; gap:40px; align-items:center}
+h1{margin:0 0 18px; font-family:Georgia, "Times New Roman", serif; font-size:3.45rem; line-height:1.02; letter-spacing:-.03em; color:#0f2535}
+.subtitle-program{margin:10px 0 6px; font-size:1.18rem; color:var(--brand-dark); font-weight:700; letter-spacing:.01em}
+.subtitle-university{margin:0 0 18px; font-size:1rem; text-transform:uppercase; letter-spacing:.08em; color:var(--muted)}
+.cover-year{display:inline-block; margin:2px 0 22px; padding:7px 14px 6px; border:1px solid rgba(28,171,226,.22); background:linear-gradient(180deg,#f7fcfe,#eaf7fc); color:var(--brand); font-size:.84rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; border-radius:999px; box-shadow:0 8px 20px rgba(28,171,226,.12)}
+.hero-illustration{width:100%; max-width:280px; margin:0 auto; background:linear-gradient(180deg,#ffffff,#eef7fb); border:1px solid var(--line); padding:22px; display:grid; place-items:center; min-height:240px}
+.hero-illustration .hero-svg{width:190px; max-width:100%; height:auto; display:block}
+.hero-illustration .svg-soft{fill:#dff3fb}
+.hero-illustration .svg-line{fill:none; stroke:#1cabe2; stroke-width:3; stroke-linecap:round; stroke-linejoin:round}
+.hero-illustration .svg-fill{fill:#1cabe2}
+.hero-illustration .svg-muted{fill:#89cfe9}
+.cover-footer{display:grid; grid-template-columns:repeat(2,minmax(280px,1fr)); gap:22px; margin-top:36px; padding-top:24px; border-top:1px solid var(--line)}
+.cover-card{padding:22px 24px; border:1px solid var(--line); background:linear-gradient(180deg,#fff,#f4fbfe)}
+.cover-card .label{display:block; margin-bottom:10px; color:var(--brand); text-transform:uppercase; letter-spacing:.14em; font-size:.72rem; font-weight:700}
+.cover-card p{margin:0; color:var(--muted)}
+.content{padding:38px 68px 84px}
+.content p{text-align:justify; text-justify:inter-word}
+.toc{margin-bottom:30px; padding:24px 26px 20px; border:1px solid var(--line); background:linear-gradient(180deg,#fff,#f4fbfe)}
+.toc h2{margin:0 0 14px; color:var(--brand); text-transform:uppercase; letter-spacing:.14em; font-size:.76rem}
+.toc ol{margin:0; padding-left:1.35rem; font-size:1rem}.toc li{margin:9px 0}.toc a{text-decoration:none; border-bottom:1px solid transparent}.toc a:hover{color:var(--brand); border-bottom-color:var(--brand)}
+h2.section{margin:46px 0 16px; padding-top:18px; border-top:1px solid var(--line); font-family:Georgia, "Times New Roman", serif; font-size:2rem; line-height:1.12; letter-spacing:-.02em}
+h3{margin:28px 0 10px; color:var(--brand); font-size:1.08rem}
+p{margin:12px 0; font-size:var(--text)}
+.mdm-box{margin:20px 0 28px; padding:18px 20px; border:2px solid var(--brand); border-left:10px solid #f3b229; background:#fff; box-shadow:0 8px 22px rgba(29,78,110,.06)}
+.mdm-title{margin:0 0 10px; color:var(--brand-dark); font-weight:700; font-size:1.04rem}
+mark{
+  background:none;
+  color:inherit;
+  padding:0;
+  border:0;
+  border-radius:0;
+  box-shadow:none;
+  font-weight:700;
+}
+
+
+.mdm-preview-link{
+  position:relative;
+  color:var(--brand);
+  text-decoration:none;
+  border-bottom:1px solid rgba(28,171,226,.38);
+  font-weight:700;
+}
+.mdm-preview-link:hover{
+  color:var(--brand-dark);
+  border-bottom-color:var(--brand-dark);
+}
+.mdm-preview-link::after{
+  content:"Repositorio UVQ · Material Didáctico Digital\A Abrir MDM en una nueva pestaña";
+  white-space:pre-line;
+  position:absolute;
+  left:0;
+  bottom:135%;
+  width:290px;
+  padding:14px 16px;
+  background:#fff;
+  color:var(--ink);
+  border:1px solid var(--line);
+  box-shadow:0 14px 28px rgba(29,78,110,.16);
+  border-radius:6px;
+  font-size:.88rem;
+  line-height:1.45;
+  font-weight:400;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(8px);
+  transition:opacity .18s ease, transform .18s ease, visibility .18s ease;
+  z-index:20;
+}
+.mdm-preview-link::before{
+  content:"";
+  position:absolute;
+  left:22px;
+  bottom:118%;
+  border:8px solid transparent;
+  border-top-color:#fff;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .18s ease, visibility .18s ease;
+  z-index:21;
+}
+.mdm-preview-link:hover::after,
+.mdm-preview-link:hover::before,
+.mdm-preview-link:focus::after,
+.mdm-preview-link:focus::before{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+
+
+.author-line{
+  margin:6px 0 0;
+  color:var(--muted);
+  font-size:.94rem;
+  line-height:1.65;
+}
+
+.author-list{
+  margin:6px 0 0;
+  padding-left:1.15rem;
+  color:var(--muted);
+  font-size:.94rem;
+  line-height:1.55;
+}
+.author-list li{
+  margin:2px 0;
+}
+.update-note{
+  margin:16px 0 0;
+  padding-top:12px;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  font-size:.92rem;
+  line-height:1.5;
+}
+
+@media (max-width:880px){
+  .mdm-preview-link::after,
+  .mdm-preview-link::before{
+    display:none;
+  }
+}
+
+.tour-card{
+  margin:24px 0 30px;
+  padding:24px 26px;
+  border:1px solid var(--line);
+  background:linear-gradient(180deg,#fff,#f4fbfe);
+  box-shadow:0 10px 24px rgba(29,78,110,.07);
+}
+.tour-card h3{
+  margin:0 0 8px;
+  color:var(--brand);
+  font-size:1.12rem;
+}
+.tour-card p{
+  margin:8px 0 18px;
+  color:var(--muted);
+}
+.tour-button{
+  display:inline-block;
+  padding:11px 18px;
+  background:var(--brand);
+  color:#fff;
+  text-decoration:none;
+  border-radius:999px;
+  font-weight:700;
+  line-height:1.2;
+  box-shadow:0 8px 18px rgba(28,171,226,.22);
+}
+.tour-button:hover{
+  background:var(--brand-dark);
+}
+
+.tour-button{
+  position:relative;
+}
+.tour-button::after{
+  content:"Tour 360° del campus UNQ\A Abrir recorrido virtual en una nueva pestaña";
+  white-space:pre-line;
+  position:absolute;
+  left:0;
+  bottom:135%;
+  width:300px;
+  padding:14px 16px;
+  background:#fff;
+  color:var(--ink);
+  border:1px solid var(--line);
+  box-shadow:0 14px 28px rgba(29,78,110,.16);
+  border-radius:6px;
+  font-size:.88rem;
+  line-height:1.45;
+  font-weight:400;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(8px);
+  transition:opacity .18s ease, transform .18s ease, visibility .18s ease;
+  z-index:20;
+}
+.tour-button::before{
+  content:"";
+  position:absolute;
+  left:22px;
+  bottom:118%;
+  border:8px solid transparent;
+  border-top-color:#fff;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .18s ease, visibility .18s ease;
+  z-index:21;
+}
+.tour-button:hover::after,
+.tour-button:hover::before,
+.tour-button:focus::after,
+.tour-button:focus::before{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+@media (max-width:880px){
+  .tour-button::after,
+  .tour-button::before{
+    display:none;
+  }
+}
+
+
+.text-link{color:var(--brand); text-decoration:none; border-bottom:1px solid rgba(28,171,226,.38); transition:all .18s ease; overflow-wrap:anywhere; word-break:break-word}.text-link:hover{color:var(--brand-dark); border-bottom-color:var(--brand-dark)}
+.reference-group{margin:20px 0 0; padding:18px 20px 8px; border:1px solid var(--line); background:linear-gradient(180deg,#fff,#f4fbfe)}
+.ref-list{list-style:none; padding-left:0; margin:10px 0 0}.ref-list li{margin:12px 0; padding-left:1.4em; text-indent:-1.4em; overflow-wrap:anywhere; word-break:break-word; hyphens:auto}
+.back-top{margin:28px 0 0; font-size:.92rem; color:var(--muted)}.back-top a{text-decoration:none; color:var(--muted); border-bottom:1px solid transparent}.back-top a:hover{color:var(--brand); border-bottom-color:var(--brand)}
+.site-footer{margin-top:56px; padding:0 24px 30px; color:var(--muted)}.site-footer-shell{border:1px solid var(--line); background:linear-gradient(180deg,#fff 0%, #f4fbfe 100%); box-shadow:0 10px 24px rgba(29,78,110,.06)}.site-footer-grid{display:grid; grid-template-columns:minmax(0,1.45fr) 1px minmax(260px,.85fr); gap:0 22px; align-items:stretch; padding:18px 20px}.site-footer-divider{width:1px; background:linear-gradient(180deg,rgba(28,171,226,.18),rgba(28,171,226,.55),rgba(28,171,226,.18))}.site-footer-label{margin:0 0 10px; color:var(--brand); text-transform:uppercase; letter-spacing:.18em; font-size:.78rem; font-weight:700; line-height:1.4}.site-footer-note{margin:0; font-size:.95rem; line-height:1.72; color:var(--muted)}.site-footer-author{margin:0; color:var(--ink); font-weight:700; font-size:.98rem; line-height:1.55}.site-footer-role{margin:4px 0 0; color:var(--muted); font-size:.94rem; line-height:1.55}
+@media (max-width:880px){.page{margin:0; border:none; box-shadow:none}.cover,.content{padding:28px 22px 42px}.topline{flex-direction:column; align-items:flex-start; gap:14px; margin-bottom:28px}.cover-grid,.cover-footer{grid-template-columns:1fr}h1{font-size:2.45rem}.series{white-space:normal}.site-footer{padding:0 16px 24px}.site-footer-grid{grid-template-columns:1fr; gap:14px 0; padding:16px}.site-footer-divider{width:100%; height:1px}.ref-list li{padding-left:1.1em; text-indent:-1.1em; font-size:.98rem}}
+@media print{body{background:#fff}.page{margin:0; border:none; box-shadow:none; max-width:none}.toc,.back-top{display:none}}
+
+
+.concept-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:22px 0 30px}
+.concept-card{padding:20px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe);border-top:6px solid var(--brand)}
+.concept-card h3{margin:0 0 8px;font-family:Georgia,"Times New Roman",serif;font-size:1.25rem;color:var(--brand-dark)}
+.concept-card p{margin:0;text-align:left;color:var(--muted);font-size:.98rem}
+.key-list{margin:18px 0 28px;padding:22px 24px 18px;border:1px solid var(--line);background:var(--soft)}
+.key-list ul{margin:0;padding-left:1.2rem}.key-list li{margin:8px 0}
+.reflection{margin:28px 0;padding:24px 26px;border-left:8px solid var(--brand);background:linear-gradient(135deg,#f8eef1,#fff)}
+.reflection h3{margin:0 0 8px}.reflection p{margin:0;font-family:Georgia,"Times New Roman",serif;font-size:1.18rem;text-align:left}
+.timeline{margin:22px 0 30px;border-left:3px solid var(--line);padding-left:24px}
+.timeline-item{position:relative;margin:0 0 24px;padding:18px 20px;border:1px solid var(--line);background:#fff}
+.timeline-item::before{content:"";position:absolute;left:-32px;top:24px;width:13px;height:13px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 5px #f4ecef}
+.timeline-item h3{margin:0 0 8px}.timeline-item p{margin:0;text-align:left}
+.field-box{margin:22px 0 30px;padding:24px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe)}
+.field-box strong{color:var(--brand-dark)}
+.reading-card{margin:20px 0 30px;padding:22px 24px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe)}
+.reading-card h3{margin:0 0 12px}.reading-card ul{margin:0;padding-left:1.2rem}.reading-card li{margin:9px 0}
+@media(max-width:880px){.concept-grid{grid-template-columns:1fr}}
+
+
+.author-card{margin:22px 0 30px;padding:24px 26px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe);border-left:7px solid var(--brand)}
+.author-card h3{margin:0 0 10px;font-family:Georgia,"Times New Roman",serif;font-size:1.35rem;color:var(--brand-dark)}
+.author-card p{margin:9px 0}
+.logic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:20px 0 30px}
+.logic-card{padding:20px 22px;border:1px solid var(--line);background:#fff}
+.logic-card h3{margin:0 0 8px;color:var(--brand-dark)}
+.logic-card p{margin:0;text-align:left;color:var(--muted)}
+.quote-box{margin:24px 0;padding:22px 24px;border-left:8px solid #f3b229;background:linear-gradient(135deg,#fffaf0,#fff)}
+.quote-box p{margin:0;font-family:Georgia,"Times New Roman",serif;font-size:1.16rem;text-align:left}
+@media(max-width:880px){.logic-grid{grid-template-columns:1fr}}
+
+.optional-resource{margin:24px 0 30px;padding:24px 26px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe);box-shadow:0 10px 24px rgba(29,78,110,.07);border-top:6px solid #f3b229}
+.optional-resource .eyebrow{margin:0 0 8px;color:var(--brand);text-transform:uppercase;letter-spacing:.14em;font-size:.74rem;font-weight:700}
+.optional-resource h3{margin:0 0 10px;font-family:Georgia,"Times New Roman",serif;font-size:1.35rem;color:var(--brand-dark)}
+.optional-resource p{margin:8px 0 16px;text-align:left;color:var(--muted)}
+.optional-resource .resource-button{display:inline-block;padding:11px 18px;background:var(--brand);color:#fff;text-decoration:none;border-radius:999px;font-weight:700;line-height:1.2;box-shadow:0 8px 18px rgba(28,171,226,.22)}
+.optional-resource .resource-button:hover{background:var(--brand-dark)}
+</style>
+</head>
+
+<body>
+<div class="page" id="top">
+<section class="cover">
+  <div class="topline">
+    <div class="brandlock">
+      <div class="brandmark">
+        <svg aria-label="UNQ" role="img" viewBox="0 0 32 32" width="28" height="28">
+          <rect width="32" height="32" fill="#1cabe2"/>
+          <path d="M8 7h4v11c0 3 1.5 4.5 4 4.5S20 21 20 18V7h4v11c0 5.5-3.2 8.5-8 8.5S8 23.5 8 18V7z" fill="#fff"/>
+        </svg>
+      </div>
+      <div class="kicker">Administración de la Educación y Gestión de las Instituciones Escolares<br>Licenciatura en Educación · Modalidad virtual</div>
+    </div>
+    <div class="series">Clase 8</div>
+  </div>
+
+  <div class="cover-grid">
+    <div>
+      <h1>La circulación de las ideas en la administración y gestión educativa latinoamericana</h1>
+      <p class="subtitle-program">Los aportes de Benno Sander y los enfoques jurídico, tecnocrático, conductista, desarrollista y sociológico</p>
+      <p class="subtitle-university">Universidad Nacional de Quilmes</p>
+      <span class="cover-year">Unidad 2 · 2026</span>
+    </div>
+
+    <figure class="hero-illustration" aria-label="Esquema de circulación de ideas y enfoques">
+      <svg class="hero-svg" viewBox="0 0 220 190" role="img" aria-hidden="true">
+        <circle cx="110" cy="92" r="32" class="svg-soft"/>
+        <circle cx="110" cy="92" r="12" class="svg-fill"/>
+        <circle cx="38" cy="48" r="11" class="svg-muted"/>
+        <circle cx="182" cy="48" r="11" class="svg-muted"/>
+        <circle cx="38" cy="140" r="11" class="svg-muted"/>
+        <circle cx="182" cy="140" r="11" class="svg-muted"/>
+        <circle cx="110" cy="165" r="11" class="svg-muted"/>
+        <path d="M53 55L88 78M167 55l-35 23M53 133l35-25M167 133l-35-25M110 153v-47" class="svg-line"/>
+      </svg>
+    </figure>
+  </div>
+
+  <div class="cover-footer">
+    <div class="cover-card">
+      <span class="label">Pregunta orientadora</span>
+      <p>¿Cómo fueron configurándose en América Latina distintas formas de pensar la administración y la gestión educativa?</p>
+    </div>
+    <div class="cover-card">
+      <span class="label">Ejes de análisis</span>
+      <p>Contexto latinoamericano, enfoques históricos, eficiencia, eficacia, efectividad, relevancia, multidimensionalidad, consenso y conflicto.</p>
+    </div>
+  </div>
+</section>
+
+<main class="content">
+<section class="toc" id="indice">
+  <h2>Índice</h2>
+  <ol>
+    <li><a href="#introduccion">Introducción</a></li>
+    <li><a href="#lecturas">Lecturas de la semana</a></li>
+    <li><a href="#circulacion">Administración y gestión educativa en América Latina</a></li>
+    <li><a href="#enfoques">Cinco enfoques de la administración educativa</a></li>
+    <li><a href="#paradigmas">Eficiencia, eficacia, efectividad y relevancia</a></li>
+    <li><a href="#multidimensional">Paradigma multidimensional</a></li>
+    <li><a href="#consenso-conflicto">Consenso y conflicto</a></li>
+    <li><a href="#cierre">Cierre de la clase</a></li>
+    <li><a href="#referencias">Referencias</a></li>
+  </ol>
+</section>
+
+<h2 class="section" id="introduccion">Introducción</h2>
+<p>¡Hola a todos! En esta clase analizaremos los enfoques teóricos que han influido en la administración y gestión de las instituciones educativas en América Latina. Nos centraremos especialmente en los aportes de <strong>Benno Sander (1996)</strong> y en la manera en que distintos contextos políticos, económicos y sociales fueron configurando modos diversos de comprender la gestión educativa.</p>
+<p>Al concluir esta unidad, retomamos la complejidad y el carácter multidimensional de la gestión educativa. Las perspectivas trabajadas hasta aquí muestran que no es posible analizar las organizaciones e instituciones educativas desde una única mirada. En esta clase nos proponemos situar ese problema en el contexto latinoamericano y reconocer la circulación de ideas que incidieron en la administración de la educación.</p>
+
+<div class="concept-grid">
+  <div class="concept-card"><h3>Historia</h3><p>Los enfoques administrativos se relacionan con contextos políticos, económicos y sociales específicos.</p></div>
+  <div class="concept-card"><h3>América Latina</h3><p>La administración educativa adquiere rasgos particulares cuando se analiza desde las tradiciones y realidades de la región.</p></div>
+  <div class="concept-card"><h3>Multidimensionalidad</h3><p>La gestión educativa articula dimensiones económicas, pedagógicas, políticas y culturales.</p></div>
+</div>
+
+<h2 class="section" id="lecturas">Lecturas de la semana</h2>
+<div class="reading-card">
+  <h3>Bibliografía obligatoria</h3>
+  <ul>
+    <li>García et al. (2013). <em>Carpeta de trabajo. Administración de la educación y gestión de las instituciones escolares</em>. Universidad Nacional de Quilmes.</li>
+    <li>Sander, B. (1996). Introducción y Parte I. En <em>Gestión educativa en América Latina</em> (pp. 9–44). Troquel.</li>
+  </ul>
+</div>
+
+<div class="field-box">
+  <p>Las lecturas permiten revisar cómo la administración educativa latinoamericana fue atravesada por distintas tradiciones de pensamiento y cómo Sander (1996) propone una síntesis que procura responder a las particularidades de la gestión educativa en la región.</p>
+</div>
+
+<h2 class="section" id="circulacion">1. Administración y gestión educativa en América Latina</h2>
+<p>La administración y gestión de la educación en América Latina ha estado influenciada por distintos enfoques a lo largo de la historia. Cada uno de ellos se vincula con una etapa histórica y con una determinada forma de entender la organización y la gestión educativa.</p>
+<p><strong>Sander (1996)</strong> desarrolla una mirada crítica sobre la administración de la educación en América Latina y plantea la necesidad de trascender los paradigmas clásicos para abordar las particularidades del contexto latinoamericano. Su propuesta busca articular tradiciones locales y demandas contemporáneas.</p>
+
+<div class="reflection">
+  <h3>Para pensar</h3>
+  <p>¿Qué implica analizar la administración educativa desde las condiciones históricas, sociales y culturales propias de América Latina?</p>
+</div>
+
+<h2 class="section" id="enfoques">2. Cinco enfoques de la administración educativa</h2>
+
+<div class="timeline">
+  <div class="timeline-item">
+    <h3>Enfoque jurídico</h3>
+    <p>Dominante durante el período colonial, pone el énfasis en la normatividad, el derecho y el pensamiento deductivo. La administración educativa se orienta al control normativo y a la estabilidad institucional.</p>
+  </div>
+  <div class="timeline-item">
+    <h3>Enfoque tecnocrático</h3>
+    <p>A comienzos del siglo XX, y en relación con el avance de la Revolución Industrial, incorpora principios de eficiencia, control burocrático, gestión empresarial y optimización de recursos.</p>
+  </div>
+  <div class="timeline-item">
+    <h3>Enfoque conductista</h3>
+    <p>Durante las décadas de 1930 y 1940, la influencia de la psicología conductista promueve una mirada de la escuela como sistema social, atendiendo al comportamiento humano y a la interacción entre individuos.</p>
+  </div>
+  <div class="timeline-item">
+    <h3>Enfoque desarrollista</h3>
+    <p>Después de la Segunda Guerra Mundial, destaca el papel de la educación en el desarrollo económico y social y concibe a la escuela como motor de modernización y progreso.</p>
+  </div>
+  <div class="timeline-item">
+    <h3>Enfoque sociológico</h3>
+    <p>En las últimas décadas, autores latinoamericanos impulsan una mirada centrada en las dinámicas sociales y en las necesidades culturales de la sociedad, buscando respuestas educativas vinculadas con las realidades locales.</p>
+  </div>
+</div>
+
+<h2 class="section" id="paradigmas">3. Eficiencia, eficacia, efectividad y relevancia</h2>
+<p>En su propuesta de lectura, <strong>Sander (1996)</strong> examina cuatro paradigmas administrativos: eficiencia, eficacia, efectividad y relevancia. Cada uno privilegia dimensiones diferentes del desempeño administrativo y de la vida institucional.</p>
+
+<div class="logic-grid">
+  <div class="logic-card">
+    <h3>Eficiencia</h3>
+    <p>Adopta una perspectiva empresarial y legal. Busca optimizar la productividad con el menor uso posible de recursos y tiempo. Su orientación es extrínseca e instrumental.</p>
+  </div>
+  <div class="logic-card">
+    <h3>Eficacia</h3>
+    <p>Se concentra en el logro de los objetivos pedagógicos específicos de la institución. Su orientación es intrínseca e instrumental.</p>
+  </div>
+  <div class="logic-card">
+    <h3>Efectividad</h3>
+    <p>Se relaciona con la responsabilidad social y el compromiso político. Atiende a las demandas de la comunidad y propone una metodología participativa y solidaria.</p>
+  </div>
+  <div class="logic-card">
+    <h3>Relevancia</h3>
+    <p>Prioriza aquello que resulta significativo y valioso para la vida humana. Integra dimensiones culturales, históricas, ecológicas, antropológicas y políticas.</p>
+  </div>
+</div>
+
+<div class="quote-box">
+  <p>Los cuatro paradigmas muestran que la gestión educativa puede ser evaluada desde criterios económicos, pedagógicos, políticos y culturales que no necesariamente coinciden entre sí.</p>
+</div>
+
+<h2 class="section" id="multidimensional">4. El paradigma multidimensional</h2>
+<p>Finalmente, Sander (1996) propone un <strong>paradigma multidimensional</strong> que busca integrar los criterios económicos, pedagógicos, políticos y culturales desde una perspectiva interdisciplinaria.</p>
+
+<div class="concept-grid">
+  <div class="concept-card">
+    <h3>Dimensión económica</h3>
+    <p>Se vincula con la eficiencia: recursos financieros y materiales, normas, coordinación y optimización.</p>
+  </div>
+  <div class="concept-card">
+    <h3>Dimensión pedagógica</h3>
+    <p>Se vincula con la eficacia: principios, objetivos y técnicas educacionales.</p>
+  </div>
+  <div class="concept-card">
+    <h3>Dimensión política</h3>
+    <p>Se vincula con la efectividad: estrategias de acción social y capacidad de interpretar el entorno.</p>
+  </div>
+</div>
+
+<div class="field-box">
+  <p><strong>Dimensión cultural — relevancia:</strong> comprende creencias y valores vinculados con aspectos físicos, sociales y filosóficos. Desde esta perspectiva, la gestión requiere construir respuestas capaces de articular distintas dimensiones de la vida institucional.</p>
+</div>
+
+<h2 class="section" id="consenso-conflicto">5. Consenso y conflicto</h2>
+<p>En <em>Educación, administración y calidad de vida: caminos alternativos del consenso y del conflicto</em>, Sander (1996) analiza las teorías organizacionales y administrativas de la educación desde dos perspectivas contrapuestas: la sociología del consenso y la sociología del conflicto.</p>
+
+<div class="author-card">
+  <h3>Sociología del consenso</h3>
+  <p>Se fundamenta en el positivismo y el funcionalismo. Adopta una perspectiva racional y cerrada, vinculada con decisiones basadas en ideas previamente establecidas y con una menor atención a la incertidumbre y a las dinámicas cambiantes.</p>
+</div>
+
+<div class="author-card">
+  <h3>Sociología del conflicto</h3>
+  <p>Influenciada por el marxismo y la fenomenología, reconoce la incertidumbre, la resistencia y los conflictos. Prioriza la participación como estrategia democrática para construir un orden social más equitativo y entiende la organización como un espacio político atravesado por disputas de poder.</p>
+</div>
+
+<div class="reflection">
+  <h3>Para reflexionar</h3>
+  <p>¿Cómo cambia la manera de comprender la gestión educativa cuando el conflicto deja de verse como una anomalía y pasa a reconocerse como parte de la vida institucional?</p>
+</div>
+
+<h2 class="section" id="cierre">Cierre de la clase</h2>
+<p>En esta clase recorrimos distintas perspectivas que incidieron en la administración y gestión educativa latinoamericana. Los enfoques jurídico, tecnocrático, conductista, desarrollista y sociológico permiten reconocer distintos momentos y formas de comprender la administración de la educación.</p>
+<p>Los aportes de Sander (1996) permiten avanzar hacia una mirada multidimensional de la gestión educativa, articulando eficiencia, eficacia, efectividad y relevancia, y recuperando dimensiones económicas, pedagógicas, políticas y culturales.</p>
+<p>Finalmente, la distinción entre consenso y conflicto permite volver sobre una cuestión que atravesó las clases anteriores: las organizaciones educativas no pueden comprenderse solamente desde sus estructuras formales, sino también desde las relaciones sociales, las tensiones, la participación y las disputas que las constituyen.</p>
+<p>Saludos,<br><strong>Linda</strong></p>
+
+<div class="back-top"><a href="#indice">↑ Volver al índice</a></div>
+
+<h2 class="section" id="referencias">Referencias</h2>
+<div class="reference-group">
+  <ul class="ref-list">
+    <li>García et al. (2013). <em>Carpeta de trabajo. Administración de la educación y gestión de las instituciones escolares</em>. Universidad Nacional de Quilmes.</li>
+    <li>Sander, B. (1996). <em>Gestión educativa en América Latina</em> (Introducción y Parte I, pp. 9–44). Troquel.</li>
+  </ul>
+</div>
+
+<div class="back-top"><a href="#top">↑ Volver al inicio</a></div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer-shell">
+    <div class="site-footer-grid">
+      <div>
+        <p class="site-footer-label">Administración de la Educación y Gestión de las Instituciones Escolares</p>
+        <p class="site-footer-note">Licenciatura en Educación · Modalidad virtual · Universidad Nacional de Quilmes</p>
+      </div>
+      <div class="site-footer-divider"></div>
+      <div>
+        <p class="site-footer-author">Linda Angelica Lopez</p>
+        <p class="site-footer-role">Docente · 3.º período 2026</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>
