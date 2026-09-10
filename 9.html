@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clase 9 · Administración de la Educación y Gestión de las Instituciones Escolares</title>
+<style>
+
+:root{
+  --brand:#1cabe2;
+  --brand-dark:#1189bb;
+  --bg:#eef7fb;
+  --paper:#ffffff;
+  --ink:#1f2a37;
+  --muted:#4f6272;
+  --line:#d6e8f2;
+  --soft:#f4fbfe;
+  --soft-2:#eef7fb;
+  --accent:#dff3fb;
+  --max:1100px;
+  --text:1.04rem;
+  --shadow:0 18px 42px rgba(29,78,110,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:radial-gradient(circle at top left, rgba(28,171,226,.10), transparent 22%), linear-gradient(180deg,#f4fbfe 0%, var(--bg) 100%);
+  color:var(--ink);
+  font-family:"Aptos","Segoe UI",Arial,sans-serif;
+  line-height:1.72;
+}
+a{color:inherit}
+.page{max-width:var(--max); margin:26px auto; background:var(--paper); border:1px solid #d9edf7; box-shadow:var(--shadow); border-radius:28px; overflow:hidden}
+.cover{position:relative; padding:52px 68px 56px; background:radial-gradient(circle at 82% 18%, rgba(28,171,226,.10), transparent 23%), linear-gradient(180deg,#fff,#f7fcfe 75%,#fff); border-bottom:1px solid var(--line)}
+.cover::before{content:""; position:absolute; left:0; right:0; top:0; height:12px; background:var(--brand)}
+.topline{display:flex; align-items:flex-start; justify-content:space-between; gap:24px; margin:8px 0 44px}
+.brandlock{display:flex; gap:16px; align-items:center}
+.brandmark{width:58px; height:58px; flex:0 0 58px; display:grid; place-items:center; background:var(--brand); border-radius:2px}
+.brandmark img{width:26px; height:auto; display:block}
+.kicker{max-width:520px; color:var(--muted); text-transform:uppercase; font-size:.74rem; letter-spacing:.14em; line-height:1.55}
+.series{color:var(--brand); font-size:.82rem; text-transform:uppercase; letter-spacing:.16em; border-bottom:1px solid var(--line); padding-bottom:10px; white-space:nowrap}
+.cover-grid{display:grid; grid-template-columns:minmax(0,1fr) 300px; gap:40px; align-items:center}
+h1{margin:0 0 18px; font-family:Georgia, "Times New Roman", serif; font-size:3.45rem; line-height:1.02; letter-spacing:-.03em; color:#0f2535}
+.subtitle-program{margin:10px 0 6px; font-size:1.18rem; color:var(--brand-dark); font-weight:700; letter-spacing:.01em}
+.subtitle-university{margin:0 0 18px; font-size:1rem; text-transform:uppercase; letter-spacing:.08em; color:var(--muted)}
+.cover-year{display:inline-block; margin:2px 0 22px; padding:7px 14px 6px; border:1px solid rgba(28,171,226,.22); background:linear-gradient(180deg,#f7fcfe,#eaf7fc); color:var(--brand); font-size:.84rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; border-radius:999px; box-shadow:0 8px 20px rgba(28,171,226,.12)}
+.hero-illustration{width:100%; max-width:280px; margin:0 auto; background:linear-gradient(180deg,#ffffff,#eef7fb); border:1px solid var(--line); padding:22px; display:grid; place-items:center; min-height:240px}
+.hero-illustration .hero-svg{width:190px; max-width:100%; height:auto; display:block}
+.hero-illustration .svg-soft{fill:#dff3fb}
+.hero-illustration .svg-line{fill:none; stroke:#1cabe2; stroke-width:3; stroke-linecap:round; stroke-linejoin:round}
+.hero-illustration .svg-fill{fill:#1cabe2}
+.hero-illustration .svg-muted{fill:#89cfe9}
+.cover-footer{display:grid; grid-template-columns:repeat(2,minmax(280px,1fr)); gap:22px; margin-top:36px; padding-top:24px; border-top:1px solid var(--line)}
+.cover-card{padding:22px 24px; border:1px solid var(--line); background:linear-gradient(180deg,#fff,#f4fbfe)}
+.cover-card .label{display:block; margin-bottom:10px; color:var(--brand); text-transform:uppercase; letter-spacing:.14em; font-size:.72rem; font-weight:700}
+.cover-card p{margin:0; color:var(--muted)}
+.content{padding:38px 68px 84px}
+.content p{text-align:justify; text-justify:inter-word}
+.toc{margin-bottom:30px; padding:24px 26px 20px; border:1px solid var(--line); background:linear-gradient(180deg,#fff,#f4fbfe)}
+.toc h2{margin:0 0 14px; color:var(--brand); text-transform:uppercase; letter-spacing:.14em; font-size:.76rem}
+.toc ol{margin:0; padding-left:1.35rem; font-size:1rem}.toc li{margin:9px 0}.toc a{text-decoration:none; border-bottom:1px solid transparent}.toc a:hover{color:var(--brand); border-bottom-color:var(--brand)}
+h2.section{margin:46px 0 16px; padding-top:18px; border-top:1px solid var(--line); font-family:Georgia, "Times New Roman", serif; font-size:2rem; line-height:1.12; letter-spacing:-.02em}
+h3{margin:28px 0 10px; color:var(--brand); font-size:1.08rem}
+p{margin:12px 0; font-size:var(--text)}
+.mdm-box{margin:20px 0 28px; padding:18px 20px; border:2px solid var(--brand); border-left:10px solid #f3b229; background:#fff; box-shadow:0 8px 22px rgba(29,78,110,.06)}
+.mdm-title{margin:0 0 10px; color:var(--brand-dark); font-weight:700; font-size:1.04rem}
+mark{
+  background:none;
+  color:inherit;
+  padding:0;
+  border:0;
+  border-radius:0;
+  box-shadow:none;
+  font-weight:700;
+}
+
+
+.mdm-preview-link{
+  position:relative;
+  color:var(--brand);
+  text-decoration:none;
+  border-bottom:1px solid rgba(28,171,226,.38);
+  font-weight:700;
+}
+.mdm-preview-link:hover{
+  color:var(--brand-dark);
+  border-bottom-color:var(--brand-dark);
+}
+.mdm-preview-link::after{
+  content:"Repositorio UVQ · Material Didáctico Digital\A Abrir MDM en una nueva pestaña";
+  white-space:pre-line;
+  position:absolute;
+  left:0;
+  bottom:135%;
+  width:290px;
+  padding:14px 16px;
+  background:#fff;
+  color:var(--ink);
+  border:1px solid var(--line);
+  box-shadow:0 14px 28px rgba(29,78,110,.16);
+  border-radius:6px;
+  font-size:.88rem;
+  line-height:1.45;
+  font-weight:400;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(8px);
+  transition:opacity .18s ease, transform .18s ease, visibility .18s ease;
+  z-index:20;
+}
+.mdm-preview-link::before{
+  content:"";
+  position:absolute;
+  left:22px;
+  bottom:118%;
+  border:8px solid transparent;
+  border-top-color:#fff;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .18s ease, visibility .18s ease;
+  z-index:21;
+}
+.mdm-preview-link:hover::after,
+.mdm-preview-link:hover::before,
+.mdm-preview-link:focus::after,
+.mdm-preview-link:focus::before{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+
+
+.author-line{
+  margin:6px 0 0;
+  color:var(--muted);
+  font-size:.94rem;
+  line-height:1.65;
+}
+
+.author-list{
+  margin:6px 0 0;
+  padding-left:1.15rem;
+  color:var(--muted);
+  font-size:.94rem;
+  line-height:1.55;
+}
+.author-list li{
+  margin:2px 0;
+}
+.update-note{
+  margin:16px 0 0;
+  padding-top:12px;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  font-size:.92rem;
+  line-height:1.5;
+}
+
+@media (max-width:880px){
+  .mdm-preview-link::after,
+  .mdm-preview-link::before{
+    display:none;
+  }
+}
+
+.tour-card{
+  margin:24px 0 30px;
+  padding:24px 26px;
+  border:1px solid var(--line);
+  background:linear-gradient(180deg,#fff,#f4fbfe);
+  box-shadow:0 10px 24px rgba(29,78,110,.07);
+}
+.tour-card h3{
+  margin:0 0 8px;
+  color:var(--brand);
+  font-size:1.12rem;
+}
+.tour-card p{
+  margin:8px 0 18px;
+  color:var(--muted);
+}
+.tour-button{
+  display:inline-block;
+  padding:11px 18px;
+  background:var(--brand);
+  color:#fff;
+  text-decoration:none;
+  border-radius:999px;
+  font-weight:700;
+  line-height:1.2;
+  box-shadow:0 8px 18px rgba(28,171,226,.22);
+}
+.tour-button:hover{
+  background:var(--brand-dark);
+}
+
+.tour-button{
+  position:relative;
+}
+.tour-button::after{
+  content:"Tour 360° del campus UNQ\A Abrir recorrido virtual en una nueva pestaña";
+  white-space:pre-line;
+  position:absolute;
+  left:0;
+  bottom:135%;
+  width:300px;
+  padding:14px 16px;
+  background:#fff;
+  color:var(--ink);
+  border:1px solid var(--line);
+  box-shadow:0 14px 28px rgba(29,78,110,.16);
+  border-radius:6px;
+  font-size:.88rem;
+  line-height:1.45;
+  font-weight:400;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(8px);
+  transition:opacity .18s ease, transform .18s ease, visibility .18s ease;
+  z-index:20;
+}
+.tour-button::before{
+  content:"";
+  position:absolute;
+  left:22px;
+  bottom:118%;
+  border:8px solid transparent;
+  border-top-color:#fff;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .18s ease, visibility .18s ease;
+  z-index:21;
+}
+.tour-button:hover::after,
+.tour-button:hover::before,
+.tour-button:focus::after,
+.tour-button:focus::before{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+@media (max-width:880px){
+  .tour-button::after,
+  .tour-button::before{
+    display:none;
+  }
+}
+
+
+.text-link{color:var(--brand); text-decoration:none; border-bottom:1px solid rgba(28,171,226,.38); transition:all .18s ease; overflow-wrap:anywhere; word-break:break-word}.text-link:hover{color:var(--brand-dark); border-bottom-color:var(--brand-dark)}
+.reference-group{margin:20px 0 0; padding:18px 20px 8px; border:1px solid var(--line); background:linear-gradient(180deg,#fff,#f4fbfe)}
+.ref-list{list-style:none; padding-left:0; margin:10px 0 0}.ref-list li{margin:12px 0; padding-left:1.4em; text-indent:-1.4em; overflow-wrap:anywhere; word-break:break-word; hyphens:auto}
+.back-top{margin:28px 0 0; font-size:.92rem; color:var(--muted)}.back-top a{text-decoration:none; color:var(--muted); border-bottom:1px solid transparent}.back-top a:hover{color:var(--brand); border-bottom-color:var(--brand)}
+.site-footer{margin-top:56px; padding:0 24px 30px; color:var(--muted)}.site-footer-shell{border:1px solid var(--line); background:linear-gradient(180deg,#fff 0%, #f4fbfe 100%); box-shadow:0 10px 24px rgba(29,78,110,.06)}.site-footer-grid{display:grid; grid-template-columns:minmax(0,1.45fr) 1px minmax(260px,.85fr); gap:0 22px; align-items:stretch; padding:18px 20px}.site-footer-divider{width:1px; background:linear-gradient(180deg,rgba(28,171,226,.18),rgba(28,171,226,.55),rgba(28,171,226,.18))}.site-footer-label{margin:0 0 10px; color:var(--brand); text-transform:uppercase; letter-spacing:.18em; font-size:.78rem; font-weight:700; line-height:1.4}.site-footer-note{margin:0; font-size:.95rem; line-height:1.72; color:var(--muted)}.site-footer-author{margin:0; color:var(--ink); font-weight:700; font-size:.98rem; line-height:1.55}.site-footer-role{margin:4px 0 0; color:var(--muted); font-size:.94rem; line-height:1.55}
+@media (max-width:880px){.page{margin:0; border:none; box-shadow:none}.cover,.content{padding:28px 22px 42px}.topline{flex-direction:column; align-items:flex-start; gap:14px; margin-bottom:28px}.cover-grid,.cover-footer{grid-template-columns:1fr}h1{font-size:2.45rem}.series{white-space:normal}.site-footer{padding:0 16px 24px}.site-footer-grid{grid-template-columns:1fr; gap:14px 0; padding:16px}.site-footer-divider{width:100%; height:1px}.ref-list li{padding-left:1.1em; text-indent:-1.1em; font-size:.98rem}}
+@media print{body{background:#fff}.page{margin:0; border:none; box-shadow:none; max-width:none}.toc,.back-top{display:none}}
+
+
+.concept-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:22px 0 30px}
+.concept-card{padding:20px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe);border-top:6px solid var(--brand)}
+.concept-card h3{margin:0 0 8px;font-family:Georgia,"Times New Roman",serif;font-size:1.25rem;color:var(--brand-dark)}
+.concept-card p{margin:0;text-align:left;color:var(--muted);font-size:.98rem}
+.key-list{margin:18px 0 28px;padding:22px 24px 18px;border:1px solid var(--line);background:var(--soft)}
+.key-list ul{margin:0;padding-left:1.2rem}.key-list li{margin:8px 0}
+.reflection{margin:28px 0;padding:24px 26px;border-left:8px solid var(--brand);background:linear-gradient(135deg,#f8eef1,#fff)}
+.reflection h3{margin:0 0 8px}.reflection p{margin:0;font-family:Georgia,"Times New Roman",serif;font-size:1.18rem;text-align:left}
+.timeline{margin:22px 0 30px;border-left:3px solid var(--line);padding-left:24px}
+.timeline-item{position:relative;margin:0 0 24px;padding:18px 20px;border:1px solid var(--line);background:#fff}
+.timeline-item::before{content:"";position:absolute;left:-32px;top:24px;width:13px;height:13px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 5px #f4ecef}
+.timeline-item h3{margin:0 0 8px}.timeline-item p{margin:0;text-align:left}
+.field-box{margin:22px 0 30px;padding:24px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe)}
+.field-box strong{color:var(--brand-dark)}
+.reading-card{margin:20px 0 30px;padding:22px 24px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe)}
+.reading-card h3{margin:0 0 12px}.reading-card ul{margin:0;padding-left:1.2rem}.reading-card li{margin:9px 0}
+@media(max-width:880px){.concept-grid{grid-template-columns:1fr}}
+
+
+.author-card{margin:22px 0 30px;padding:24px 26px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe);border-left:7px solid var(--brand)}
+.author-card h3{margin:0 0 10px;font-family:Georgia,"Times New Roman",serif;font-size:1.35rem;color:var(--brand-dark)}
+.author-card p{margin:9px 0}
+.logic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:20px 0 30px}
+.logic-card{padding:20px 22px;border:1px solid var(--line);background:#fff}
+.logic-card h3{margin:0 0 8px;color:var(--brand-dark)}
+.logic-card p{margin:0;text-align:left;color:var(--muted)}
+.quote-box{margin:24px 0;padding:22px 24px;border-left:8px solid #f3b229;background:linear-gradient(135deg,#fffaf0,#fff)}
+.quote-box p{margin:0;font-family:Georgia,"Times New Roman",serif;font-size:1.16rem;text-align:left}
+@media(max-width:880px){.logic-grid{grid-template-columns:1fr}}
+
+.optional-resource{margin:24px 0 30px;padding:24px 26px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe);box-shadow:0 10px 24px rgba(29,78,110,.07);border-top:6px solid #f3b229}
+.optional-resource .eyebrow{margin:0 0 8px;color:var(--brand);text-transform:uppercase;letter-spacing:.14em;font-size:.74rem;font-weight:700}
+.optional-resource h3{margin:0 0 10px;font-family:Georgia,"Times New Roman",serif;font-size:1.35rem;color:var(--brand-dark)}
+.optional-resource p{margin:8px 0 16px;text-align:left;color:var(--muted)}
+.optional-resource .resource-button{display:inline-block;padding:11px 18px;background:var(--brand);color:#fff;text-decoration:none;border-radius:999px;font-weight:700;line-height:1.2;box-shadow:0 8px 18px rgba(28,171,226,.22)}
+.optional-resource .resource-button:hover{background:var(--brand-dark)}
+</style>
+</head>
+
+<body>
+<div class="page" id="top">
+<section class="cover">
+  <div class="topline">
+    <div class="brandlock">
+      <div class="brandmark">
+        <svg aria-label="UNQ" role="img" viewBox="0 0 32 32" width="28" height="28">
+          <rect width="32" height="32" fill="#1cabe2"/>
+          <path d="M8 7h4v11c0 3 1.5 4.5 4 4.5S20 21 20 18V7h4v11c0 5.5-3.2 8.5-8 8.5S8 23.5 8 18V7z" fill="#fff"/>
+        </svg>
+      </div>
+      <div class="kicker">Administración de la Educación y Gestión de las Instituciones Escolares<br>Licenciatura en Educación · Modalidad virtual</div>
+    </div>
+    <div class="series">Clase 9</div>
+  </div>
+
+  <div class="cover-grid">
+    <div>
+      <h1>La administración de la educación como proceso de gobierno e implementación de políticas</h1>
+      <p class="subtitle-program">Innovación, reforma y cambio. Autonomía, regulación y transformaciones educativas en América Latina</p>
+      <p class="subtitle-university">Universidad Nacional de Quilmes</p>
+      <span class="cover-year">Unidad 3 · 2026</span>
+    </div>
+    <figure class="hero-illustration" aria-label="Esquema de políticas, regulación y cambio">
+      <svg class="hero-svg" viewBox="0 0 220 190" role="img" aria-hidden="true">
+        <rect x="42" y="42" width="58" height="42" rx="6" class="svg-soft"/>
+        <rect x="120" y="42" width="58" height="42" rx="6" class="svg-soft"/>
+        <rect x="81" y="112" width="58" height="42" rx="6" class="svg-soft"/>
+        <path d="M100 63h20M149 84l-23 28M71 84l23 28" class="svg-line"/>
+        <circle cx="110" cy="63" r="7" class="svg-fill"/>
+        <circle cx="110" cy="133" r="7" class="svg-muted"/>
+      </svg>
+    </figure>
+  </div>
+
+  <div class="cover-footer">
+    <div class="cover-card">
+      <span class="label">Pregunta orientadora</span>
+      <p>¿Cómo se relacionan innovación, reforma, autonomía y regulación en los procesos de cambio educativo?</p>
+    </div>
+    <div class="cover-card">
+      <span class="label">Ejes de análisis</span>
+      <p>Innovación, cambio, reforma, autonomía escolar, descentralización, regulación, modelos postburocráticos, evaluación y equidad.</p>
+    </div>
+  </div>
+</section>
+
+<main class="content">
+<section class="toc" id="indice">
+  <h2>Índice</h2>
+  <ol>
+    <li><a href="#introduccion">Introducción</a></li>
+    <li><a href="#lecturas">Lecturas de la semana</a></li>
+    <li><a href="#conceptos">Innovación, reforma y cambio</a></li>
+    <li><a href="#autonomia">Autonomía y descentralización</a></li>
+    <li><a href="#regulacion">Modelos de regulación postburocráticos</a></li>
+    <li><a href="#reformas">Reformas educativas en América Latina</a></li>
+    <li><a href="#cierre">Cierre de la clase</a></li>
+    <li><a href="#referencias">Referencias</a></li>
+  </ol>
+</section>
+
+<h2 class="section" id="introduccion">Introducción</h2>
+<p>¡Hola a todos! En esta clase abordaremos la administración de la educación como proceso de gobierno e implementación de políticas. Nos centraremos en los conceptos de <strong>innovación, reforma y cambio</strong>, y en su relación con la autonomía escolar, la descentralización y los modos de regulación de los sistemas educativos.</p>
+<p>También analizaremos cómo las reformas educativas de la década de 1990 incidieron en las instituciones escolares de América Latina y qué tensiones se produjeron entre autonomía, control, evaluación y equidad.</p>
+
+<div class="concept-grid">
+  <div class="concept-card"><h3>Innovación</h3><p>Introduce una novedad que busca producir una transformación cualitativa en el sistema o en la institución.</p></div>
+  <div class="concept-card"><h3>Reforma</h3><p>Articula iniciativas orientadas a producir cambios estructurales, aunque sus efectos pueden ser diversos y no siempre transforman las relaciones existentes.</p></div>
+  <div class="concept-card"><h3>Regulación</h3><p>Remite a los mecanismos, normas y dispositivos mediante los cuales se orienta, controla y evalúa el funcionamiento del sistema educativo.</p></div>
+</div>
+
+<h2 class="section" id="lecturas">Lecturas de la semana</h2>
+<div class="reading-card">
+  <h3>Bibliografía obligatoria</h3>
+  <ul>
+    <li>Angulo Rasco, F. (1994). Innovación, cambio y reforma: algunas ideas para analizar lo que está ocurriendo. En <em>Teoría y desarrollo del currículum</em> (pp. 357–367). Aljibe.</li>
+    <li>Bolívar, A. (2009). La autonomía en la gestión como un nuevo modelo de regulación. <em>Espacios en Blanco</em>, (19), 35–68.</li>
+    <li>Feldfeber, M. (2009). Nuevas y viejas formas de regulación de los sistemas educativos. En <em>Autonomía y gobierno de la educación. Perspectivas, antinomias y tensiones</em> (pp. 13–50). Aique Grupo Editor.</li>
+    <li>García et al. (2013). <em>Carpeta de trabajo. Administración de la educación y gestión de las instituciones escolares</em>. Universidad Nacional de Quilmes.</li>
+  </ul>
+</div>
+
+<div class="field-box">
+  <p>Las lecturas permiten poner en relación las transformaciones en las políticas educativas con los cambios en las formas de regulación y con las nuevas responsabilidades atribuidas a las instituciones escolares.</p>
+</div>
+
+<h2 class="section" id="conceptos">1. Innovación, reforma y cambio</h2>
+<p>Los conceptos de innovación, reforma y cambio ocupan un lugar importante en los debates sobre políticas educativas, especialmente cuando se analizan procesos de transformación de estructuras y formas de gestión.</p>
+
+<div class="logic-grid">
+  <div class="logic-card"><h3>Innovación</h3><p>Se refiere a la creación e incorporación de algo nuevo que busca ser asimilado de manera relativamente permanente. Supone una modificación cualitativa respecto de las prácticas o estructuras existentes.</p></div>
+  <div class="logic-card"><h3>Cambio</h3><p>Es un concepto más amplio. Comprende modificaciones en la estructura o en el funcionamiento de un sistema social. No todo cambio constituye una innovación.</p></div>
+  <div class="logic-card"><h3>Reforma</h3><p>Combina dimensiones simbólicas e instrumentales y suele expresarse en iniciativas orientadas a modificar estructuras, normas o modos de funcionamiento.</p></div>
+  <div class="logic-card"><h3>Una tensión relevante</h3><p>Las reformas pueden producir modificaciones formales sin transformar necesariamente las relaciones sociales y culturales que atraviesan a las instituciones.</p></div>
+</div>
+
+<div class="reflection"><h3>Para pensar</h3><p>¿Qué diferencias aparecen cuando analizamos una transformación educativa como cambio, innovación o reforma?</p></div>
+
+<h2 class="section" id="autonomia">2. La autonomía como proceso de descentralización</h2>
+<p>Uno de los ejes de las reformas educativas de los años noventa fue la autonomía escolar. En distintos países de América Latina, la autonomía fue presentada como una respuesta a la rigidez de los modelos centralizados y como una posibilidad de ampliar el margen de decisión de las instituciones.</p>
+<p>Sin embargo, el proceso de descentralización también generó tensiones. La delegación de responsabilidades no siempre estuvo acompañada por los recursos necesarios, y esto podía profundizar diferencias entre instituciones y favorecer dinámicas de competencia.</p>
+
+<div class="key-list"><ul>
+<li>Mayor flexibilidad institucional en la toma de decisiones.</li>
+<li>Delegación de responsabilidades desde los niveles centrales hacia las escuelas.</li>
+<li>Riesgo de trasladar obligaciones sin recursos suficientes.</li>
+<li>Posible profundización de desigualdades entre instituciones.</li>
+<li>Mayor presencia de mecanismos externos de evaluación y control.</li>
+</ul></div>
+
+<h2 class="section" id="regulacion">3. Modelos de regulación postburocráticos</h2>
+<p>La autonomía también se inscribe en un cambio más amplio en los modos de regulación de las políticas educativas. En los modelos burocráticos tradicionales, la regulación se apoyaba principalmente en normas, procedimientos y control jerárquico.</p>
+<p>En los modelos postburocráticos, la autonomía escolar aparece asociada a mecanismos de evaluación, rendición de resultados e indicadores de desempeño. Estas transformaciones se vinculan con discursos de <strong>nueva gestión pública</strong> o <strong>nueva gobernanza</strong>.</p>
+
+<div class="author-card"><h3>Autonomía y regulación</h3><p>La ampliación de márgenes de decisión para las escuelas no implica necesariamente una disminución del control. En muchos casos, la regulación se desplaza hacia mecanismos externos de evaluación, seguimiento e indicadores de resultados.</p></div>
+
+<div class="quote-box"><p>La autonomía institucional puede coexistir con nuevas formas de regulación y control sobre los resultados.</p></div>
+
+<h2 class="section" id="reformas">4. Incidencia de las reformas en América Latina</h2>
+<p>En América Latina, las reformas de la década de 1990 se inscribieron en procesos más amplios de transformación estatal. En ese contexto se promovieron políticas de descentralización, privatización y desregulación de servicios sociales, incluida la educación.</p>
+<p>La autonomía escolar fue presentada como una vía para mejorar la gestión y la calidad, pero también recibió críticas por sus efectos potenciales sobre la segmentación y la desigualdad. La combinación entre descentralización de responsabilidades y recentralización de mecanismos de evaluación produjo nuevas formas de regulación política.</p>
+
+<div class="logic-grid">
+  <div class="logic-card"><h3>Descentralización</h3><p>Transfiere responsabilidades y decisiones hacia niveles locales e institucionales.</p></div>
+  <div class="logic-card"><h3>Evaluación externa</h3><p>Introduce dispositivos de seguimiento y control basados en resultados e indicadores estandarizados.</p></div>
+  <div class="logic-card"><h3>Autonomía</h3><p>Amplía márgenes de acción, pero también puede implicar nuevas responsabilidades para las instituciones.</p></div>
+  <div class="logic-card"><h3>Equidad</h3><p>Las diferencias estructurales entre escuelas obligan a discutir los efectos de estas políticas sobre la desigualdad educativa.</p></div>
+</div>
+
+<div class="reflection"><h3>Para reflexionar</h3><p>¿Qué tensiones aparecen cuando se amplía la autonomía de las escuelas pero se refuerzan, al mismo tiempo, los mecanismos de evaluación y control externo?</p></div>
+
+<h2 class="section" id="cierre">Cierre de la clase</h2>
+<p>En esta clase analizamos innovación, reforma y cambio como conceptos vinculados, pero no equivalentes. También revisamos el lugar que ocupó la autonomía escolar en las reformas educativas de la década de 1990 y su relación con los procesos de descentralización.</p>
+<p>Los modelos postburocráticos muestran que la ampliación de la autonomía institucional puede coexistir con nuevas formas de regulación basadas en evaluación, resultados e indicadores. Por eso, analizar las reformas requiere atender simultáneamente a las responsabilidades que se transfieren, los recursos disponibles y las condiciones de equidad entre instituciones.</p>
+<p>La administración educativa, entendida como proceso de gobierno e implementación de políticas, demanda una mirada que permita analizar las relaciones entre autonomía, regulación y desigualdad en los sistemas educativos.</p>
+<p>Saludos,<br><strong>Linda</strong></p>
+
+<div class="back-top"><a href="#indice">↑ Volver al índice</a></div>
+
+<h2 class="section" id="referencias">Referencias</h2>
+<div class="reference-group">
+  <ul class="ref-list">
+    <li>Angulo Rasco, F. (1994). Innovación, cambio y reforma: algunas ideas para analizar lo que está ocurriendo. En <em>Teoría y desarrollo del currículum</em> (pp. 357–367). Aljibe.</li>
+    <li>Bolívar, A. (2009). La autonomía en la gestión como un nuevo modelo de regulación. <em>Espacios en Blanco</em>, (19), 35–68.</li>
+    <li>Feldfeber, M. (2009). Nuevas y viejas formas de regulación de los sistemas educativos. En <em>Autonomía y gobierno de la educación. Perspectivas, antinomias y tensiones</em> (pp. 13–50). Aique Grupo Editor.</li>
+    <li>García et al. (2013). <em>Carpeta de trabajo. Administración de la educación y gestión de las instituciones escolares</em>. Universidad Nacional de Quilmes.</li>
+  </ul>
+</div>
+
+<div class="back-top"><a href="#top">↑ Volver al inicio</a></div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer-shell">
+    <div class="site-footer-grid">
+      <div>
+        <p class="site-footer-label">Administración de la Educación y Gestión de las Instituciones Escolares</p>
+        <p class="site-footer-note">Licenciatura en Educación · Modalidad virtual · Universidad Nacional de Quilmes</p>
+      </div>
+      <div class="site-footer-divider"></div>
+      <div>
+        <p class="site-footer-author">Linda Angelica Lopez</p>
+        <p class="site-footer-role">Docente · 3.º período 2026</p>
+      </div>
+    </div>
+  </div>
+</footer>
+</div>
+</body>
+</html>
