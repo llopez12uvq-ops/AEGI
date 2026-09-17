@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clase 10 · Administración de la Educación y Gestión de las Instituciones Escolares</title>
+<style>
+
+:root{
+  --brand:#1cabe2;
+  --brand-dark:#1189bb;
+  --bg:#eef7fb;
+  --paper:#ffffff;
+  --ink:#1f2a37;
+  --muted:#4f6272;
+  --line:#d6e8f2;
+  --soft:#f4fbfe;
+  --soft-2:#eef7fb;
+  --accent:#dff3fb;
+  --max:1100px;
+  --text:1.04rem;
+  --shadow:0 18px 42px rgba(29,78,110,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:radial-gradient(circle at top left, rgba(28,171,226,.10), transparent 22%), linear-gradient(180deg,#f4fbfe 0%, var(--bg) 100%);
+  color:var(--ink);
+  font-family:"Aptos","Segoe UI",Arial,sans-serif;
+  line-height:1.72;
+}
+a{color:inherit}
+.page{max-width:var(--max); margin:26px auto; background:var(--paper); border:1px solid #d9edf7; box-shadow:var(--shadow); border-radius:28px; overflow:hidden}
+.cover{position:relative; padding:52px 68px 56px; background:radial-gradient(circle at 82% 18%, rgba(28,171,226,.10), transparent 23%), linear-gradient(180deg,#fff,#f7fcfe 75%,#fff); border-bottom:1px solid var(--line)}
+.cover::before{content:""; position:absolute; left:0; right:0; top:0; height:12px; background:var(--brand)}
+.topline{display:flex; align-items:flex-start; justify-content:space-between; gap:24px; margin:8px 0 44px}
+.brandlock{display:flex; gap:16px; align-items:center}
+.brandmark{width:58px; height:58px; flex:0 0 58px; display:grid; place-items:center; background:var(--brand); border-radius:2px}
+.brandmark img{width:26px; height:auto; display:block}
+.kicker{max-width:520px; color:var(--muted); text-transform:uppercase; font-size:.74rem; letter-spacing:.14em; line-height:1.55}
+.series{color:var(--brand); font-size:.82rem; text-transform:uppercase; letter-spacing:.16em; border-bottom:1px solid var(--line); padding-bottom:10px; white-space:nowrap}
+.cover-grid{display:grid; grid-template-columns:minmax(0,1fr) 300px; gap:40px; align-items:center}
+h1{margin:0 0 18px; font-family:Georgia, "Times New Roman", serif; font-size:3.45rem; line-height:1.02; letter-spacing:-.03em; color:#0f2535}
+.subtitle-program{margin:10px 0 6px; font-size:1.18rem; color:var(--brand-dark); font-weight:700; letter-spacing:.01em}
+.subtitle-university{margin:0 0 18px; font-size:1rem; text-transform:uppercase; letter-spacing:.08em; color:var(--muted)}
+.cover-year{display:inline-block; margin:2px 0 22px; padding:7px 14px 6px; border:1px solid rgba(28,171,226,.22); background:linear-gradient(180deg,#f7fcfe,#eaf7fc); color:var(--brand); font-size:.84rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; border-radius:999px; box-shadow:0 8px 20px rgba(28,171,226,.12)}
+.hero-illustration{width:100%; max-width:280px; margin:0 auto; background:linear-gradient(180deg,#ffffff,#eef7fb); border:1px solid var(--line); padding:22px; display:grid; place-items:center; min-height:240px}
+.hero-illustration .hero-svg{width:190px; max-width:100%; height:auto; display:block}
+.hero-illustration .svg-soft{fill:#dff3fb}
+.hero-illustration .svg-line{fill:none; stroke:#1cabe2; stroke-width:3; stroke-linecap:round; stroke-linejoin:round}
+.hero-illustration .svg-fill{fill:#1cabe2}
+.hero-illustration .svg-muted{fill:#89cfe9}
+.cover-footer{display:grid; grid-template-columns:repeat(2,minmax(280px,1fr)); gap:22px; margin-top:36px; padding-top:24px; border-top:1px solid var(--line)}
+.cover-card{padding:22px 24px; border:1px solid var(--line); background:linear-gradient(180deg,#fff,#f4fbfe)}
+.cover-card .label{display:block; margin-bottom:10px; color:var(--brand); text-transform:uppercase; letter-spacing:.14em; font-size:.72rem; font-weight:700}
+.cover-card p{margin:0; color:var(--muted)}
+.content{padding:38px 68px 84px}
+.content p{text-align:justify; text-justify:inter-word}
+.toc{margin-bottom:30px; padding:24px 26px 20px; border:1px solid var(--line); background:linear-gradient(180deg,#fff,#f4fbfe)}
+.toc h2{margin:0 0 14px; color:var(--brand); text-transform:uppercase; letter-spacing:.14em; font-size:.76rem}
+.toc ol{margin:0; padding-left:1.35rem; font-size:1rem}.toc li{margin:9px 0}.toc a{text-decoration:none; border-bottom:1px solid transparent}.toc a:hover{color:var(--brand); border-bottom-color:var(--brand)}
+h2.section{margin:46px 0 16px; padding-top:18px; border-top:1px solid var(--line); font-family:Georgia, "Times New Roman", serif; font-size:2rem; line-height:1.12; letter-spacing:-.02em}
+h3{margin:28px 0 10px; color:var(--brand); font-size:1.08rem}
+p{margin:12px 0; font-size:var(--text)}
+.mdm-box{margin:20px 0 28px; padding:18px 20px; border:2px solid var(--brand); border-left:10px solid #f3b229; background:#fff; box-shadow:0 8px 22px rgba(29,78,110,.06)}
+.mdm-title{margin:0 0 10px; color:var(--brand-dark); font-weight:700; font-size:1.04rem}
+mark{
+  background:none;
+  color:inherit;
+  padding:0;
+  border:0;
+  border-radius:0;
+  box-shadow:none;
+  font-weight:700;
+}
+
+
+.mdm-preview-link{
+  position:relative;
+  color:var(--brand);
+  text-decoration:none;
+  border-bottom:1px solid rgba(28,171,226,.38);
+  font-weight:700;
+}
+.mdm-preview-link:hover{
+  color:var(--brand-dark);
+  border-bottom-color:var(--brand-dark);
+}
+.mdm-preview-link::after{
+  content:"Repositorio UVQ · Material Didáctico Digital\A Abrir MDM en una nueva pestaña";
+  white-space:pre-line;
+  position:absolute;
+  left:0;
+  bottom:135%;
+  width:290px;
+  padding:14px 16px;
+  background:#fff;
+  color:var(--ink);
+  border:1px solid var(--line);
+  box-shadow:0 14px 28px rgba(29,78,110,.16);
+  border-radius:6px;
+  font-size:.88rem;
+  line-height:1.45;
+  font-weight:400;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(8px);
+  transition:opacity .18s ease, transform .18s ease, visibility .18s ease;
+  z-index:20;
+}
+.mdm-preview-link::before{
+  content:"";
+  position:absolute;
+  left:22px;
+  bottom:118%;
+  border:8px solid transparent;
+  border-top-color:#fff;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .18s ease, visibility .18s ease;
+  z-index:21;
+}
+.mdm-preview-link:hover::after,
+.mdm-preview-link:hover::before,
+.mdm-preview-link:focus::after,
+.mdm-preview-link:focus::before{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+
+
+.author-line{
+  margin:6px 0 0;
+  color:var(--muted);
+  font-size:.94rem;
+  line-height:1.65;
+}
+
+.author-list{
+  margin:6px 0 0;
+  padding-left:1.15rem;
+  color:var(--muted);
+  font-size:.94rem;
+  line-height:1.55;
+}
+.author-list li{
+  margin:2px 0;
+}
+.update-note{
+  margin:16px 0 0;
+  padding-top:12px;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  font-size:.92rem;
+  line-height:1.5;
+}
+
+@media (max-width:880px){
+  .mdm-preview-link::after,
+  .mdm-preview-link::before{
+    display:none;
+  }
+}
+
+.tour-card{
+  margin:24px 0 30px;
+  padding:24px 26px;
+  border:1px solid var(--line);
+  background:linear-gradient(180deg,#fff,#f4fbfe);
+  box-shadow:0 10px 24px rgba(29,78,110,.07);
+}
+.tour-card h3{
+  margin:0 0 8px;
+  color:var(--brand);
+  font-size:1.12rem;
+}
+.tour-card p{
+  margin:8px 0 18px;
+  color:var(--muted);
+}
+.tour-button{
+  display:inline-block;
+  padding:11px 18px;
+  background:var(--brand);
+  color:#fff;
+  text-decoration:none;
+  border-radius:999px;
+  font-weight:700;
+  line-height:1.2;
+  box-shadow:0 8px 18px rgba(28,171,226,.22);
+}
+.tour-button:hover{
+  background:var(--brand-dark);
+}
+
+.tour-button{
+  position:relative;
+}
+.tour-button::after{
+  content:"Tour 360° del campus UNQ\A Abrir recorrido virtual en una nueva pestaña";
+  white-space:pre-line;
+  position:absolute;
+  left:0;
+  bottom:135%;
+  width:300px;
+  padding:14px 16px;
+  background:#fff;
+  color:var(--ink);
+  border:1px solid var(--line);
+  box-shadow:0 14px 28px rgba(29,78,110,.16);
+  border-radius:6px;
+  font-size:.88rem;
+  line-height:1.45;
+  font-weight:400;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(8px);
+  transition:opacity .18s ease, transform .18s ease, visibility .18s ease;
+  z-index:20;
+}
+.tour-button::before{
+  content:"";
+  position:absolute;
+  left:22px;
+  bottom:118%;
+  border:8px solid transparent;
+  border-top-color:#fff;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .18s ease, visibility .18s ease;
+  z-index:21;
+}
+.tour-button:hover::after,
+.tour-button:hover::before,
+.tour-button:focus::after,
+.tour-button:focus::before{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+@media (max-width:880px){
+  .tour-button::after,
+  .tour-button::before{
+    display:none;
+  }
+}
+
+
+.text-link{color:var(--brand); text-decoration:none; border-bottom:1px solid rgba(28,171,226,.38); transition:all .18s ease; overflow-wrap:anywhere; word-break:break-word}.text-link:hover{color:var(--brand-dark); border-bottom-color:var(--brand-dark)}
+.reference-group{margin:20px 0 0; padding:18px 20px 8px; border:1px solid var(--line); background:linear-gradient(180deg,#fff,#f4fbfe)}
+.ref-list{list-style:none; padding-left:0; margin:10px 0 0}.ref-list li{margin:12px 0; padding-left:1.4em; text-indent:-1.4em; overflow-wrap:anywhere; word-break:break-word; hyphens:auto}
+.back-top{margin:28px 0 0; font-size:.92rem; color:var(--muted)}.back-top a{text-decoration:none; color:var(--muted); border-bottom:1px solid transparent}.back-top a:hover{color:var(--brand); border-bottom-color:var(--brand)}
+.site-footer{margin-top:56px; padding:0 24px 30px; color:var(--muted)}.site-footer-shell{border:1px solid var(--line); background:linear-gradient(180deg,#fff 0%, #f4fbfe 100%); box-shadow:0 10px 24px rgba(29,78,110,.06)}.site-footer-grid{display:grid; grid-template-columns:minmax(0,1.45fr) 1px minmax(260px,.85fr); gap:0 22px; align-items:stretch; padding:18px 20px}.site-footer-divider{width:1px; background:linear-gradient(180deg,rgba(28,171,226,.18),rgba(28,171,226,.55),rgba(28,171,226,.18))}.site-footer-label{margin:0 0 10px; color:var(--brand); text-transform:uppercase; letter-spacing:.18em; font-size:.78rem; font-weight:700; line-height:1.4}.site-footer-note{margin:0; font-size:.95rem; line-height:1.72; color:var(--muted)}.site-footer-author{margin:0; color:var(--ink); font-weight:700; font-size:.98rem; line-height:1.55}.site-footer-role{margin:4px 0 0; color:var(--muted); font-size:.94rem; line-height:1.55}
+@media (max-width:880px){.page{margin:0; border:none; box-shadow:none}.cover,.content{padding:28px 22px 42px}.topline{flex-direction:column; align-items:flex-start; gap:14px; margin-bottom:28px}.cover-grid,.cover-footer{grid-template-columns:1fr}h1{font-size:2.45rem}.series{white-space:normal}.site-footer{padding:0 16px 24px}.site-footer-grid{grid-template-columns:1fr; gap:14px 0; padding:16px}.site-footer-divider{width:100%; height:1px}.ref-list li{padding-left:1.1em; text-indent:-1.1em; font-size:.98rem}}
+@media print{body{background:#fff}.page{margin:0; border:none; box-shadow:none; max-width:none}.toc,.back-top{display:none}}
+
+
+.concept-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:22px 0 30px}
+.concept-card{padding:20px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe);border-top:6px solid var(--brand)}
+.concept-card h3{margin:0 0 8px;font-family:Georgia,"Times New Roman",serif;font-size:1.25rem;color:var(--brand-dark)}
+.concept-card p{margin:0;text-align:left;color:var(--muted);font-size:.98rem}
+.key-list{margin:18px 0 28px;padding:22px 24px 18px;border:1px solid var(--line);background:var(--soft)}
+.key-list ul{margin:0;padding-left:1.2rem}.key-list li{margin:8px 0}
+.reflection{margin:28px 0;padding:24px 26px;border-left:8px solid var(--brand);background:linear-gradient(135deg,#f8eef1,#fff)}
+.reflection h3{margin:0 0 8px}.reflection p{margin:0;font-family:Georgia,"Times New Roman",serif;font-size:1.18rem;text-align:left}
+.timeline{margin:22px 0 30px;border-left:3px solid var(--line);padding-left:24px}
+.timeline-item{position:relative;margin:0 0 24px;padding:18px 20px;border:1px solid var(--line);background:#fff}
+.timeline-item::before{content:"";position:absolute;left:-32px;top:24px;width:13px;height:13px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 5px #f4ecef}
+.timeline-item h3{margin:0 0 8px}.timeline-item p{margin:0;text-align:left}
+.field-box{margin:22px 0 30px;padding:24px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe)}
+.field-box strong{color:var(--brand-dark)}
+.reading-card{margin:20px 0 30px;padding:22px 24px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe)}
+.reading-card h3{margin:0 0 12px}.reading-card ul{margin:0;padding-left:1.2rem}.reading-card li{margin:9px 0}
+@media(max-width:880px){.concept-grid{grid-template-columns:1fr}}
+
+
+.author-card{margin:22px 0 30px;padding:24px 26px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe);border-left:7px solid var(--brand)}
+.author-card h3{margin:0 0 10px;font-family:Georgia,"Times New Roman",serif;font-size:1.35rem;color:var(--brand-dark)}
+.author-card p{margin:9px 0}
+.logic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:20px 0 30px}
+.logic-card{padding:20px 22px;border:1px solid var(--line);background:#fff}
+.logic-card h3{margin:0 0 8px;color:var(--brand-dark)}
+.logic-card p{margin:0;text-align:left;color:var(--muted)}
+.quote-box{margin:24px 0;padding:22px 24px;border-left:8px solid #f3b229;background:linear-gradient(135deg,#fffaf0,#fff)}
+.quote-box p{margin:0;font-family:Georgia,"Times New Roman",serif;font-size:1.16rem;text-align:left}
+@media(max-width:880px){.logic-grid{grid-template-columns:1fr}}
+
+.optional-resource{margin:24px 0 30px;padding:24px 26px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe);box-shadow:0 10px 24px rgba(29,78,110,.07);border-top:6px solid #f3b229}
+.optional-resource .eyebrow{margin:0 0 8px;color:var(--brand);text-transform:uppercase;letter-spacing:.14em;font-size:.74rem;font-weight:700}
+.optional-resource h3{margin:0 0 10px;font-family:Georgia,"Times New Roman",serif;font-size:1.35rem;color:var(--brand-dark)}
+.optional-resource p{margin:8px 0 16px;text-align:left;color:var(--muted)}
+.optional-resource .resource-button{display:inline-block;padding:11px 18px;background:var(--brand);color:#fff;text-decoration:none;border-radius:999px;font-weight:700;line-height:1.2;box-shadow:0 8px 18px rgba(28,171,226,.22)}
+.optional-resource .resource-button:hover{background:var(--brand-dark)}
+</style>
+</head>
+
+<body>
+<div class="page" id="top">
+<section class="cover">
+  <div class="topline">
+    <div class="brandlock">
+      <div class="brandmark">
+        <svg aria-label="UNQ" role="img" viewBox="0 0 32 32" width="28" height="28">
+          <rect width="32" height="32" fill="#1cabe2"/>
+          <path d="M8 7h4v11c0 3 1.5 4.5 4 4.5S20 21 20 18V7h4v11c0 5.5-3.2 8.5-8 8.5S8 23.5 8 18V7z" fill="#fff"/>
+        </svg>
+      </div>
+      <div class="kicker">Administración de la Educación y Gestión de las Instituciones Escolares<br>Licenciatura en Educación · Modalidad virtual</div>
+    </div>
+    <div class="series">Clase 10</div>
+  </div>
+
+  <div class="cover-grid">
+    <div>
+      <h1>Reforma y regulación política de la educación en América Latina</h1>
+      <p class="subtitle-program">Descentralización educativa, distribución territorial del poder y autonomía escolar</p>
+      <p class="subtitle-university">Universidad Nacional de Quilmes</p>
+      <span class="cover-year">Unidad 3 · 2026</span>
+    </div>
+    <figure class="hero-illustration" aria-label="Esquema de descentralización y regulación">
+      <svg class="hero-svg" viewBox="0 0 220 190" role="img" aria-hidden="true">
+        <circle cx="110" cy="45" r="14" class="svg-fill"/>
+        <circle cx="52" cy="120" r="12" class="svg-muted"/>
+        <circle cx="110" cy="145" r="12" class="svg-muted"/>
+        <circle cx="168" cy="120" r="12" class="svg-muted"/>
+        <path d="M110 59v39M100 98L62 110M120 98l38 12M110 98v35" class="svg-line"/>
+      </svg>
+    </figure>
+  </div>
+
+  <div class="cover-footer">
+    <div class="cover-card">
+      <span class="label">Pregunta orientadora</span>
+      <p>¿Cómo modifican los procesos de descentralización y autonomía escolar la distribución del poder y las formas de regulación de los sistemas educativos?</p>
+    </div>
+    <div class="cover-card">
+      <span class="label">Ejes de análisis</span>
+      <p>Reforma estatal, descentralización, desconcentración, distribución territorial del poder, autonomía escolar, regulación política y desigualdades.</p>
+    </div>
+  </div>
+</section>
+
+<main class="content">
+<section class="toc" id="indice">
+  <h2>Índice</h2>
+  <ol>
+    <li><a href="#introduccion">Introducción</a></li>
+    <li><a href="#lecturas">Lecturas de la semana</a></li>
+    <li><a href="#reforma">Reforma y regulación política</a></li>
+    <li><a href="#descentralizacion">Descentralización y desconcentración</a></li>
+    <li><a href="#argentina">Descentralización educativa en Argentina</a></li>
+    <li><a href="#autonomia">Autonomía escolar y regulación</a></li>
+    <li><a href="#video">Recurso audiovisual optativo</a></li>
+    <li><a href="#cierre">Cierre de la clase</a></li>
+    <li><a href="#referencias">Referencias</a></li>
+  </ol>
+</section>
+
+<h2 class="section" id="introduccion">Introducción</h2>
+<p>¡Hola a todos! En esta clase continuamos con la <strong>Unidad 3</strong> y profundizamos el análisis de los procesos de reforma y regulación política de la educación en América Latina. Nos interesa observar cómo las reformas educativas modificaron la distribución territorial del poder y cómo la descentralización se convirtió en una estrategia de reorganización de los sistemas educativos.</p>
+<p>También abordaremos la diferencia entre <strong>descentralización</strong> y <strong>desconcentración</strong>, los procesos desarrollados en Argentina en el marco de las reformas estatales de fines del siglo XX y las tensiones que atraviesan la autonomía escolar como forma de regulación.</p>
+
+<div class="concept-grid">
+  <div class="concept-card"><h3>Descentralización</h3><p>Supone una redistribución de responsabilidades, competencias y capacidad de decisión entre distintos niveles de gobierno.</p></div>
+  <div class="concept-card"><h3>Desconcentración</h3><p>Implica una redistribución administrativa de funciones sin modificar necesariamente la estructura política del poder.</p></div>
+  <div class="concept-card"><h3>Autonomía</h3><p>Amplía márgenes de decisión institucional, aunque sus alcances dependen de las condiciones políticas, materiales y regulatorias en las que se desarrolla.</p></div>
+</div>
+
+<h2 class="section" id="lecturas">Lecturas de la semana</h2>
+<div class="reading-card">
+  <h3>Bibliografía obligatoria</h3>
+  <ul>
+    <li>Casassus, J. (1990). Descentralización y desconcentración de los sistemas educativos en América Latina: fundamentos y dimensiones críticas. <em>Boletín Proyecto Principal de Educación en América Latina y el Caribe</em>, 7–18.</li>
+    <li>Miranda, E. (2011). Globalización periférica, regulación política del sistema educativo y producción de desigualdades en Argentina: ¿Dónde estamos ahora? <em>Rizoma Freireano</em>, 1–20.</li>
+    <li>Puelles Benítez, M. (1993). Estudio teórico sobre las experiencias de descentralización educativa. <em>Revista Iberoamericana de Educación</em>, (3).</li>
+    <li>Filmus, D. (1998). La descentralización educativa en el centro del debate. En <em>La Argentina que viene. Análisis y propuestas para una sociedad en transición</em> (pp. 53–88). FLACSO/UNICEF/Norma.</li>
+    <li>Namo de Mello, G. (1991). Autonomía de la escuela: posibilidades, límites y condiciones. <em>Boletín Proyecto Principal de Educación en América Latina y el Caribe</em>, (26).</li>
+  </ul>
+</div>
+
+<div class="field-box"><p>Las lecturas permiten analizar la descentralización no solo como una decisión administrativa, sino como un proceso político que redefine responsabilidades, relaciones entre niveles de gobierno y condiciones de autonomía de las instituciones educativas.</p></div>
+
+<h2 class="section" id="reforma">1. Reforma y regulación política</h2>
+<p>Las reformas educativas implementadas en América Latina durante las últimas décadas del siglo XX se desarrollaron en estrecha relación con procesos más amplios de reforma del Estado. En ese marco, la regulación de los sistemas educativos comenzó a combinar distintos mecanismos de distribución de responsabilidades y control.</p>
+
+<div class="logic-grid">
+  <div class="logic-card"><h3>Reforma estatal</h3><p>Reconfigura funciones, responsabilidades y relaciones entre el Estado nacional, las jurisdicciones y las instituciones educativas.</p></div>
+  <div class="logic-card"><h3>Regulación política</h3><p>Comprende las formas mediante las cuales se orientan decisiones, recursos, normas y mecanismos de control dentro del sistema educativo.</p></div>
+  <div class="logic-card"><h3>Territorio</h3><p>La distribución territorial del poder permite analizar quién decide, quién financia y quién implementa las políticas.</p></div>
+  <div class="logic-card"><h3>Desigualdad</h3><p>La redistribución de responsabilidades puede producir efectos diferentes según las capacidades y recursos de cada jurisdicción.</p></div>
+</div>
+
+<h2 class="section" id="descentralizacion">2. Descentralización y desconcentración</h2>
+<p>La descentralización educativa no debe confundirse con la desconcentración. Aunque ambas suponen movimientos desde niveles centrales hacia otras instancias del sistema, no implican el mismo grado de redistribución del poder.</p>
+
+<div class="author-card"><h3>Descentralización</h3><p>Supone una transferencia de competencias y responsabilidades hacia otros niveles de gobierno o hacia instituciones con mayor capacidad de decisión. Por eso, implica discutir aspectos administrativos, políticos y fiscales.</p></div>
+<div class="author-card"><h3>Desconcentración</h3><p>Redistribuye tareas y funciones dentro de una misma estructura, pero mantiene la autoridad política principal en el nivel central.</p></div>
+
+<div class="reflection"><h3>Para pensar</h3><p>¿Qué cambia cuando una política transfiere tareas y qué cambia cuando transfiere efectivamente capacidad de decisión?</p></div>
+
+<h2 class="section" id="argentina">3. Los procesos de descentralización educativa en Argentina</h2>
+<p>En Argentina, los procesos de descentralización educativa se vincularon con las reformas estatales de fines del siglo XX y con la transferencia de responsabilidades desde el nivel nacional hacia las jurisdicciones provinciales.</p>
+<p>Estos procesos modificaron la distribución territorial del poder educativo y plantearon nuevos problemas vinculados con el financiamiento, la coordinación del sistema y las desigualdades entre jurisdicciones.</p>
+
+<div class="key-list"><ul>
+<li>Transferencia de responsabilidades hacia las provincias.</li>
+<li>Reconfiguración de las funciones del Estado nacional.</li>
+<li>Nuevas relaciones entre financiamiento, gestión y control.</li>
+<li>Diferencias en las capacidades institucionales de las jurisdicciones.</li>
+<li>Riesgo de profundización de desigualdades territoriales.</li>
+</ul></div>
+
+<h2 class="section" id="autonomia">4. Autonomía escolar y modos de regulación</h2>
+<p>La autonomía escolar aparece vinculada a los procesos de descentralización, pero no puede entenderse únicamente como ausencia de control. Las instituciones pueden ampliar sus márgenes de decisión y, al mismo tiempo, quedar sujetas a nuevos mecanismos de regulación, evaluación y rendición de resultados.</p>
+
+<div class="logic-grid">
+  <div class="logic-card"><h3>Posibilidades</h3><p>La autonomía puede favorecer respuestas institucionales más situadas y una mayor participación en la toma de decisiones.</p></div>
+  <div class="logic-card"><h3>Límites</h3><p>Sin recursos suficientes, la ampliación de responsabilidades puede convertirse en una transferencia de problemas hacia las instituciones.</p></div>
+  <div class="logic-card"><h3>Condiciones</h3><p>La autonomía requiere capacidades institucionales, recursos y reglas que permitan sostener las decisiones asumidas.</p></div>
+  <div class="logic-card"><h3>Regulación</h3><p>Los márgenes de acción institucional conviven con mecanismos de seguimiento, evaluación y coordinación del sistema.</p></div>
+</div>
+
+<div class="quote-box"><p>Descentralización y autonomía no significan necesariamente menor regulación: pueden producir nuevas formas de distribución y ejercicio del poder educativo.</p></div>
+
+<h2 class="section" id="video">Recurso audiovisual optativo</h2>
+<div class="optional-resource">
+  <p class="eyebrow">Para ampliar</p>
+  <h3>Video complementario de la Clase 10</h3>
+  <p>El recurso audiovisual acompaña los contenidos de la clase y permite ampliar la reflexión sobre descentralización, autonomía y regulación de los sistemas educativos.</p>
+  <a class="resource-button" href="https://www.youtube.com/watch?v=_Kz8M6WKkcY" target="_blank" rel="noopener noreferrer">Ver el video</a>
+</div>
+
+<h2 class="section" id="cierre">Cierre de la clase</h2>
+<p>En esta clase analizamos la descentralización educativa como parte de procesos más amplios de reforma estatal y de transformación de las formas de regulación política de la educación.</p>
+<p>Distinguir descentralización de desconcentración permite comprender con mayor precisión qué responsabilidades se transfieren y qué sucede con la capacidad de decisión. A su vez, el caso argentino muestra que estos procesos tienen consecuencias sobre la coordinación del sistema y sobre las desigualdades territoriales.</p>
+<p>Finalmente, la autonomía escolar debe analizarse atendiendo a sus posibilidades, límites y condiciones. Ampliar los márgenes de decisión institucional no elimina la regulación, sino que puede modificar sus formas y los actores que intervienen en ella.</p>
+<p>Saludos,<br><strong>Linda</strong></p>
+
+<div class="back-top"><a href="#indice">↑ Volver al índice</a></div>
+
+<h2 class="section" id="referencias">Referencias</h2>
+<div class="reference-group">
+  <ul class="ref-list">
+    <li>Casassus, J. (1990). Descentralización y desconcentración de los sistemas educativos en América Latina: fundamentos y dimensiones críticas. <em>Boletín Proyecto Principal de Educación en América Latina y el Caribe</em>, 7–18.</li>
+    <li>Filmus, D. (1998). La descentralización educativa en el centro del debate. En <em>La Argentina que viene. Análisis y propuestas para una sociedad en transición</em> (pp. 53–88). FLACSO/UNICEF/Norma.</li>
+    <li>Miranda, E. (2011). Globalización periférica, regulación política del sistema educativo y producción de desigualdades en Argentina: ¿Dónde estamos ahora? <em>Rizoma Freireano</em>, 1–20.</li>
+    <li>Namo de Mello, G. (1991). Autonomía de la escuela: posibilidades, límites y condiciones. <em>Boletín Proyecto Principal de Educación en América Latina y el Caribe</em>, (26).</li>
+    <li>Puelles Benítez, M. (1993). Estudio teórico sobre las experiencias de descentralización educativa. <em>Revista Iberoamericana de Educación</em>, (3).</li>
+  </ul>
+</div>
+
+<div class="back-top"><a href="#top">↑ Volver al inicio</a></div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer-shell">
+    <div class="site-footer-grid">
+      <div>
+        <p class="site-footer-label">Administración de la Educación y Gestión de las Instituciones Escolares</p>
+        <p class="site-footer-note">Licenciatura en Educación · Modalidad virtual · Universidad Nacional de Quilmes</p>
+      </div>
+      <div class="site-footer-divider"></div>
+      <div>
+        <p class="site-footer-author">Linda Angelica Lopez</p>
+        <p class="site-footer-role">Docente · 3.º período 2026</p>
+      </div>
+    </div>
+  </div>
+</footer>
+</div>
+</body>
+</html>
