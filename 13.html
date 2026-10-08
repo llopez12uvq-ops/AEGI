@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clase 13 · Administración de la Educación y Gestión de las Instituciones Escolares</title>
+<style>
+
+:root{
+  --brand:#1cabe2;
+  --brand-dark:#1189bb;
+  --bg:#eef7fb;
+  --paper:#ffffff;
+  --ink:#1f2a37;
+  --muted:#4f6272;
+  --line:#d6e8f2;
+  --soft:#f4fbfe;
+  --soft-2:#eef7fb;
+  --accent:#dff3fb;
+  --max:1100px;
+  --text:1.04rem;
+  --shadow:0 18px 42px rgba(29,78,110,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:radial-gradient(circle at top left, rgba(28,171,226,.10), transparent 22%), linear-gradient(180deg,#f4fbfe 0%, var(--bg) 100%);
+  color:var(--ink);
+  font-family:"Aptos","Segoe UI",Arial,sans-serif;
+  line-height:1.72;
+}
+a{color:inherit}
+.page{max-width:var(--max); margin:26px auto; background:var(--paper); border:1px solid #d9edf7; box-shadow:var(--shadow); border-radius:28px; overflow:hidden}
+.cover{position:relative; padding:52px 68px 56px; background:radial-gradient(circle at 82% 18%, rgba(28,171,226,.10), transparent 23%), linear-gradient(180deg,#fff,#f7fcfe 75%,#fff); border-bottom:1px solid var(--line)}
+.cover::before{content:""; position:absolute; left:0; right:0; top:0; height:12px; background:var(--brand)}
+.topline{display:flex; align-items:flex-start; justify-content:space-between; gap:24px; margin:8px 0 44px}
+.brandlock{display:flex; gap:16px; align-items:center}
+.brandmark{width:58px; height:58px; flex:0 0 58px; display:grid; place-items:center; background:var(--brand); border-radius:2px}
+.brandmark img{width:26px; height:auto; display:block}
+.kicker{max-width:520px; color:var(--muted); text-transform:uppercase; font-size:.74rem; letter-spacing:.14em; line-height:1.55}
+.series{color:var(--brand); font-size:.82rem; text-transform:uppercase; letter-spacing:.16em; border-bottom:1px solid var(--line); padding-bottom:10px; white-space:nowrap}
+.cover-grid{display:grid; grid-template-columns:minmax(0,1fr) 300px; gap:40px; align-items:center}
+h1{margin:0 0 18px; font-family:Georgia, "Times New Roman", serif; font-size:3.45rem; line-height:1.02; letter-spacing:-.03em; color:#0f2535}
+.subtitle-program{margin:10px 0 6px; font-size:1.18rem; color:var(--brand-dark); font-weight:700; letter-spacing:.01em}
+.subtitle-university{margin:0 0 18px; font-size:1rem; text-transform:uppercase; letter-spacing:.08em; color:var(--muted)}
+.cover-year{display:inline-block; margin:2px 0 22px; padding:7px 14px 6px; border:1px solid rgba(28,171,226,.22); background:linear-gradient(180deg,#f7fcfe,#eaf7fc); color:var(--brand); font-size:.84rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; border-radius:999px; box-shadow:0 8px 20px rgba(28,171,226,.12)}
+.hero-illustration{width:100%; max-width:280px; margin:0 auto; background:linear-gradient(180deg,#ffffff,#eef7fb); border:1px solid var(--line); padding:22px; display:grid; place-items:center; min-height:240px}
+.hero-illustration .hero-svg{width:190px; max-width:100%; height:auto; display:block}
+.hero-illustration .svg-soft{fill:#dff3fb}
+.hero-illustration .svg-line{fill:none; stroke:#1cabe2; stroke-width:3; stroke-linecap:round; stroke-linejoin:round}
+.hero-illustration .svg-fill{fill:#1cabe2}
+.hero-illustration .svg-muted{fill:#89cfe9}
+.cover-footer{display:grid; grid-template-columns:repeat(2,minmax(280px,1fr)); gap:22px; margin-top:36px; padding-top:24px; border-top:1px solid var(--line)}
+.cover-card{padding:22px 24px; border:1px solid var(--line); background:linear-gradient(180deg,#fff,#f4fbfe)}
+.cover-card .label{display:block; margin-bottom:10px; color:var(--brand); text-transform:uppercase; letter-spacing:.14em; font-size:.72rem; font-weight:700}
+.cover-card p{margin:0; color:var(--muted)}
+.content{padding:38px 68px 84px}
+.content p{text-align:justify; text-justify:inter-word}
+.toc{margin-bottom:30px; padding:24px 26px 20px; border:1px solid var(--line); background:linear-gradient(180deg,#fff,#f4fbfe)}
+.toc h2{margin:0 0 14px; color:var(--brand); text-transform:uppercase; letter-spacing:.14em; font-size:.76rem}
+.toc ol{margin:0; padding-left:1.35rem; font-size:1rem}.toc li{margin:9px 0}.toc a{text-decoration:none; border-bottom:1px solid transparent}.toc a:hover{color:var(--brand); border-bottom-color:var(--brand)}
+h2.section{margin:46px 0 16px; padding-top:18px; border-top:1px solid var(--line); font-family:Georgia, "Times New Roman", serif; font-size:2rem; line-height:1.12; letter-spacing:-.02em}
+h3{margin:28px 0 10px; color:var(--brand); font-size:1.08rem}
+p{margin:12px 0; font-size:var(--text)}
+.mdm-box{margin:20px 0 28px; padding:18px 20px; border:2px solid var(--brand); border-left:10px solid #f3b229; background:#fff; box-shadow:0 8px 22px rgba(29,78,110,.06)}
+.mdm-title{margin:0 0 10px; color:var(--brand-dark); font-weight:700; font-size:1.04rem}
+mark{
+  background:none;
+  color:inherit;
+  padding:0;
+  border:0;
+  border-radius:0;
+  box-shadow:none;
+  font-weight:700;
+}
+
+
+.mdm-preview-link{
+  position:relative;
+  color:var(--brand);
+  text-decoration:none;
+  border-bottom:1px solid rgba(28,171,226,.38);
+  font-weight:700;
+}
+.mdm-preview-link:hover{
+  color:var(--brand-dark);
+  border-bottom-color:var(--brand-dark);
+}
+.mdm-preview-link::after{
+  content:"Repositorio UVQ · Material Didáctico Digital\A Abrir MDM en una nueva pestaña";
+  white-space:pre-line;
+  position:absolute;
+  left:0;
+  bottom:135%;
+  width:290px;
+  padding:14px 16px;
+  background:#fff;
+  color:var(--ink);
+  border:1px solid var(--line);
+  box-shadow:0 14px 28px rgba(29,78,110,.16);
+  border-radius:6px;
+  font-size:.88rem;
+  line-height:1.45;
+  font-weight:400;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(8px);
+  transition:opacity .18s ease, transform .18s ease, visibility .18s ease;
+  z-index:20;
+}
+.mdm-preview-link::before{
+  content:"";
+  position:absolute;
+  left:22px;
+  bottom:118%;
+  border:8px solid transparent;
+  border-top-color:#fff;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .18s ease, visibility .18s ease;
+  z-index:21;
+}
+.mdm-preview-link:hover::after,
+.mdm-preview-link:hover::before,
+.mdm-preview-link:focus::after,
+.mdm-preview-link:focus::before{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+
+
+.author-line{
+  margin:6px 0 0;
+  color:var(--muted);
+  font-size:.94rem;
+  line-height:1.65;
+}
+
+.author-list{
+  margin:6px 0 0;
+  padding-left:1.15rem;
+  color:var(--muted);
+  font-size:.94rem;
+  line-height:1.55;
+}
+.author-list li{
+  margin:2px 0;
+}
+.update-note{
+  margin:16px 0 0;
+  padding-top:12px;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  font-size:.92rem;
+  line-height:1.5;
+}
+
+@media (max-width:880px){
+  .mdm-preview-link::after,
+  .mdm-preview-link::before{
+    display:none;
+  }
+}
+
+.tour-card{
+  margin:24px 0 30px;
+  padding:24px 26px;
+  border:1px solid var(--line);
+  background:linear-gradient(180deg,#fff,#f4fbfe);
+  box-shadow:0 10px 24px rgba(29,78,110,.07);
+}
+.tour-card h3{
+  margin:0 0 8px;
+  color:var(--brand);
+  font-size:1.12rem;
+}
+.tour-card p{
+  margin:8px 0 18px;
+  color:var(--muted);
+}
+.tour-button{
+  display:inline-block;
+  padding:11px 18px;
+  background:var(--brand);
+  color:#fff;
+  text-decoration:none;
+  border-radius:999px;
+  font-weight:700;
+  line-height:1.2;
+  box-shadow:0 8px 18px rgba(28,171,226,.22);
+}
+.tour-button:hover{
+  background:var(--brand-dark);
+}
+
+.tour-button{
+  position:relative;
+}
+.tour-button::after{
+  content:"Tour 360° del campus UNQ\A Abrir recorrido virtual en una nueva pestaña";
+  white-space:pre-line;
+  position:absolute;
+  left:0;
+  bottom:135%;
+  width:300px;
+  padding:14px 16px;
+  background:#fff;
+  color:var(--ink);
+  border:1px solid var(--line);
+  box-shadow:0 14px 28px rgba(29,78,110,.16);
+  border-radius:6px;
+  font-size:.88rem;
+  line-height:1.45;
+  font-weight:400;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(8px);
+  transition:opacity .18s ease, transform .18s ease, visibility .18s ease;
+  z-index:20;
+}
+.tour-button::before{
+  content:"";
+  position:absolute;
+  left:22px;
+  bottom:118%;
+  border:8px solid transparent;
+  border-top-color:#fff;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .18s ease, visibility .18s ease;
+  z-index:21;
+}
+.tour-button:hover::after,
+.tour-button:hover::before,
+.tour-button:focus::after,
+.tour-button:focus::before{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+@media (max-width:880px){
+  .tour-button::after,
+  .tour-button::before{
+    display:none;
+  }
+}
+
+
+.text-link{color:var(--brand); text-decoration:none; border-bottom:1px solid rgba(28,171,226,.38); transition:all .18s ease; overflow-wrap:anywhere; word-break:break-word}.text-link:hover{color:var(--brand-dark); border-bottom-color:var(--brand-dark)}
+.reference-group{margin:20px 0 0; padding:18px 20px 8px; border:1px solid var(--line); background:linear-gradient(180deg,#fff,#f4fbfe)}
+.ref-list{list-style:none; padding-left:0; margin:10px 0 0}.ref-list li{margin:12px 0; padding-left:1.4em; text-indent:-1.4em; overflow-wrap:anywhere; word-break:break-word; hyphens:auto}
+.back-top{margin:28px 0 0; font-size:.92rem; color:var(--muted)}.back-top a{text-decoration:none; color:var(--muted); border-bottom:1px solid transparent}.back-top a:hover{color:var(--brand); border-bottom-color:var(--brand)}
+.site-footer{margin-top:56px; padding:0 24px 30px; color:var(--muted)}.site-footer-shell{border:1px solid var(--line); background:linear-gradient(180deg,#fff 0%, #f4fbfe 100%); box-shadow:0 10px 24px rgba(29,78,110,.06)}.site-footer-grid{display:grid; grid-template-columns:minmax(0,1.45fr) 1px minmax(260px,.85fr); gap:0 22px; align-items:stretch; padding:18px 20px}.site-footer-divider{width:1px; background:linear-gradient(180deg,rgba(28,171,226,.18),rgba(28,171,226,.55),rgba(28,171,226,.18))}.site-footer-label{margin:0 0 10px; color:var(--brand); text-transform:uppercase; letter-spacing:.18em; font-size:.78rem; font-weight:700; line-height:1.4}.site-footer-note{margin:0; font-size:.95rem; line-height:1.72; color:var(--muted)}.site-footer-author{margin:0; color:var(--ink); font-weight:700; font-size:.98rem; line-height:1.55}.site-footer-role{margin:4px 0 0; color:var(--muted); font-size:.94rem; line-height:1.55}
+@media (max-width:880px){.page{margin:0; border:none; box-shadow:none}.cover,.content{padding:28px 22px 42px}.topline{flex-direction:column; align-items:flex-start; gap:14px; margin-bottom:28px}.cover-grid,.cover-footer{grid-template-columns:1fr}h1{font-size:2.45rem}.series{white-space:normal}.site-footer{padding:0 16px 24px}.site-footer-grid{grid-template-columns:1fr; gap:14px 0; padding:16px}.site-footer-divider{width:100%; height:1px}.ref-list li{padding-left:1.1em; text-indent:-1.1em; font-size:.98rem}}
+@media print{body{background:#fff}.page{margin:0; border:none; box-shadow:none; max-width:none}.toc,.back-top{display:none}}
+
+
+.concept-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:22px 0 30px}
+.concept-card{padding:20px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe);border-top:6px solid var(--brand)}
+.concept-card h3{margin:0 0 8px;font-family:Georgia,"Times New Roman",serif;font-size:1.25rem;color:var(--brand-dark)}
+.concept-card p{margin:0;text-align:left;color:var(--muted);font-size:.98rem}
+.key-list{margin:18px 0 28px;padding:22px 24px 18px;border:1px solid var(--line);background:var(--soft)}
+.key-list ul{margin:0;padding-left:1.2rem}.key-list li{margin:8px 0}
+.reflection{margin:28px 0;padding:24px 26px;border-left:8px solid var(--brand);background:linear-gradient(135deg,#f8eef1,#fff)}
+.reflection h3{margin:0 0 8px}.reflection p{margin:0;font-family:Georgia,"Times New Roman",serif;font-size:1.18rem;text-align:left}
+.timeline{margin:22px 0 30px;border-left:3px solid var(--line);padding-left:24px}
+.timeline-item{position:relative;margin:0 0 24px;padding:18px 20px;border:1px solid var(--line);background:#fff}
+.timeline-item::before{content:"";position:absolute;left:-32px;top:24px;width:13px;height:13px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 5px #f4ecef}
+.timeline-item h3{margin:0 0 8px}.timeline-item p{margin:0;text-align:left}
+.field-box{margin:22px 0 30px;padding:24px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe)}
+.field-box strong{color:var(--brand-dark)}
+.reading-card{margin:20px 0 30px;padding:22px 24px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe)}
+.reading-card h3{margin:0 0 12px}.reading-card ul{margin:0;padding-left:1.2rem}.reading-card li{margin:9px 0}
+@media(max-width:880px){.concept-grid{grid-template-columns:1fr}}
+
+
+.author-card{margin:22px 0 30px;padding:24px 26px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe);border-left:7px solid var(--brand)}
+.author-card h3{margin:0 0 10px;font-family:Georgia,"Times New Roman",serif;font-size:1.35rem;color:var(--brand-dark)}
+.author-card p{margin:9px 0}
+.logic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:20px 0 30px}
+.logic-card{padding:20px 22px;border:1px solid var(--line);background:#fff}
+.logic-card h3{margin:0 0 8px;color:var(--brand-dark)}
+.logic-card p{margin:0;text-align:left;color:var(--muted)}
+.quote-box{margin:24px 0;padding:22px 24px;border-left:8px solid #f3b229;background:linear-gradient(135deg,#fffaf0,#fff)}
+.quote-box p{margin:0;font-family:Georgia,"Times New Roman",serif;font-size:1.16rem;text-align:left}
+@media(max-width:880px){.logic-grid{grid-template-columns:1fr}}
+
+.optional-resource{margin:24px 0 30px;padding:24px 26px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe);box-shadow:0 10px 24px rgba(29,78,110,.07);border-top:6px solid #f3b229}
+.optional-resource .eyebrow{margin:0 0 8px;color:var(--brand);text-transform:uppercase;letter-spacing:.14em;font-size:.74rem;font-weight:700}
+.optional-resource h3{margin:0 0 10px;font-family:Georgia,"Times New Roman",serif;font-size:1.35rem;color:var(--brand-dark)}
+.optional-resource p{margin:8px 0 16px;text-align:left;color:var(--muted)}
+.optional-resource .resource-button{display:inline-block;padding:11px 18px;background:var(--brand);color:#fff;text-decoration:none;border-radius:999px;font-weight:700;line-height:1.2;box-shadow:0 8px 18px rgba(28,171,226,.22)}
+.optional-resource .resource-button:hover{background:var(--brand-dark)}
+
+
+.comparison-wrap{margin:22px 0 30px;overflow-x:auto;border:1px solid var(--line);background:#fff}
+.comparison-table{width:100%;border-collapse:collapse;min-width:820px;font-size:.94rem}
+.comparison-table th,.comparison-table td{padding:13px 14px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+.comparison-table th:last-child,.comparison-table td:last-child{border-right:none}
+.comparison-table tr:last-child td{border-bottom:none}
+.comparison-table thead th{background:var(--brand);color:#fff;font-weight:700}
+.comparison-table tbody th{background:var(--soft);color:var(--brand-dark);width:170px}
+.dimension-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:20px 0 30px}
+.dimension-card{padding:22px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe);border-top:6px solid var(--brand)}
+.dimension-card h3{margin:0 0 8px;font-family:Georgia,"Times New Roman",serif;font-size:1.25rem;color:var(--brand-dark)}
+.dimension-card p{margin:0;text-align:left;color:var(--muted);font-size:.98rem}
+.step-list{counter-reset:steps;margin:22px 0 30px;padding:0;list-style:none}
+.step-list li{position:relative;margin:0 0 14px;padding:18px 20px 18px 62px;border:1px solid var(--line);background:#fff}
+.step-list li::before{counter-increment:steps;content:counter(steps);position:absolute;left:18px;top:18px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--brand);color:#fff;font-weight:700}
+.video-card{margin:24px 0 30px;padding:24px 26px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe);box-shadow:0 10px 24px rgba(29,78,110,.07);border-top:6px solid #f3b229}
+.video-card .eyebrow{margin:0 0 8px;color:var(--brand);text-transform:uppercase;letter-spacing:.14em;font-size:.74rem;font-weight:700}
+.video-card h3{margin:0 0 10px;font-family:Georgia,"Times New Roman",serif;font-size:1.35rem;color:var(--brand-dark)}
+.video-card p{margin:8px 0 16px;text-align:left;color:var(--muted)}
+.video-wrap{position:relative;width:100%;padding-top:56.25%;overflow:hidden;background:#0f2535;border:1px solid var(--line)}
+.video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-link{display:inline-block;margin-top:14px;padding:10px 16px;background:var(--brand);color:#fff;text-decoration:none;border-radius:999px;font-weight:700}
+.video-link:hover{background:var(--brand-dark)}
+@media(max-width:880px){.dimension-grid{grid-template-columns:1fr}.comparison-table{font-size:.88rem}}
+</style>
+</head>
+
+<body>
+<div class="page" id="top">
+<section class="cover">
+  <div class="topline">
+    <div class="brandlock">
+      <div class="brandmark"><svg aria-label="UNQ" role="img" viewBox="0 0 32 32" width="28" height="28"><rect width="32" height="32" fill="#1cabe2"/><path d="M8 7h4v11c0 3 1.5 4.5 4 4.5S20 21 20 18V7h4v11c0 5.5-3.2 8.5-8 8.5S8 23.5 8 18V7z" fill="#fff"/></svg></div>
+      <div class="kicker">Administración de la Educación y Gestión de las Instituciones Escolares<br>Licenciatura en Educación · Modalidad virtual</div>
+    </div>
+    <div class="series">Clase 13</div>
+  </div>
+
+  <div class="cover-grid">
+    <div>
+      <h1>Dimensiones de análisis de la institución educativa</h1>
+      <p class="subtitle-program">Culturas institucionales, imaginario, modelos de gestión y dimensiones institucionales</p>
+      <p class="subtitle-university">Universidad Nacional de Quilmes</p>
+      <span class="cover-year">Unidad 4 · 2026</span>
+    </div>
+    <figure class="hero-illustration" aria-label="Esquema de cultura, gestión y dimensiones institucionales">
+      <svg class="hero-svg" viewBox="0 0 220 190" role="img" aria-hidden="true">
+        <rect x="42" y="46" width="136" height="104" rx="8" class="svg-soft"/>
+        <circle cx="110" cy="92" r="20" class="svg-fill"/>
+        <circle cx="70" cy="70" r="10" class="svg-muted"/>
+        <circle cx="150" cy="70" r="10" class="svg-muted"/>
+        <circle cx="70" cy="124" r="10" class="svg-muted"/>
+        <circle cx="150" cy="124" r="10" class="svg-muted"/>
+        <path d="M80 74l16 10M140 74l-16 10M80 120l16-16M140 120l-16-16" class="svg-line"/>
+      </svg>
+    </figure>
+  </div>
+
+  <div class="cover-footer">
+    <div class="cover-card"><span class="label">Pregunta orientadora</span><p>¿Cómo se articulan la cultura institucional, los modelos de gestión y las distintas dimensiones para comprender el funcionamiento de una institución educativa?</p></div>
+    <div class="cover-card"><span class="label">Ejes de análisis</span><p>Cultura e imaginario institucional, modelos de gestión, campo institucional, dimensiones organizacional, administrativa, pedagógico-didáctica y comunitaria.</p></div>
+  </div>
+</section>
+
+<main class="content">
+<section class="toc" id="indice"><h2>Índice</h2><ol>
+<li><a href="#introduccion">Introducción</a></li>
+<li><a href="#lecturas">Lecturas de la semana</a></li>
+<li><a href="#cultura">Cultura e imaginario institucional</a></li>
+<li><a href="#modelos">Modelos de gestión</a></li>
+<li><a href="#campo">El campo institucional y sus dimensiones</a></li>
+<li><a href="#organizacional">Dimensión organizacional</a></li>
+<li><a href="#pedagogica">Dimensión pedagógico-didáctica</a></li>
+<li><a href="#comunitaria">Dimensión comunitaria</a></li>
+<li><a href="#administrativa">Dimensión administrativa</a></li>
+<li><a href="#video">Video sugerido</a></li>
+<li><a href="#propuesta">Propuesta para la lectura</a></li>
+<li><a href="#cierre">Cierre de la clase</a></li>
+<li><a href="#referencias">Referencias</a></li>
+</ol></section>
+
+<h2 class="section" id="introduccion">Introducción</h2>
+<p>¡Hola a todos! En esta clase profundizamos en los conceptos vinculados con la cultura institucional, el imaginario social, los modelos de gestión y las dimensiones pedagógico-didáctica, comunitaria, organizacional y administrativa. También consideraremos al equipo directivo y al equipo de trabajo como actores clave dentro de las instituciones educativas.</p>
+<p>La propuesta es partir de aspectos que forman parte de la vida cotidiana de las instituciones y que, justamente por su familiaridad, pueden volverse poco visibles. Reconocerlos y analizarlos permite construir una mirada más amplia sobre la gestión y sobre las relaciones que se establecen entre las distintas dimensiones institucionales.</p>
+
+<div class="concept-grid">
+  <div class="concept-card"><h3>Cultura institucional</h3><p>Ofrece marcos de referencia para comprender situaciones cotidianas y orienta las decisiones y acciones de quienes forman parte de la institución.</p></div>
+  <div class="concept-card"><h3>Imaginario institucional</h3><p>Reúne imágenes y representaciones que median en las relaciones entre sujetos, grupos, institución y conocimiento.</p></div>
+  <div class="concept-card"><h3>Gestión</h3><p>Supone realizar las acciones necesarias para alcanzar determinados resultados, articulando componentes políticos, administrativos y profesionales.</p></div>
+</div>
+
+<h2 class="section" id="lecturas">Lecturas de la semana</h2>
+<div class="reading-card"><h3>Bibliografía obligatoria</h3><ul>
+<li><strong>Frigerio, G., Poggi, M., &amp; Tiramonti, G. (1992).</strong> <em>Las instituciones educativas: Cara y ceca. Elementos para su gestión</em>. Troquel.<br>
+<span style="color:var(--muted)">Lectura: “La dimensión organizacional: el equipo de conducción sobre el establecimiento escolar”, “La dimensión pedagógico-didáctica”, “La dimensión comunitaria” y “La dimensión administrativa” (pp. 35–135).</span><br>
+<a class="text-link" href="https://drive.google.com/file/d/1a4TWcfFkSgGcRrzCXeyMnKx6vmhWjRfN/view?usp=sharing" target="_blank" rel="noopener noreferrer">Abrir la lectura</a></li>
+<li><strong>Frigerio, G., Poggi, M., &amp; Tiramonti, G. (1992).</strong> <em>Las instituciones educativas: Cara y ceca. Elementos para su gestión</em>. Troquel.<br>
+<span style="color:var(--muted)">Lectura: “La cultura institucional” (pp. 35–53).</span><br>
+<a class="text-link" href="https://drive.google.com/file/d/1zp7e3M_q3EHtEZ52YVbXI3s-l__Q9s4H/view?usp=sharing" target="_blank" rel="noopener noreferrer">Abrir la lectura</a></li>
+<li><strong>García et al. (2013).</strong> <em>Carpeta de trabajo. Administración de la educación y gestión de las instituciones escolares</em>. Universidad Nacional de Quilmes.<br>
+<a class="text-link" href="https://drive.google.com/file/d/1s0nUuZzjiOBaIocCsXybDhWz2cwP-vLG/view?usp=sharing" target="_blank" rel="noopener noreferrer">Abrir la carpeta de trabajo</a></li>
+</ul></div>
+
+<h2 class="section" id="cultura">1. Cultura e imaginario institucional</h2>
+<p>Frigerio et al. (1992) plantean que la cultura institucional es una característica inherente a la institución: la define en términos generales y, al mismo tiempo, la diferencia y la vuelve singular. Se configura tanto a partir de las políticas que inciden sobre la institución como de las prácticas de sus integrantes.</p>
+<p>Esas prácticas y políticas son percibidas por los actores y funcionan como puntos de referencia para comprender las situaciones cotidianas. De este modo, influyen en las decisiones y acciones que se desarrollan dentro de la institución.</p>
+<div class="field-box"><p>Las autoras recurren a una metáfora especialmente sugerente: la cultura institucional puede pensarse como el escenario, la obra en escena, el telón de fondo y el marco de las actividades institucionales. Allí convergen principios pedagógicos, modelos organizacionales, metodologías, perspectivas, proyectos y esquemas que estructuran la actividad.</p></div>
+<p>Cuando se habla de cultura escolar se alude a un entramado de significados que configura condiciones de subjetividad en las organizaciones educativas. Esa trama tiene una visibilidad parcial y contiene códigos explícitos e implícitos que funcionan como marcos de referencia para los actores.</p>
+<p>La cultura institucional se sostiene también en un imaginario institucional: un conjunto de imágenes y representaciones, generalmente inconscientes, producidas por individuos y grupos. Estas representaciones median en las relaciones interpersonales y sociales y también en el vínculo con el conocimiento.</p>
+
+<div class="key-list"><ul>
+<li>Sistemas de socialización, seguimiento y control.</li>
+<li>Costumbres, ritos y ceremonias.</li>
+<li>Formas de establecer vínculos y organizar a los miembros.</li>
+<li>Sentido de pertenencia y dinámica de las relaciones.</li>
+<li>Valores predominantes.</li>
+<li>Criterios de trabajo, estilos de funcionamiento y concepciones sobre el cambio.</li>
+</ul></div>
+
+<div class="reflection"><h3>Para pensar</h3><p>¿Qué rasgos de la cultura de una institución podemos reconocer cuando observamos sus formas de vincularse, decidir, organizar las tareas y responder frente a los conflictos?</p></div>
+
+<h2 class="section" id="modelos">2. Modelos de gestión</h2>
+<p>Los modelos de gestión surgen de la interacción entre la propuesta del equipo directivo y el grado de ajuste que se alcanza con los demás integrantes de la institución. Por eso, expresan tanto la dinámica de los actores como las particularidades de cada establecimiento.</p>
+<p>Frigerio et al. (1992) distinguen tres tipos: la institución escolar como una cuestión de familia, como una cuestión de papeles y como una cuestión de concertación.</p>
+
+<div class="logic-grid">
+  <div class="logic-card"><h3>Cuestión de familia</h3><p>Predomina un modelo de gestión casero. Las tareas y responsabilidades aparecen poco diferenciadas, los vínculos afectivos ocupan un lugar central y los canales institucionalizados de comunicación son limitados.</p></div>
+  <div class="logic-card"><h3>Cuestión de papeles</h3><p>Se vincula con un modelo tecnocrático. Predominan la racionalidad burocrática, la descomposición de tareas, los organigramas y los canales formales.</p></div>
+  <div class="logic-card"><h3>Cuestión de concertación</h3><p>Corresponde a un modelo profesional que reconoce la diversidad de intereses, el pluralismo institucional y el papel de la negociación en el tratamiento de los conflictos.</p></div>
+</div>
+
+<div class="comparison-wrap" aria-label="Comparación de modelos de gestión">
+<table class="comparison-table">
+<thead><tr><th>Aspecto</th><th>Cuestión de familia</th><th>Cuestión de papeles</th><th>Cuestión de concertación</th></tr></thead>
+<tbody>
+<tr><th>Rasgo hegemónico</th><td>Escena familiar</td><td>Racionalidad exagerada</td><td>Negociación</td></tr>
+<tr><th>Currículum prescripto</th><td>Ignorado</td><td>Imposible de modificar</td><td>Organizador institucional</td></tr>
+<tr><th>Modelo de gestión</th><td>Casero</td><td>Tecnocrático</td><td>Profesional</td></tr>
+<tr><th>Contratos</th><td>Lealtades invisibles; contratos imposibles</td><td>Formales o burocráticos</td><td>Concertados, explícitos y sustantivos</td></tr>
+<tr><th>Vínculos</th><td>Afectivos; la inclusión puede desplazar la tarea</td><td>Formales o burocráticos</td><td>Contractuales</td></tr>
+<tr><th>Dimensión central</th><td>Ninguna</td><td>Administrativa</td><td>Pedagógico-didáctica</td></tr>
+<tr><th>Riesgo</th><td>Dilución de la especificidad institucional</td><td>Aislamiento respecto de la comunidad</td><td>Asambleísmo</td></tr>
+<tr><th>Conflictos</th><td>Interpersonales; suelen no resolverse</td><td>Se niegan y se definen por posiciones de jerarquía</td><td>Tienden a redefinirse, disolverse o resolverse</td></tr>
+<tr><th>Participación</th><td>No requiere atención: “son todos de la familia”</td><td>Puede solicitarse formalmente</td><td>Se busca</td></tr>
+<tr><th>Comunicación</th><td>Se desvalorizan los canales formales</td><td>Predominan canales formales</td><td>Se resignifican los canales formales y se valoran los informales</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>En el modelo de concertación, el conflicto ocupa un lugar específico y la negociación se vuelve central. Los integrantes son considerados actores y protagonistas activos, con interpretaciones diversas de las normas y de las situaciones institucionales.</p>
+
+<h2 class="section" id="campo">3. El campo institucional y sus dimensiones</h2>
+<p>Para tomar distancia de aquello que resulta demasiado familiar y reconocer las diferencias entre instituciones, las autoras proponen el concepto de <strong>campo</strong>: un conjunto de elementos coexistentes e interactuantes en un momento determinado. Se trata de un campo dinámico, que se reestructura y modifica de manera constante.</p>
+<p>Dentro de ese campo pueden reconocerse distintas subestructuras o dimensiones.</p>
+
+<div class="dimension-grid">
+  <div class="dimension-card"><h3>Dimensión organizacional</h3><p>Incluye los aspectos estructurales formales e informales que determinan el estilo de funcionamiento: distribución de tareas, división del trabajo, organigrama, tiempos y modos en que los actores se manifiestan dentro de esas estructuras.</p></div>
+  <div class="dimension-card"><h3>Dimensión administrativa</h3><p>Comprende cuestiones de gobernanza, planificación de estrategias y consideración de recursos humanos, financieros, temporales y materiales.</p></div>
+  <div class="dimension-card"><h3>Dimensión pedagógico-didáctica</h3><p>Se refiere a las actividades que definen la especificidad educativa. Su eje son las relaciones de los actores con el conocimiento y los modelos didácticos que emplean.</p></div>
+  <div class="dimension-card"><h3>Dimensión comunitaria</h3><p>Abarca las actividades vinculadas con la participación de distintos actores en las decisiones y con la relación de la institución con su contexto.</p></div>
+</div>
+
+<h2 class="section" id="organizacional">4. Dimensión organizacional</h2>
+<p>La dimensión organizacional remite especialmente al equipo directivo. Director y vicedirector adquieren relevancia cuando actúan como una <strong>unidad funcional</strong>, con una diferenciación clara de tareas, funciones y responsabilidades.</p>
+<p>Según las autoras, el director asume principalmente responsabilidades organizacionales y administrativas, además de coordinar el conjunto de las cuatro dimensiones. El vicedirector se orienta especialmente hacia la dimensión pedagógico-didáctica.</p>
+<p>La unidad funcional requiere reconocer los aportes y saberes de los distintos actores, establecer acuerdos sobre las tareas, definir grados de responsabilidad, posibles delegaciones y formas de control. Resulta recomendable que esos acuerdos se documenten para poder revisarlos y evaluarlos posteriormente.</p>
+
+<div class="logic-grid">
+  <div class="logic-card"><h3>En el equipo directivo</h3><p>Se valoran la capacidad para liderar, resolver problemas, coordinar, producir comunicaciones claras, manejar relaciones interpersonales y realizar seguimiento y evaluación de las tareas.</p></div>
+  <div class="logic-card"><h3>En el equipo de trabajo</h3><p>Se destacan la capacidad para el desempeño autónomo, la escucha y el comportamiento solidario.</p></div>
+</div>
+
+<p>Entre las funciones del equipo aparecen la toma de decisiones, la delegación de tareas, la dirección de equipos de trabajo, la conducción de negociaciones y la supervisión. Las reuniones periódicas y formales pueden contribuir a la construcción de acuerdos, relacionando negociación, concertación y consenso.</p>
+
+<h2 class="section" id="pedagogica">5. Dimensión pedagógico-didáctica</h2>
+<p>La dirección debe considerar tanto el currículum prescripto —la propuesta oficial organizada en un diseño curricular— como el currículum real, es decir, aquello que efectivamente se desarrolla en la práctica. En este último adquiere importancia el conocimiento de la tríada didáctica: conocimiento, docente y estudiante.</p>
+<p>La observación aparece como una herramienta posible para el trabajo de los equipos directivos, siempre que se construyan acuerdos institucionales que eviten que sea interpretada como una práctica de vigilancia.</p>
+
+<ol class="step-list">
+<li><strong>Preparación para ingresar al territorio.</strong> Negociar el acceso y elaborar instrumentos para recuperar información sobre la relación con el contenido, la organización de la clase, los vínculos y los textos y recursos utilizados.</li>
+<li><strong>Ingreso al territorio.</strong></li>
+<li><strong>Reglas durante la estadía.</strong> Establecer secuencias temáticas y conceptuales que permitan observar de manera rigurosa el desarrollo de la propuesta docente.</li>
+<li><strong>Salida y consideraciones generales.</strong> Recuperar observaciones y aspectos valiosos que serán comunicados al docente.</li>
+<li><strong>Trabajo institucional posterior.</strong> Transformar la información obtenida en insumos para el trabajo institucional y documentar la devolución en un registro pedagógico con propuestas alternativas cuando sean necesarias.</li>
+</ol>
+
+<p>La evaluación se entiende aquí como la recolección y análisis de información para construir conocimiento sobre el establecimiento, diseñar estrategias y tomar decisiones. Las negociaciones y acuerdos permiten que quienes participan intervengan no solo como sujetos evaluados, sino también en la construcción del proceso.</p>
+
+<h2 class="section" id="comunitaria">6. Dimensión comunitaria</h2>
+<p>Al analizar la relación entre escuela y comunidad aparecen dos cuestiones centrales: el grado de apertura o cierre de las organizaciones y las formas que asume la participación.</p>
+<p>Una institución excesivamente cerrada puede aislarse de las transformaciones del entorno y perder relevancia. Una institución demasiado permeable, en cambio, corre el riesgo de perder su identidad y sus rasgos distintivos. El desafío consiste en construir vínculos de intercambio sin perder la especificidad educativa.</p>
+
+<div class="logic-grid">
+  <div class="logic-card"><h3>Participación indirecta</h3><p>Se realiza mediante la elección de representantes a quienes se delega, por un tiempo determinado, la evaluación de alternativas y la toma de decisiones.</p></div>
+  <div class="logic-card"><h3>Participación directa</h3><p>Implica la intervención activa de las personas en la gestión de los asuntos públicos.</p></div>
+</div>
+
+<p>Las áreas de intervención participativa pueden involucrar aspectos pedagógico-didácticos, organizacionales, administrativos y financieros. Los equipos de conducción tienen la responsabilidad de articular estas formas de participación con el proyecto y la política institucional.</p>
+
+<h2 class="section" id="administrativa">7. Dimensión administrativa</h2>
+<p>Administrar implica anticipar las acciones que facilitan la gobernanza de la institución y permiten sostener el rumbo propuesto. El administrador actúa como planificador de estrategias y considera las consecuencias de las decisiones que se adoptan.</p>
+<div class="key-list"><ul>
+<li>Planificación de recursos humanos y materiales.</li>
+<li>Control normativo.</li>
+<li>Organización de las tareas institucionales, incluyendo la gestión del tiempo y del espacio.</li>
+</ul></div>
+<p>La producción y sistematización de información permite diseñar combinaciones significativas de datos para elaborar diagnósticos, reconocer problemas y sus causas, establecer relaciones y proponer alternativas de resolución.</p>
+
+<h2 class="section" id="video">Video sugerido</h2>
+<div class="video-card">
+  <p class="eyebrow">Recurso audiovisual</p>
+  <h3>Para acompañar la lectura</h3>
+  <p>Como recurso complementario para esta clase, les propongo el siguiente video. Puede ponerse en diálogo con los conceptos trabajados sobre cultura institucional, gestión y dimensiones de análisis.</p>
+  <div class="video-wrap">
+    <iframe src="https://www.youtube.com/embed/K_7MRZm6XnE?start=97" title="Video sugerido para la Clase 13" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+  <a class="video-link" href="https://www.youtube.com/watch?v=K_7MRZm6XnE&t=97s" target="_blank" rel="noopener noreferrer">Abrir video en YouTube</a>
+</div>
+
+<h2 class="section" id="propuesta">Propuesta para la lectura</h2>
+<div class="reading-card">
+<h3>Un recorrido posible</h3>
+<p>En el capítulo sobre la <strong>cultura institucional escolar</strong> encontrarán definiciones y ejemplos de cultura institucional, imaginario institucional, tipos de cultura y su relación con los modelos de gestión.</p>
+<p>Luego, en los capítulos dedicados a las dimensiones, podrán observar cómo las autoras presentan distintas propuestas orientadas a pensar la institución como una <strong>unidad funcional</strong>, diferenciando tareas y responsabilidades.</p>
+</div>
+
+<div class="reflection"><h3>Para volver sobre la clase</h3><p>¿Qué cambia en nuestra lectura de una institución cuando dejamos de mirar sus dimensiones por separado y comenzamos a analizar cómo se articulan cultura, gestión, actores, tareas, conflictos y participación?</p></div>
+
+<h2 class="section" id="cierre">Cierre de la clase</h2>
+<p>En esta clase profundizamos en la cultura y el imaginario institucional y analizamos su relación con distintos modelos de gestión. También abordamos las cuatro dimensiones propuestas por Frigerio et al. (1992) para construir una mirada más amplia sobre las instituciones educativas.</p>
+<p>La distinción entre dimensiones permite organizar el análisis, pero el desafío de la gestión consiste en reconocer sus relaciones y sostener a la institución como una unidad en la que se articulan tareas, responsabilidades, decisiones, conflictos, participación y proyecto institucional.</p>
+<p>Saludos,<br><strong>Linda</strong></p>
+
+<div class="back-top"><a href="#indice">↑ Volver al índice</a></div>
+<h2 class="section" id="referencias">Referencias</h2>
+<div class="reference-group"><ul class="ref-list">
+<li>Frigerio, G., Poggi, M., &amp; Tiramonti, G. (1992). <em>Las instituciones educativas: Cara y ceca. Elementos para su gestión</em>. Troquel.</li>
+<li>García et al. (2013). <em>Carpeta de trabajo. Administración de la educación y gestión de las instituciones escolares</em>. Universidad Nacional de Quilmes.</li>
+</ul></div>
+
+<div class="back-top"><a href="#top">↑ Volver al inicio</a></div>
+</main>
+
+<footer class="site-footer"><div class="site-footer-shell"><div class="site-footer-grid">
+<div><p class="site-footer-label">Administración de la Educación y Gestión de las Instituciones Escolares</p><p class="site-footer-note">Licenciatura en Educación · Modalidad virtual · Universidad Nacional de Quilmes</p></div>
+<div class="site-footer-divider"></div>
+<div><p class="site-footer-author">Linda Angelica Lopez</p><p class="site-footer-role">Docente · 3.º período 2026</p></div>
+</div></div></footer>
+</div>
+</body>
+
+</html>
