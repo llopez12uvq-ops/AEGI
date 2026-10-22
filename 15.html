@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clase 15 · Administración de la Educación y Gestión de las Instituciones Escolares</title>
+<style>
+
+:root{
+  --brand:#1cabe2;
+  --brand-dark:#1189bb;
+  --bg:#eef7fb;
+  --paper:#ffffff;
+  --ink:#1f2a37;
+  --muted:#4f6272;
+  --line:#d6e8f2;
+  --soft:#f4fbfe;
+  --soft-2:#eef7fb;
+  --accent:#dff3fb;
+  --max:1100px;
+  --text:1.04rem;
+  --shadow:0 18px 42px rgba(29,78,110,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:radial-gradient(circle at top left, rgba(28,171,226,.10), transparent 22%), linear-gradient(180deg,#f4fbfe 0%, var(--bg) 100%);
+  color:var(--ink);
+  font-family:"Aptos","Segoe UI",Arial,sans-serif;
+  line-height:1.72;
+}
+a{color:inherit}
+.page{max-width:var(--max); margin:26px auto; background:var(--paper); border:1px solid #d9edf7; box-shadow:var(--shadow); border-radius:28px; overflow:hidden}
+.cover{position:relative; padding:52px 68px 56px; background:radial-gradient(circle at 82% 18%, rgba(28,171,226,.10), transparent 23%), linear-gradient(180deg,#fff,#f7fcfe 75%,#fff); border-bottom:1px solid var(--line)}
+.cover::before{content:""; position:absolute; left:0; right:0; top:0; height:12px; background:var(--brand)}
+.topline{display:flex; align-items:flex-start; justify-content:space-between; gap:24px; margin:8px 0 44px}
+.brandlock{display:flex; gap:16px; align-items:center}
+.brandmark{width:58px; height:58px; flex:0 0 58px; display:grid; place-items:center; background:var(--brand); border-radius:2px}
+.brandmark img{width:26px; height:auto; display:block}
+.kicker{max-width:520px; color:var(--muted); text-transform:uppercase; font-size:.74rem; letter-spacing:.14em; line-height:1.55}
+.series{color:var(--brand); font-size:.82rem; text-transform:uppercase; letter-spacing:.16em; border-bottom:1px solid var(--line); padding-bottom:10px; white-space:nowrap}
+.cover-grid{display:grid; grid-template-columns:minmax(0,1fr) 300px; gap:40px; align-items:center}
+h1{margin:0 0 18px; font-family:Georgia, "Times New Roman", serif; font-size:3.45rem; line-height:1.02; letter-spacing:-.03em; color:#0f2535}
+.subtitle-program{margin:10px 0 6px; font-size:1.18rem; color:var(--brand-dark); font-weight:700; letter-spacing:.01em}
+.subtitle-university{margin:0 0 18px; font-size:1rem; text-transform:uppercase; letter-spacing:.08em; color:var(--muted)}
+.cover-year{display:inline-block; margin:2px 0 22px; padding:7px 14px 6px; border:1px solid rgba(28,171,226,.22); background:linear-gradient(180deg,#f7fcfe,#eaf7fc); color:var(--brand); font-size:.84rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; border-radius:999px; box-shadow:0 8px 20px rgba(28,171,226,.12)}
+.hero-illustration{width:100%; max-width:280px; margin:0 auto; background:linear-gradient(180deg,#ffffff,#eef7fb); border:1px solid var(--line); padding:22px; display:grid; place-items:center; min-height:240px}
+.hero-illustration .hero-svg{width:190px; max-width:100%; height:auto; display:block}
+.hero-illustration .svg-soft{fill:#dff3fb}
+.hero-illustration .svg-line{fill:none; stroke:#1cabe2; stroke-width:3; stroke-linecap:round; stroke-linejoin:round}
+.hero-illustration .svg-fill{fill:#1cabe2}
+.hero-illustration .svg-muted{fill:#89cfe9}
+.cover-footer{display:grid; grid-template-columns:repeat(2,minmax(280px,1fr)); gap:22px; margin-top:36px; padding-top:24px; border-top:1px solid var(--line)}
+.cover-card{padding:22px 24px; border:1px solid var(--line); background:linear-gradient(180deg,#fff,#f4fbfe)}
+.cover-card .label{display:block; margin-bottom:10px; color:var(--brand); text-transform:uppercase; letter-spacing:.14em; font-size:.72rem; font-weight:700}
+.cover-card p{margin:0; color:var(--muted)}
+.content{padding:38px 68px 84px}
+.content p{text-align:justify; text-justify:inter-word}
+.toc{margin-bottom:30px; padding:24px 26px 20px; border:1px solid var(--line); background:linear-gradient(180deg,#fff,#f4fbfe)}
+.toc h2{margin:0 0 14px; color:var(--brand); text-transform:uppercase; letter-spacing:.14em; font-size:.76rem}
+.toc ol{margin:0; padding-left:1.35rem; font-size:1rem}.toc li{margin:9px 0}.toc a{text-decoration:none; border-bottom:1px solid transparent}.toc a:hover{color:var(--brand); border-bottom-color:var(--brand)}
+h2.section{margin:46px 0 16px; padding-top:18px; border-top:1px solid var(--line); font-family:Georgia, "Times New Roman", serif; font-size:2rem; line-height:1.12; letter-spacing:-.02em}
+h3{margin:28px 0 10px; color:var(--brand); font-size:1.08rem}
+p{margin:12px 0; font-size:var(--text)}
+.mdm-box{margin:20px 0 28px; padding:18px 20px; border:2px solid var(--brand); border-left:10px solid #f3b229; background:#fff; box-shadow:0 8px 22px rgba(29,78,110,.06)}
+.mdm-title{margin:0 0 10px; color:var(--brand-dark); font-weight:700; font-size:1.04rem}
+mark{
+  background:none;
+  color:inherit;
+  padding:0;
+  border:0;
+  border-radius:0;
+  box-shadow:none;
+  font-weight:700;
+}
+
+
+.mdm-preview-link{
+  position:relative;
+  color:var(--brand);
+  text-decoration:none;
+  border-bottom:1px solid rgba(28,171,226,.38);
+  font-weight:700;
+}
+.mdm-preview-link:hover{
+  color:var(--brand-dark);
+  border-bottom-color:var(--brand-dark);
+}
+.mdm-preview-link::after{
+  content:"Repositorio UVQ · Material Didáctico Digital\A Abrir MDM en una nueva pestaña";
+  white-space:pre-line;
+  position:absolute;
+  left:0;
+  bottom:135%;
+  width:290px;
+  padding:14px 16px;
+  background:#fff;
+  color:var(--ink);
+  border:1px solid var(--line);
+  box-shadow:0 14px 28px rgba(29,78,110,.16);
+  border-radius:6px;
+  font-size:.88rem;
+  line-height:1.45;
+  font-weight:400;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(8px);
+  transition:opacity .18s ease, transform .18s ease, visibility .18s ease;
+  z-index:20;
+}
+.mdm-preview-link::before{
+  content:"";
+  position:absolute;
+  left:22px;
+  bottom:118%;
+  border:8px solid transparent;
+  border-top-color:#fff;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .18s ease, visibility .18s ease;
+  z-index:21;
+}
+.mdm-preview-link:hover::after,
+.mdm-preview-link:hover::before,
+.mdm-preview-link:focus::after,
+.mdm-preview-link:focus::before{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+
+
+.author-line{
+  margin:6px 0 0;
+  color:var(--muted);
+  font-size:.94rem;
+  line-height:1.65;
+}
+
+.author-list{
+  margin:6px 0 0;
+  padding-left:1.15rem;
+  color:var(--muted);
+  font-size:.94rem;
+  line-height:1.55;
+}
+.author-list li{
+  margin:2px 0;
+}
+.update-note{
+  margin:16px 0 0;
+  padding-top:12px;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  font-size:.92rem;
+  line-height:1.5;
+}
+
+@media (max-width:880px){
+  .mdm-preview-link::after,
+  .mdm-preview-link::before{
+    display:none;
+  }
+}
+
+.tour-card{
+  margin:24px 0 30px;
+  padding:24px 26px;
+  border:1px solid var(--line);
+  background:linear-gradient(180deg,#fff,#f4fbfe);
+  box-shadow:0 10px 24px rgba(29,78,110,.07);
+}
+.tour-card h3{
+  margin:0 0 8px;
+  color:var(--brand);
+  font-size:1.12rem;
+}
+.tour-card p{
+  margin:8px 0 18px;
+  color:var(--muted);
+}
+.tour-button{
+  display:inline-block;
+  padding:11px 18px;
+  background:var(--brand);
+  color:#fff;
+  text-decoration:none;
+  border-radius:999px;
+  font-weight:700;
+  line-height:1.2;
+  box-shadow:0 8px 18px rgba(28,171,226,.22);
+}
+.tour-button:hover{
+  background:var(--brand-dark);
+}
+
+.tour-button{
+  position:relative;
+}
+.tour-button::after{
+  content:"Tour 360° del campus UNQ\A Abrir recorrido virtual en una nueva pestaña";
+  white-space:pre-line;
+  position:absolute;
+  left:0;
+  bottom:135%;
+  width:300px;
+  padding:14px 16px;
+  background:#fff;
+  color:var(--ink);
+  border:1px solid var(--line);
+  box-shadow:0 14px 28px rgba(29,78,110,.16);
+  border-radius:6px;
+  font-size:.88rem;
+  line-height:1.45;
+  font-weight:400;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(8px);
+  transition:opacity .18s ease, transform .18s ease, visibility .18s ease;
+  z-index:20;
+}
+.tour-button::before{
+  content:"";
+  position:absolute;
+  left:22px;
+  bottom:118%;
+  border:8px solid transparent;
+  border-top-color:#fff;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .18s ease, visibility .18s ease;
+  z-index:21;
+}
+.tour-button:hover::after,
+.tour-button:hover::before,
+.tour-button:focus::after,
+.tour-button:focus::before{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+@media (max-width:880px){
+  .tour-button::after,
+  .tour-button::before{
+    display:none;
+  }
+}
+
+
+.text-link{color:var(--brand); text-decoration:none; border-bottom:1px solid rgba(28,171,226,.38); transition:all .18s ease; overflow-wrap:anywhere; word-break:break-word}.text-link:hover{color:var(--brand-dark); border-bottom-color:var(--brand-dark)}
+.reference-group{margin:20px 0 0; padding:18px 20px 8px; border:1px solid var(--line); background:linear-gradient(180deg,#fff,#f4fbfe)}
+.ref-list{list-style:none; padding-left:0; margin:10px 0 0}.ref-list li{margin:12px 0; padding-left:1.4em; text-indent:-1.4em; overflow-wrap:anywhere; word-break:break-word; hyphens:auto}
+.back-top{margin:28px 0 0; font-size:.92rem; color:var(--muted)}.back-top a{text-decoration:none; color:var(--muted); border-bottom:1px solid transparent}.back-top a:hover{color:var(--brand); border-bottom-color:var(--brand)}
+.site-footer{margin-top:56px; padding:0 24px 30px; color:var(--muted)}.site-footer-shell{border:1px solid var(--line); background:linear-gradient(180deg,#fff 0%, #f4fbfe 100%); box-shadow:0 10px 24px rgba(29,78,110,.06)}.site-footer-grid{display:grid; grid-template-columns:minmax(0,1.45fr) 1px minmax(260px,.85fr); gap:0 22px; align-items:stretch; padding:18px 20px}.site-footer-divider{width:1px; background:linear-gradient(180deg,rgba(28,171,226,.18),rgba(28,171,226,.55),rgba(28,171,226,.18))}.site-footer-label{margin:0 0 10px; color:var(--brand); text-transform:uppercase; letter-spacing:.18em; font-size:.78rem; font-weight:700; line-height:1.4}.site-footer-note{margin:0; font-size:.95rem; line-height:1.72; color:var(--muted)}.site-footer-author{margin:0; color:var(--ink); font-weight:700; font-size:.98rem; line-height:1.55}.site-footer-role{margin:4px 0 0; color:var(--muted); font-size:.94rem; line-height:1.55}
+@media (max-width:880px){.page{margin:0; border:none; box-shadow:none}.cover,.content{padding:28px 22px 42px}.topline{flex-direction:column; align-items:flex-start; gap:14px; margin-bottom:28px}.cover-grid,.cover-footer{grid-template-columns:1fr}h1{font-size:2.45rem}.series{white-space:normal}.site-footer{padding:0 16px 24px}.site-footer-grid{grid-template-columns:1fr; gap:14px 0; padding:16px}.site-footer-divider{width:100%; height:1px}.ref-list li{padding-left:1.1em; text-indent:-1.1em; font-size:.98rem}}
+@media print{body{background:#fff}.page{margin:0; border:none; box-shadow:none; max-width:none}.toc,.back-top{display:none}}
+
+
+.concept-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:22px 0 30px}
+.concept-card{padding:20px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe);border-top:6px solid var(--brand)}
+.concept-card h3{margin:0 0 8px;font-family:Georgia,"Times New Roman",serif;font-size:1.25rem;color:var(--brand-dark)}
+.concept-card p{margin:0;text-align:left;color:var(--muted);font-size:.98rem}
+.key-list{margin:18px 0 28px;padding:22px 24px 18px;border:1px solid var(--line);background:var(--soft)}
+.key-list ul{margin:0;padding-left:1.2rem}.key-list li{margin:8px 0}
+.reflection{margin:28px 0;padding:24px 26px;border-left:8px solid var(--brand);background:linear-gradient(135deg,#f8eef1,#fff)}
+.reflection h3{margin:0 0 8px}.reflection p{margin:0;font-family:Georgia,"Times New Roman",serif;font-size:1.18rem;text-align:left}
+.timeline{margin:22px 0 30px;border-left:3px solid var(--line);padding-left:24px}
+.timeline-item{position:relative;margin:0 0 24px;padding:18px 20px;border:1px solid var(--line);background:#fff}
+.timeline-item::before{content:"";position:absolute;left:-32px;top:24px;width:13px;height:13px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 5px #f4ecef}
+.timeline-item h3{margin:0 0 8px}.timeline-item p{margin:0;text-align:left}
+.field-box{margin:22px 0 30px;padding:24px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe)}
+.field-box strong{color:var(--brand-dark)}
+.reading-card{margin:20px 0 30px;padding:22px 24px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe)}
+.reading-card h3{margin:0 0 12px}.reading-card ul{margin:0;padding-left:1.2rem}.reading-card li{margin:9px 0}
+@media(max-width:880px){.concept-grid{grid-template-columns:1fr}}
+
+
+.author-card{margin:22px 0 30px;padding:24px 26px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe);border-left:7px solid var(--brand)}
+.author-card h3{margin:0 0 10px;font-family:Georgia,"Times New Roman",serif;font-size:1.35rem;color:var(--brand-dark)}
+.author-card p{margin:9px 0}
+.logic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:20px 0 30px}
+.logic-card{padding:20px 22px;border:1px solid var(--line);background:#fff}
+.logic-card h3{margin:0 0 8px;color:var(--brand-dark)}
+.logic-card p{margin:0;text-align:left;color:var(--muted)}
+.quote-box{margin:24px 0;padding:22px 24px;border-left:8px solid #f3b229;background:linear-gradient(135deg,#fffaf0,#fff)}
+.quote-box p{margin:0;font-family:Georgia,"Times New Roman",serif;font-size:1.16rem;text-align:left}
+@media(max-width:880px){.logic-grid{grid-template-columns:1fr}}
+
+.optional-resource{margin:24px 0 30px;padding:24px 26px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe);box-shadow:0 10px 24px rgba(29,78,110,.07);border-top:6px solid #f3b229}
+.optional-resource .eyebrow{margin:0 0 8px;color:var(--brand);text-transform:uppercase;letter-spacing:.14em;font-size:.74rem;font-weight:700}
+.optional-resource h3{margin:0 0 10px;font-family:Georgia,"Times New Roman",serif;font-size:1.35rem;color:var(--brand-dark)}
+.optional-resource p{margin:8px 0 16px;text-align:left;color:var(--muted)}
+.optional-resource .resource-button{display:inline-block;padding:11px 18px;background:var(--brand);color:#fff;text-decoration:none;border-radius:999px;font-weight:700;line-height:1.2;box-shadow:0 8px 18px rgba(28,171,226,.22)}
+.optional-resource .resource-button:hover{background:var(--brand-dark)}
+
+.culture-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:20px 0 30px}
+.culture-card{padding:22px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe);border-top:6px solid var(--brand)}
+.culture-card h3{margin:0 0 8px;font-family:Georgia,"Times New Roman",serif;font-size:1.24rem;color:var(--brand-dark)}
+.culture-card p{margin:0;text-align:left;color:var(--muted);font-size:.98rem}
+.principles{margin:20px 0 30px;padding:22px 24px;border:1px solid var(--line);background:var(--soft)}
+.principles ul{margin:0;padding-left:1.2rem}.principles li{margin:10px 0}
+.comparison-wrap{margin:22px 0 30px;overflow-x:auto;border:1px solid var(--line);background:#fff}
+.comparison-table{width:100%;border-collapse:collapse;min-width:880px;font-size:.92rem}
+.comparison-table th,.comparison-table td{padding:13px 14px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+.comparison-table th:last-child,.comparison-table td:last-child{border-right:none}
+.comparison-table thead th{background:var(--brand);color:#fff;font-weight:700}
+.comparison-table tbody th{background:var(--soft);color:var(--brand-dark);width:165px}
+.video-card{margin:24px 0 30px;padding:24px 26px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f4fbfe);box-shadow:0 10px 24px rgba(29,78,110,.07);border-top:6px solid #f3b229}
+.video-card .eyebrow{margin:0 0 8px;color:var(--brand);text-transform:uppercase;letter-spacing:.14em;font-size:.74rem;font-weight:700}
+.video-card h3{margin:0 0 10px;font-family:Georgia,"Times New Roman",serif;font-size:1.35rem;color:var(--brand-dark)}
+.video-card p{margin:8px 0 16px;text-align:left;color:var(--muted)}
+.video-wrap{position:relative;width:100%;padding-top:56.25%;overflow:hidden;background:#0f2535;border:1px solid var(--line)}
+.video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-link{display:inline-block;margin-top:14px;padding:10px 16px;background:var(--brand);color:#fff;text-decoration:none;border-radius:999px;font-weight:700}
+.video-link:hover{background:var(--brand-dark)}
+@media(max-width:880px){.culture-grid{grid-template-columns:1fr}.comparison-table{font-size:.86rem}}
+</style>
+</head>
+<body>
+<div class="page" id="top">
+<section class="cover">
+  <div class="topline">
+    <div class="brandlock">
+      <div class="brandmark"><svg aria-label="UNQ" role="img" viewBox="0 0 32 32" width="28" height="28"><rect width="32" height="32" fill="#1cabe2"/><path d="M8 7h4v11c0 3 1.5 4.5 4 4.5S20 21 20 18V7h4v11c0 5.5-3.2 8.5-8 8.5S8 23.5 8 18V7z" fill="#fff"/></svg></div>
+      <div class="kicker">Administración de la Educación y Gestión de las Instituciones Escolares<br>Licenciatura en Educación · Modalidad virtual</div>
+    </div>
+    <div class="series">Clase 15</div>
+  </div>
+
+  <div class="cover-grid">
+    <div>
+      <h1>Integración general</h1>
+      <p class="subtitle-program">Un recorrido por los principales problemas, enfoques y categorías trabajados en la asignatura</p>
+      <p class="subtitle-university">Universidad Nacional de Quilmes</p>
+      <span class="cover-year">Cierre del curso · 2026</span>
+    </div>
+    <figure class="hero-illustration" aria-label="Esquema integrador del recorrido de la asignatura">
+      <svg class="hero-svg" viewBox="0 0 220 190" role="img" aria-hidden="true">
+        <circle cx="110" cy="92" r="22" class="svg-fill"/>
+        <circle cx="58" cy="54" r="12" class="svg-muted"/>
+        <circle cx="162" cy="54" r="12" class="svg-muted"/>
+        <circle cx="58" cy="136" r="12" class="svg-muted"/>
+        <circle cx="162" cy="136" r="12" class="svg-muted"/>
+        <path d="M76 64l20 16M144 64l-20 16M76 126l20-20M144 126l-20-20M58 66v58M162 66v58M70 54h80M70 136h80" class="svg-line"/>
+      </svg>
+    </figure>
+  </div>
+
+  <div class="cover-footer">
+    <div class="cover-card"><span class="label">Pregunta orientadora</span><p>¿Cómo se articulan los distintos enfoques y categorías trabajados a lo largo del curso para comprender la administración, la gestión y las instituciones educativas?</p></div>
+    <div class="cover-card"><span class="label">Recorrido</span><p>Administración, gestión y organización; paradigmas de análisis; innovación, reforma y descentralización; análisis institucional, cultura, imaginario y coherencia.</p></div>
+  </div>
+</section>
+
+<main class="content">
+<section class="toc" id="indice"><h2>Índice</h2><ol>
+<li><a href="#introduccion">Introducción</a></li>
+<li><a href="#unidad1">Unidad 1: administración, gestión y organización</a></li>
+<li><a href="#unidad2">Unidad 2: la escuela como organización</a></li>
+<li><a href="#unidad3">Unidad 3: innovación, reforma y regulación</a></li>
+<li><a href="#unidad4">Unidad 4: análisis institucional</a></li>
+<li><a href="#integracion">Una mirada integradora</a></li>
+<li><a href="#cierre">Cierre</a></li>
+</ol></section>
+
+<h2 class="section" id="introduccion">Introducción</h2>
+<p>En este curso nos propusimos profundizar en el conocimiento sobre las dinámicas de administración y gestión escolar, así como en el análisis crítico de las prácticas de gestión a partir de las teorías que las sustentan.</p>
+<p>A lo largo de la cursada trabajamos con distintas categorías teóricas para estudiar transformaciones sociales, dispositivos institucionales y modelos de gestión en las instituciones educativas. Esta última clase propone recuperar ese recorrido y volver sobre los principales conceptos trabajados en cada unidad.</p>
+
+<div class="concept-grid">
+  <div class="concept-card"><h3>Administración y gestión</h3><p>Conceptos para pensar la organización institucional y los procesos de ejecución y conducción.</p></div>
+  <div class="concept-card"><h3>Organización escolar</h3><p>Perspectivas y paradigmas que permiten interpretar las instituciones educativas.</p></div>
+  <div class="concept-card"><h3>Análisis institucional</h3><p>Categorías para comprender culturas, imaginarios, dinámicas y coherencia institucional.</p></div>
+</div>
+
+<h2 class="section" id="unidad1">1. Unidad 1: administración, gestión y organización</h2>
+<p>En la primera unidad trabajamos conceptos clave como <strong>administración, gestión y organización</strong>, explorando sus relaciones con configuraciones sociales más amplias y recuperando aportes tanto de la ciencia de la administración como de las ciencias de la educación.</p>
+<p>La administración fue presentada como una perspectiva más vinculada con los aspectos relativamente estables de las instituciones, mientras que la gestión se relacionó con dimensiones dinámicas y con los procesos de ejecución.</p>
+<div class="field-box"><p>En este recorrido, la organización aparece como una estructura formal de la institución, mientras que la gestión remite a los procesos mediante los cuales las acciones se ponen en marcha y se sostienen.</p></div>
+
+<h2 class="section" id="unidad2">2. Unidad 2: la escuela como organización</h2>
+<p>En la segunda unidad analizamos la escuela como organización y recurrimos a la metáfora como herramienta para comprender cómo distintas teorías han construido perspectivas sobre las organizaciones educativas.</p>
+<p>El recorrido se organizó a partir de tres grandes paradigmas:</p>
+
+<div class="logic-grid">
+  <div class="logic-card"><h3>Científico-racional</h3><p>Aborda la organización desde criterios de racionalidad, estructura, planificación y control.</p></div>
+  <div class="logic-card"><h3>Interpretativo-simbólico</h3><p>Pone el foco en los significados, las interpretaciones y las construcciones compartidas por los actores.</p></div>
+  <div class="logic-card"><h3>Socio-crítico</h3><p>Considera relaciones de poder, conflictos y condiciones sociales más amplias en las que se inscriben las instituciones.</p></div>
+</div>
+
+<p>También se destacó la relación entre gestión educativa y factores sociales, económicos y culturales.</p>
+
+<h2 class="section" id="unidad3">3. Unidad 3: innovación, reforma y regulación</h2>
+<p>En la tercera unidad abordamos conceptos como <strong>innovación, reforma y cambio</strong> en la administración educativa, junto con temas vinculados con la autonomía, la descentralización y la desconcentración.</p>
+<p>Analizamos además las reformas educativas de la década de 1990 y sus implicancias en América Latina, prestando atención a los riesgos vinculados con la desigualdad y la desregulación de la educación pública.</p>
+
+<div class="key-list"><ul>
+<li>Innovación, reforma y cambio.</li>
+<li>Autonomía y regulación.</li>
+<li>Descentralización y desconcentración.</li>
+<li>Reformas educativas en América Latina.</li>
+<li>Desigualdad y desregulación de la educación pública.</li>
+</ul></div>
+
+<h2 class="section" id="unidad4">4. Unidad 4: análisis institucional</h2>
+<p>En la cuarta unidad nos centramos en el análisis institucional y trabajamos conceptos como <strong>cultura institucional</strong> e <strong>imaginario social</strong>.</p>
+<p>Este enfoque nos permitió comprender a las instituciones educativas como formaciones sociales y culturales complejas y analizar de qué manera los modelos de gestión se relacionan con demandas sociales cambiantes.</p>
+<p>La noción de coherencia institucional permitió recuperar la importancia de involucrar a los diferentes actores educativos y articular prácticas, responsabilidades y proyectos dentro de una institución.</p>
+
+<div class="reflection"><h3>Para volver sobre el recorrido</h3><p>¿Qué relaciones pueden establecerse entre las formas de organización, los modelos de gestión, las políticas educativas y las culturas institucionales trabajadas a lo largo de la materia?</p></div>
+
+<h2 class="section" id="integracion">5. Una mirada integradora</h2>
+<p>El recorrido de la asignatura mostró que la administración y la gestión educativa no pueden pensarse de manera aislada. Las instituciones escolares se configuran en relación con teorías, políticas, estructuras organizativas, actores, culturas y condiciones sociales e históricas.</p>
+<p>Por eso, analizar la gestión supone articular distintas escalas: desde las formas de organización y los dispositivos institucionales hasta los procesos de reforma, regulación, autonomía y cambio.</p>
+<div class="quote-box"><p>La integración de estas perspectivas permite construir una lectura más amplia de las instituciones educativas y de las prácticas de gestión que en ellas se desarrollan.</p></div>
+
+<h2 class="section" id="cierre">Cierre</h2>
+<p>Esta clase final recupera los principales problemas y categorías trabajados a lo largo del curso. La propuesta es volver sobre ese recorrido no como una suma de contenidos aislados, sino como un conjunto de perspectivas que pueden ponerse en relación para analizar situaciones institucionales concretas.</p>
+<p>Saludos,<br><strong>Linda</strong></p>
+
+<div class="back-top"><a href="#indice">↑ Volver al índice</a></div>
+<div class="back-top"><a href="#top">↑ Volver al inicio</a></div>
+</main>
+
+<footer class="site-footer"><div class="site-footer-shell"><div class="site-footer-grid">
+<div><p class="site-footer-label">Administración de la Educación y Gestión de las Instituciones Escolares</p><p class="site-footer-note">Licenciatura en Educación · Modalidad virtual · Universidad Nacional de Quilmes</p></div>
+<div class="site-footer-divider"></div>
+<div><p class="site-footer-author">Linda Angelica Lopez</p><p class="site-footer-role">Docente · 3.º período 2026</p></div>
+</div></div></footer>
+</div>
+</body>
+</html>
